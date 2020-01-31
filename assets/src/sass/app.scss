@@ -2,16 +2,20 @@
 @import 'reset';
 @import 'colors';
 @import 'fonts';
-@import 'screens/splash';
-@import 'screens/main';
 
+
+
+// Telas
+@import 'screens/splash';
+@import 'screens/mainmenu';
 
 
 // Background and Phone
 
-.body{
+body{
     font-family: $font-default;
 }
+
 .background{
     width: 100%;
     height: 100vh;
@@ -19,23 +23,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    .screen{
-        width: 30%;
-        height: 95vh;
-        background-color: $default-color;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-    }
-    .screen-menu{
-        width: 30%;
-        height: 95vh;
-        background-color: $default-color;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        left: 28rem;
-    }
+    position: fixed;
 }
+
+.screen{
+    width: 30%;
+    height: 95vh;
+    background-color: $default-color;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    overflow: hidden;
+}
+
+.screen-block{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+
