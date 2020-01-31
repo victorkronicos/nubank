@@ -1,8 +1,41 @@
+// Imports
 @import 'reset';
+@import 'colors';
+@import 'fonts';
+@import 'screens/splash';
+@import 'screens/main';
 
 
+
+// Background and Phone
+
+.body{
+    font-family: $font-default;
+}
 .background{
     width: 100%;
     height: 100vh;
-    background-color:  #d3d3d3;
+    background-color: $background-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .screen{
+        width: 30%;
+        height: 95vh;
+        background-color: $default-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+    }
+    .screen-menu{
+        width: 30%;
+        height: 95vh;
+        background-color: $default-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        left: 28rem;
+    }
 }
