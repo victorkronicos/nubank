@@ -1,24 +1,127 @@
-.main-menu{
-    min-width: 100%;
-    animation: mymove 5s;
-    animation-fill-mode: forwards;
+.main-menu {
+  min-width: 100%;
+  animation: mymove 5s;
+  animation-fill-mode: forwards;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  bottom: 10rem;
+
+  #hamburguer-menu {
+    background: transparent;
+    border: none;
     position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    bottom: 10rem;
-    >.logo-name{
-        color: white;
+    bottom: 1rem;
+
+    > .logo-name {
+      color: white;
+      font-size: 2rem;
+      &:after {
+        content: "\f107";
+        font-family: $fa;
         font-size: 2rem;
+        color: white;
+        font-weight: 600;
+        display: block;
+        margin-top: 0.5rem;
+      }
     }
-    >.nu-name{
-        width: 5rem;
-        height: 4rem;
-        margin-right: 0.5rem;
-        position: relative;
-        bottom: 1rem;
+    > .nu-name {
+      width: 5rem;
+      height: 4rem;
+      margin-right: 0.5rem;
+      position: relative;
+      top: 1rem;
     }
+  }
 
+  .qr-block {
+    > .bank-data {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      bottom: 2rem;
 
+      p {
+          font-size: 0.9rem;
+          color: white;
+          &:not(:last-child){
+              margin-bottom: 0.5rem;
+          }
+        b {
+          font-weight: bold;
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
 }
+
+.list-block {
+  height: 0;
+  display: block;
+  overflow: hidden;
+  transition: height 3s ease-in-out;
+  pointer-events: none;
+  position: absolute;
+  top: 10rem;
+  width: 90%;
+
+  .menu-nav {
+    .qr-code {
+      position: relative;
+      bottom: 3rem;
+      width: 35%;
+      height: 35%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .list-item {
+      font-size: 0.9rem;
+      color: white;
+      border-bottom: 1px $menu-border-color solid;
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &:after{
+        content: '\f054';
+        font-family: $fa;
+        font-weight: 600;
+        position: absolute;
+        right: 0.5rem;
+        color: lightgray;
+      }
+
+      >.material-icons{
+        font-weight: 100;
+        margin-right: 1rem;
+      }
+    }
+
+    .app-exit{
+        border: 2px $menu-border-color solid;
+        background-color: transparent;
+        width: 100%;
+        height: 3rem;
+        margin-top: 1rem;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: $font-default;
+    }
+  }
+}
+
+
+.show{
+    overflow: visible;
+    height: max-content;
+}
+
 
