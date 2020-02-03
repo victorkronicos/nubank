@@ -1,0 +1,227 @@
+.main-cards{
+    position: relative;
+    top: 10.3rem;
+    right: 36rem;
+
+    .big-card1{
+        background-color: $card-bg;
+        width: 23rem!important;
+        height: 20rem;
+        display: block;
+        border-radius: 2px;
+        position: relative;
+        bottom: 10rem;
+        left: 13.2rem;
+
+        .credit-card{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            top: 1rem;
+            left: 1rem;
+            >.card{
+                font-size: 2rem;
+                color: lightgray;
+            }
+            >p{
+                margin-left: 1rem;
+                font-family: $font-secondary;
+            }
+        }
+
+        .invoice{
+            position: relative;
+            top: 4rem;
+            left: 1rem;
+            >.recent-invoice{
+                text-transform: uppercase;
+                font-size: 0.9rem;
+                font-weight: bold;
+                color: deepskyblue;
+                margin-bottom: 0.5rem;
+                font-family: $font-secondary;
+            }
+            >.invoice-value{
+                font-size: 2rem;
+                color: deepskyblue;
+                margin-bottom: 0.5rem;
+                font-family: $font-secondary;
+                >b{
+                    font-weight: bold;
+                }
+            }
+            
+            >.invoice-limit{
+                font-size: 0.9rem;
+                >b{
+                    font-weight: 800;
+                    color: $money;
+                }
+            }
+        }
+
+        .invoice-news{
+            background-color: $card-bottom;
+            width: 23rem;
+            height: 5.5rem;
+            display: block;
+            border-radius: 2px;
+            position: relative;
+            top: 9rem;
+            
+            >.invoice-msg{
+                position: relative;
+                top: 2rem;
+                color: gray;
+                left: 2rem;
+                font-size: 0.9rem;
+                line-height: 1rem;
+            }
+        }
+
+        .invoice-green{
+            background-color: $money;
+            width: 0.5rem;
+            height: 15.7rem;
+            display: block;
+            border-radius: 2px;
+            position: relative;
+            bottom: 12.2rem;
+            left: 22.5rem;
+        }
+
+    }
+
+    .big-card2{
+        background-color: $card-bg;
+        width: 23rem!important;
+        height: 20rem;
+        display: block;
+        border-radius: 2px;
+        position: relative;
+        bottom: 10rem;
+        left: 13.2rem;
+        
+        .money-icon{
+            font-size: 2rem;
+            color: lightgray;
+            position: relative;
+            top: 1rem;
+            left: 1rem;
+        }
+
+        .card-value{
+            display: block;
+            position: relative;
+            top: 5rem;
+            left: 1rem;
+
+            >.balance{
+                font-size: 2rem;
+                color: $text-card;
+                font-weight: normal;
+                font-family: $font-secondary;
+                >b{
+                    font-weight: bold;
+                }
+            }
+
+            >.yield{
+                font-family: $font-secondary;
+                margin-top: 0.5rem;
+                font-size: 0.8rem;
+                font-weight: 400;
+                color: $text-card;
+                >b{
+                    font-weight: 800;
+                    color: $money;
+                }
+            }
+            .balance-control{
+                position: absolute;
+                right: 2rem;
+                color: lightgray;
+                font-size: 2rem;
+                top: 0;
+            }
+        }
+
+        .account-news{
+            background-color: $card-bottom;
+            width: 23rem;
+            height: 5.5rem;
+            display: block;
+            border-radius: 2px;
+            position: relative;
+            top: 9rem;
+
+            .card-value-bottom{
+                display: block;
+                position: relative;
+                left: 4rem;
+                bottom: 1rem;
+                .news-description{
+                    font-size: 0.9rem;
+                    color: gray;
+                    line-height: 1rem;
+                }
+            }
+        }
+
+    }
+
+    .big-card3{
+        background-color: $card-bg;
+        width: 23rem!important;
+        height: 20rem;
+        display: block;
+        border-radius: 2px;
+        position: relative;
+        bottom: 10rem;
+        left: 13.2rem;
+
+        .rewards{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: inherit;
+
+            >.gift{
+                position: relative;
+                bottom: 1rem;
+                font-size: 3rem;
+                color: lightgray;
+            }
+
+            >.rewards-title{
+                font-size: 1.5rem;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            >.rewards-desc{
+                margin-top: 1rem;
+                text-align: center;
+            }
+
+            >.rewards-btn{
+                margin-top: 1rem;
+                padding: 1rem 3rem;
+                border: 1px solid purple;
+                background: transparent;
+                font-weight: 800;
+                color: purple;
+                text-transform: uppercase;
+                font-size: 0.8rem;
+                font-family: $font-secondary;
+                border-radius: 2px;
+            }
+        }
+    }
+}
+
+.hide{
+    display: none;
+}

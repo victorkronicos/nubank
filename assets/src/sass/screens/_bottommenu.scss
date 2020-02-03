@@ -1,0 +1,58 @@
+.bottom-menu{
+    position: absolute;
+    bottom: 0.5rem;
+    animation: bottomcards 5s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    left: 30rem;
+    @keyframes bottomcards {
+      0%{
+        left: 30rem;
+      }
+      50%{
+        left: 30rem;
+      }
+      80%{
+         left: -1rem;
+      }
+      100%{
+        left: 0rem;
+      }
+    }
+
+
+    .bottom-list{
+        display: flex!important;
+        flex-direction: row!important;
+    }
+    .btn-item{
+        margin-left: 1.5rem;
+        padding: 2rem;
+        border: 0;
+        border-radius: 2px;
+        background: $bottom-bg;
+        height: 6rem;
+        max-height: 6rem;
+        width: 6rem;
+        max-width: 6rem;
+        box-shadow: 1px 1px 5px -6px black;
+        >p{
+            color: white;
+            white-space: nowrap;
+            position: relative;
+            bottom: 0.5rem;
+            right: 1.3rem;
+            text-align: left;
+            font-size: 0.75rem;
+            font-family: $font-secondary;
+            line-height: 1rem;
+        }
+        >.bottom-icon{
+            color: white;
+            position: relative;
+            bottom: 1.8rem;
+            right: 1.8rem;
+            font-size: 2rem;
+        }
+    }
+}

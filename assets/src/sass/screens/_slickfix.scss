@@ -1,0 +1,29 @@
+
+.main-menu{
+    .slick-track{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .slick-dots{
+        display: flex!important;
+        position: relative!important;
+        bottom: 8.5rem!important;
+        left: 22rem;
+    
+        li button {
+    
+            &:before{
+                color: white;
+            }
+        }
+    
+        li.slick-active button {
+            &:before{
+                opacity: .75;
+                color: white;
+            }
+        }
+    }
+}
+

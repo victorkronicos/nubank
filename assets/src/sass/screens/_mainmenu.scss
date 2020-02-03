@@ -1,18 +1,53 @@
 .main-menu {
   min-width: 100%;
-  animation: mymove 5s;
+  animation: maincards 5s;
+  animation-delay: 3s;
   animation-fill-mode: forwards;
   position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  bottom: 10rem;
+  left: 30rem;
+  @keyframes maincards {
+    0%{
+      left: 30rem;
+    }
+    50%{
+      left: 30rem;
+    }
+    80%{
+      left: 0.3rem;
+    }
+    100%{
+      left: 2.1rem;
+    }
+  }
 
   #hamburguer-menu {
     background: transparent;
     border: none;
-    position: relative;
-    bottom: 1rem;
+    position: fixed;
+    left: 60rem;
+    top: 1rem;
+    animation: hamburguer 5s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+    @keyframes hamburguer {
+      0%{
+        left: 60rem;
+        opacity: 0;
+      }
+      60%{
+        left: 60rem;
+        opacity: 0;
+      }
+      100%{
+        left: 38rem;
+        opacity: 1;
+      }
+    }
 
     > .logo-name {
       color: white;
@@ -63,10 +98,10 @@
   height: 0;
   display: block;
   overflow: hidden;
-  transition: height 3s ease-in-out;
   pointer-events: none;
   position: absolute;
-  top: 10rem;
+  top: -2rem;
+  right: 17.5rem;
   width: 90%;
 
   .menu-nav {
@@ -120,8 +155,8 @@
 
 
 .show{
-    overflow: visible;
-    height: max-content;
+  height: max-content;
+  overflow: visible;
 }
 
 

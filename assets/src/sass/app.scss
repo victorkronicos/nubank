@@ -8,10 +8,13 @@
 // Telas
 @import 'screens/splash';
 @import 'screens/mainmenu';
+@import 'screens/bottommenu';
 
 
 // Widgets
 @import 'screens/maincards';
+@import 'screens/slickfix';
+
 
 
 // Background and Phone
@@ -46,7 +49,7 @@ body{
     display: flex;
     align-items: center;
     position: absolute;
-    //overflow: hidden;
+    overflow: hidden;
 }
 
 .screen-block{
