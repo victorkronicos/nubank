@@ -9,7 +9,7 @@ function CardPrincipal (){
 };
 
 function CardsBottom (){
-  BottomCards.classList.toggle('hide');
+  BottomCards.classList.toggle('hide2');
 }
 
 

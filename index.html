@@ -8,7 +8,8 @@
     <title>Nubank - Treinamento KBR</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <link rel="stylesheet" href="/assets/dist/css/gallery.theme.css">
+    <link rel="stylesheet" href="/assets/dist/css/gallery.min.css">
     <link rel="stylesheet" href="/assets/dist/css/style.min.css">
 </head>
 
@@ -16,8 +17,7 @@
 
     <div class="background">
 
-
-        <div class="screen">
+        <div class="screen" id="mobile-screen">
             <div class="screen-block">
                 <!-- Splash Screen -->
                 <span class="logo"><img class="splash-nu" src="/assets/dist/images/nu-name.png"></span>
@@ -30,7 +30,7 @@
                         <span class="logo-name">Victor</span>
                     </button>
 
-                    <div class="list-block" id="toggle-menu">
+                    <div class="list-block show" id="toggle-menu">
                         <ul class="menu-nav">
                             <div class="qr-block">
                                 <img src="assets/dist/images/qr-code.png" class="img-fluid qr-code">
@@ -43,67 +43,84 @@
                             <li class="list-item"><i class="material-icons">account_circle</i>Perfil</li>
                             <li class="list-item"><i class="material-icons">monetization_on</i>Configurar NuConta</li>
                             <li class="list-item"><i class="material-icons">credit_card</i>Configurar Cartão</li>
-                            <li><button class="app-exit">Sair da Conta</button></li>
+                            <li><button class="app-exit" id="sair">Sair da Conta</button></li>
                         </ul>
                     </div>
 
                     <!-- Card Principal -->
-                    <div class="main-cards" id="main-cards">
+                    <div class="main-cards gallery items-3" id="main-cards">
+                        <div id="item-1" class="control-operator"></div>
+                        <div id="item-2" class="control-operator"></div>
+                        <div id="item-3" class="control-operator"></div>
 
-                        <span class="big-card1">
-                            <span class="credit-card"><i class="material-icons card">credit_card</i>
-                                <p>Cartão de crédito</p>
+                        <figure class="item">
+                            <span class="big-card1">
+                                <span class="credit-card"><i class="material-icons card">credit_card</i>
+                                    <p>Cartão de crédito</p>
+                                </span>
+                                <!-- Fatura Atual -->
+                                <span class="invoice">
+                                    <p class="recent-invoice">Fatura Atual</p>
+                                    <p class="invoice-value">R$ <b>0</b>,00</p>
+                                    <p class="invoice-limit">Limite disponível <b>R$ 350,00</b></p>
+                                </span>
+                                <!-- Fatura Atual -->
+
+                                <!-- Mensagem Rodapé -->
+                                <span class="invoice-news">
+                                    <p class="invoice-msg">Aguardando sua primeira compra<br>com o cartão.</p>
+                                </span>
+                                <!-- Mensagem Rodapé -->
+
+                                <span class="invoice-green"></span>
+
                             </span>
-                            <!-- Fatura Atual -->
-                            <span class="invoice">
-                                <p class="recent-invoice">Fatura Atual</p>
-                                <p class="invoice-value">R$ <b>0</b>,00</p>
-                                <p class="invoice-limit">Limite disponível <b>R$ 350,00</b></p>
-                            </span>
-                            <!-- Fatura Atual -->
+                        </figure>
 
-                            <!-- Mensagem Rodapé -->
-                            <span class="invoice-news">
-                                <p class="invoice-msg">Aguardando sua primeira compra<br>com o cartão.</p>
-                            </span>
-                            <!-- Mensagem Rodapé -->
-
-                            <span class="invoice-green"></span>
-
-                        </span>
-
-                        <span class="big-card2">
-                            <i class="material-icons money-icon">monetization_on</i>
-
-                            <!-- Saldo bancário -->
-                            <span class="card-value">
-                                <p class="balance">R$ <b>1.500</b>,00</p>
-                                <p class="yield">Você já ganhou <b>R$ 1,39</b> neste mês</p>
-                                <i class="material-icons balance-control">remove_red_eye</i>
-                            </span>
-                            <!-- Saldo bancário -->
-
-                            <!-- Últimas movimentações -->
-                            <span class="account-news">
+                        <figure class="item">
+                            <span class="big-card2">
                                 <i class="material-icons money-icon">monetization_on</i>
-                                <span class="card-value-bottom">
-                                    <p class="news-description">Transferência de R$ 414,10<br>recebida de Fulano de Tal
-                                        hoje</p>
+
+                                <!-- Saldo bancário -->
+                                <span class="card-value">
+                                    <p class="balance">R$ <b>1.500</b>,00</p>
+                                    <p class="yield">Você já ganhou <b>R$ 1,39</b> neste mês</p>
+                                    <i class="material-icons balance-control">remove_red_eye</i>
+                                </span>
+                                <!-- Saldo bancário -->
+
+                                <!-- Últimas movimentações -->
+                                <span class="account-news">
+                                    <i class="material-icons money-icon">monetization_on</i>
+                                    <span class="card-value-bottom">
+                                        <p class="news-description">Transferência de R$ 414,10<br>recebida de Fulano
+                                            de Tal
+                                            hoje</p>
+                                    </span>
+                                </span>
+                                <!-- Últimas movimentações -->
+
+                            </span>
+                        </figure>
+
+                        <figure class="item">
+                            <span class="big-card3">
+                                <span class="rewards">
+                                    <i class="material-icons gift">card_giftcard</i>
+                                    <p class="rewards-title">Nubank Rewards</p>
+                                    <p class="rewards-desc">Acumule pontos que nunca<br>expiram e troque por
+                                        passagens<br>aéreas ou serviços que você re...</p>
+                                    <button class="rewards-btn">Ative o seu rewards</button>
                                 </span>
                             </span>
-                            <!-- Últimas movimentações -->
+                        </figure>
 
-                        </span>
 
-                        <span class="big-card3">
-                            <span class="rewards">
-                                <i class="material-icons gift">card_giftcard</i>
-                                <p class="rewards-title">Nubank Rewards</p>
-                                <p class="rewards-desc">Acumule pontos que nunca<br>expiram e troque por
-                                    passagens<br>aéreas ou serviços que você re...</p>
-                                <button class="rewards-btn">Ative o seu rewards</button>
-                            </span>
-                        </span>
+                        <div class="controls">
+                            <a href="#item-1" class="control-button">•</a>
+                            <a href="#item-2" class="control-button">•</a>
+                            <a href="#item-3" class="control-button">•</a>
+                        </div>
 
                     </div>
                     <!-- Card Principal -->
@@ -114,79 +131,91 @@
 
                 <!-- Menu Rodapé -->
                 <span class="bottom-menu" id="bottom-menu">
-                    <ul class="bottom-list" id="slick-bottom">
-                        <li>
+                    <div class="bottom-list" id="wrapperBoxes">
+                        <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">person_add</i>
                                 <p>Indicar<br>amigos</p>
                             </button>
-                        </li>
-                        <li>
+                        </div>
+
+                        <!-- <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">phone_iphone</i>
                                 <p>Recarga de<br>celular</p>
                             </button>
-                        </li>
-                        <li>
+                        </div>
+
+                        <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">arrow_downward</i>
                                 <p>Cobrar</p>
                             </button>
-                        </li>
-                        <li>
+                        </div>
+
+                        <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">compare_arrows</i>
                                 <p>Empréstimos</p>
                             </button>
-                        </li>
-                        <li>
+                        </div>
+
+                        <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">arrow_upward</i>
                                 <p>Depositar</p>
                             </button>
-                        </li>
-                        <li>
+                        </div>
+
+                        <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">arrow_upward</i>
                                 <p>Transferir</p>
                             </button>
-                        </li>
-                        <li>
+                        </div>
+
+                        <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">build</i>
                                 <p>Me Ajuda</p>
                             </button>
-                        </li>
-                        <li>
+                        </div>
+
+                        <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">receipt</i>
                                 <p>Pagar</p>
                             </button>
-                        </li>
-                        <li>
+                        </div> -->
+
+                        <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">lock_open</i>
                                 <p>Bloquear<br>cartão</p>
                             </button>
-                        </li>
-                        <li>
+                        </div>
+
+                        <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">credit_card</i>
                                 <p>Cartão<br>virtual</p>
                             </button>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </span>
                 <!-- Menu Rodapé -->
 
             </div>
         </div>
 
-    </div>
 
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+        <!-- Opção Sair -->
+        <div class="login" id="login">
+            <img src="/assets/dist/images/nu-name.png">
+        </div>
+        <!-- Opção Sair -->
+
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/js/all.min.js"
         data-search-pseudo-elements></script>
     <script src="assets/dist/js/main-min.js"></script>

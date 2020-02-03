@@ -1,18 +1,18 @@
 .main-cards{
-    position: relative;
-    top: 10.3rem;
-    right: 36rem;
+    position: absolute;
+    right: 0rem;
+    bottom: 3rem;
 
     .big-card1{
         background-color: $card-bg;
         width: 23rem!important;
-        height: 20rem;
+        height: 21rem;
         display: block;
         border-radius: 2px;
-        position: relative;
-        bottom: 10rem;
-        left: 13.2rem;
-
+        position: absolute;
+        right: 18rem;
+        top: -11rem;
+    
         .credit-card{
             display: flex;
             flex-direction: row;
@@ -24,7 +24,7 @@
                 font-size: 2rem;
                 color: lightgray;
             }
-            >p{
+            p{
                 margin-left: 1rem;
                 font-family: $font-secondary;
             }
@@ -33,7 +33,7 @@
         .invoice{
             position: relative;
             top: 4rem;
-            left: 1rem;
+            right: 7rem;
             >.recent-invoice{
                 text-transform: uppercase;
                 font-size: 0.9rem;
@@ -54,6 +54,8 @@
             
             >.invoice-limit{
                 font-size: 0.9rem;
+                position: relative;
+                left: 2rem;
                 >b{
                     font-weight: 800;
                     color: $money;
@@ -77,6 +79,7 @@
                 left: 2rem;
                 font-size: 0.9rem;
                 line-height: 1rem;
+                text-align: left;
             }
         }
 
@@ -96,26 +99,26 @@
     .big-card2{
         background-color: $card-bg;
         width: 23rem!important;
-        height: 20rem;
+        height: 21rem;
         display: block;
         border-radius: 2px;
-        position: relative;
-        bottom: 10rem;
-        left: 13.2rem;
-        
+        position: absolute;
+        right: 18rem;
+        top: -11rem;
+    
         .money-icon{
             font-size: 2rem;
             color: lightgray;
             position: relative;
             top: 1rem;
-            left: 1rem;
+            right: 9rem;
         }
 
         .card-value{
             display: block;
             position: relative;
             top: 5rem;
-            left: 1rem;
+            right: 5rem;
 
             >.balance{
                 font-size: 2rem;
@@ -133,17 +136,19 @@
                 font-size: 0.8rem;
                 font-weight: 400;
                 color: $text-card;
+                position: relative;
+                left: 1rem;
                 >b{
                     font-weight: 800;
                     color: $money;
                 }
             }
             .balance-control{
-                position: absolute;
-                right: 2rem;
+                position: relative;
+                left: 14rem;
                 color: lightgray;
                 font-size: 2rem;
-                top: 0;
+                bottom: 9rem;
             }
         }
 
@@ -154,7 +159,7 @@
             display: block;
             border-radius: 2px;
             position: relative;
-            top: 9rem;
+            top: 8rem;
 
             .card-value-bottom{
                 display: block;
@@ -165,6 +170,7 @@
                     font-size: 0.9rem;
                     color: gray;
                     line-height: 1rem;
+                    text-align: left;
                 }
             }
         }
@@ -174,12 +180,12 @@
     .big-card3{
         background-color: $card-bg;
         width: 23rem!important;
-        height: 20rem;
+        height: 21rem;
         display: block;
         border-radius: 2px;
-        position: relative;
-        bottom: 10rem;
-        left: 13.2rem;
+        position: absolute;
+        right: 18rem;
+        top: -11rem;
 
         .rewards{
             display: flex;
@@ -207,7 +213,7 @@
             }
 
             >.rewards-btn{
-                margin-top: 1rem;
+                margin-top: 4rem;
                 padding: 1rem 3rem;
                 border: 1px solid purple;
                 background: transparent;

@@ -1,0 +1,13 @@
+.gallery{
+    .controls{
+        display: flex;
+        position: relative;
+        right: 27rem;
+        width: 100%;
+        top: 10rem;
+    }
+
+    .item{
+        overflow: visible;
+    }
+}

@@ -2,7 +2,7 @@
     position: absolute;
     bottom: 0.5rem;
     animation: bottomcards 5s;
-    animation-delay: 3s;
+    animation-delay: 2.5s;
     animation-fill-mode: forwards;
     left: 30rem;
     @keyframes bottomcards {
@@ -56,3 +56,11 @@
         }
     }
 }
+
+.hide2{
+  height: 0!important;
+  overflow: hidden;
+}
+
+
+
