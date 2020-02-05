@@ -17,6 +17,34 @@
 
     <div class="background">
 
+        <!-- Opção de bloquear o cartão -->
+        <span class="d-none" id="blockcard">
+
+            <div class="options">
+                <i class="material-icons flex-center">lock_open</i>
+                <p class="text">Você quer <b>bloquear<br>temporariamente</b> o seu<br>cartão?</p>
+                <div class="flex-options">
+                    <button class="cancel">cancelar</button>
+                    <button class="block">bloquear</button>
+                </div>
+            </div>
+        </span>
+        <!-- Opção de bloquear o cartão -->
+
+        <!-- Opção de organizar atalhos -->
+        <span class="d-none" id="orderbtns">
+            <span class="order-list">
+                <span class="title-list">
+                    <i id="order-close" class="material-icons icon-arrow">arrow_back</i>
+                    <p>Organizar atalhos</p>
+                </span>
+                <ul class="list-render" id="list-render">
+                    <!-- Aqui será gerado a lista -->
+                </ul>
+            </span>
+        </span>
+        <!-- Opção de organizar atalhos -->
+
         <div class="screen" id="mobile-screen">
             <div class="screen-block">
                 <!-- Splash Screen -->
@@ -135,70 +163,76 @@
                         <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">person_add</i>
-                                <p>Indicar<br>amigos</p>
+                                <p class="name-item">Indicar amigos</p>
                             </button>
                         </div>
 
-                        <!-- <div class="box">
+                        <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">phone_iphone</i>
-                                <p>Recarga de<br>celular</p>
+                                <p class="name-item">Recarga de celular</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">arrow_downward</i>
-                                <p>Cobrar</p>
+                                <p class="name-item">Cobrar</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">compare_arrows</i>
-                                <p>Empréstimos</p>
+                                <p class="name-item">Empréstimos</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">arrow_upward</i>
-                                <p>Depositar</p>
+                                <p class="name-item">Depositar</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">arrow_upward</i>
-                                <p>Transferir</p>
+                                <p class="name-item">Transferir</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">build</i>
-                                <p>Me Ajuda</p>
+                                <p class="name-item">Me Ajuda</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">receipt</i>
-                                <p>Pagar</p>
+                                <p class="name-item">Pagar</p>
                             </button>
-                        </div> -->
+                        </div>
 
                         <div class="box">
-                            <button class="btn-item">
+                            <button class="btn-item" id="blockcard-btn">
                                 <i class="material-icons bottom-icon">lock_open</i>
-                                <p>Bloquear<br>cartão</p>
+                                <p class="name-item">Bloquear cartão</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
                                 <i class="material-icons bottom-icon">credit_card</i>
-                                <p>Cartão<br>virtual</p>
+                                <p class="name-item">Cartão virtual</p>
+                            </button>
+                        </div>
+                        <div class="box">
+                            <button class="btn-item" id="order-btn">
+                                <i class="material-icons bottom-icon">sort</i>
+                                <p>Ordenação atalhos</p>
                             </button>
                         </div>
                     </div>

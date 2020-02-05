@@ -2,12 +2,12 @@
     position: absolute;
     right: 0rem;
     bottom: 3rem;
+    transition: bottom 2s;
 
     .big-card1{
         background-color: $card-bg;
         width: 23rem!important;
         height: 21rem;
-        display: block;
         border-radius: 2px;
         position: absolute;
         right: 18rem;
@@ -100,7 +100,6 @@
         background-color: $card-bg;
         width: 23rem!important;
         height: 21rem;
-        display: block;
         border-radius: 2px;
         position: absolute;
         right: 18rem;
@@ -181,7 +180,6 @@
         background-color: $card-bg;
         width: 23rem!important;
         height: 21rem;
-        display: block;
         border-radius: 2px;
         position: absolute;
         right: 18rem;
@@ -229,5 +227,5 @@
 }
 
 .hide{
-    display: none;
+    bottom: -65vh;
 }

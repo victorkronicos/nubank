@@ -3,8 +3,10 @@
     bottom: 0.5rem;
     animation: bottomcards 5s;
     animation-delay: 2.5s;
+    transition: bottom 2s;
     animation-fill-mode: forwards;
     left: 30rem;
+    width: 400px;
     @keyframes bottomcards {
       0%{
         left: 30rem;
@@ -24,6 +26,11 @@
     .bottom-list{
         display: flex!important;
         flex-direction: row!important;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+          display: none;
+      }
     }
     .btn-item{
         margin-left: 1.5rem;
@@ -58,8 +65,7 @@
 }
 
 .hide2{
-  height: 0!important;
-  overflow: hidden;
+  bottom: -65vh;
 }
 
 
