@@ -51,10 +51,35 @@ window.addEventListener('load', function(){
         li.classList.add('list-item-order');
         li.innerHTML += '<i class="material-icons icon-order">reorder</i></li>';
     }
-
-    // Buscar elemento pai
-    
-
-    
-
 }, false);
+
+// Fatura Expandido
+
+const InvoiceBtn = document.querySelector('#invoice-btn');
+const InvoiceView = document.querySelector('#invoice-view');
+const InvoiceReturn = document.querySelector('#invoice-return');
+
+InvoiceBtn.addEventListener("click", function (){
+    InvoiceView.classList.add('whitescreen');
+});
+
+InvoiceReturn.addEventListener("click", function(){
+    InvoiceView.classList.remove('whitescreen');
+});
+
+// Exibir / Esconder Saldo
+
+const BalanceControl = document.querySelector('#balance-control');
+const Balance = document.querySelector('#balance');
+var prevBalance = Balance.innerHTML;
+
+BalanceControl.addEventListener("click", function() {
+
+    if (Balance.classList.contains('balance-toggle')){
+        Balance.innerHTML = prevBalance;
+    }else{
+        Balance.textContent = " ";
+    }
+
+    Balance.classList.toggle('balance-toggle');
+});

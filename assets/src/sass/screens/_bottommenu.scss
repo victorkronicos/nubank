@@ -34,7 +34,6 @@
     }
     .btn-item{
         margin-left: 1.5rem;
-        padding: 2rem;
         border: 0;
         border-radius: 2px;
         background: $bottom-bg;
@@ -43,23 +42,21 @@
         width: 6rem;
         max-width: 6rem;
         box-shadow: 1px 1px 5px -6px black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         >p{
             color: white;
-            white-space: nowrap;
-            position: relative;
-            bottom: 0.5rem;
-            right: 1.3rem;
             text-align: left;
             font-size: 0.75rem;
             font-family: $font-secondary;
             line-height: 1rem;
         }
-        >.bottom-icon{
-            color: white;
-            position: relative;
-            bottom: 1.8rem;
-            right: 1.8rem;
-            font-size: 2rem;
+        >.btn-icon{
+          width: auto;
+          height: auto;
+          max-width: 25px;
+          max-height: 25px;
         }
     }
 }

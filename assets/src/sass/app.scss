@@ -3,8 +3,6 @@
 @import 'colors';
 @import 'fonts';
 
-
-
 // Telas
 @import 'screens/splash';
 @import 'screens/mainmenu';
@@ -14,11 +12,16 @@
 // Opções do Menu
 @import 'options/blockcard';
 @import 'options/orderoption';
+@import 'options/balance';
 
 
 // Widgets
 @import 'screens/maincards';
 @import 'screens/slickbigcards';
+
+
+// Views
+@import 'views/invoiceview';
 
 
 
@@ -63,4 +66,18 @@ body{
     flex-grow: 1;
 }
 
+
+.btn-img{
+    width: auto;
+    height: auto;
+    max-width: 20px;
+    max-height: 20px; 
+}
+
+.btn-card{
+    width: auto;
+    height: auto;
+    max-width: 26px;
+    max-height: 26px;
+}
 

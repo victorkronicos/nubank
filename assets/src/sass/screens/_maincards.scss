@@ -7,11 +7,12 @@
     .big-card1{
         background-color: $card-bg;
         width: 23rem!important;
-        height: 21rem;
+        height: 20rem;
         border-radius: 2px;
         position: absolute;
         right: 18rem;
         top: -11rem;
+        overflow: hidden;
     
         .credit-card{
             display: flex;
@@ -99,11 +100,17 @@
     .big-card2{
         background-color: $card-bg;
         width: 23rem!important;
-        height: 21rem;
+        height: 20rem;
         border-radius: 2px;
         position: absolute;
         right: 18rem;
         top: -11rem;
+        
+        .nu-account{
+            position: absolute;
+            left: 4rem;
+            color: gray;
+        }
     
         .money-icon{
             font-size: 2rem;
@@ -119,11 +126,20 @@
             top: 5rem;
             right: 5rem;
 
+            >.avaiable-balance{
+                color: gray;
+                position: absolute;
+                left: 6.2rem;
+                bottom: 5rem;            
+            }
+
             >.balance{
                 font-size: 2rem;
                 color: $text-card;
                 font-weight: normal;
+                background-color: transparent;
                 font-family: $font-secondary;
+                transition: background-color 1s ease-in-out;
                 >b{
                     font-weight: bold;
                 }
@@ -179,7 +195,7 @@
     .big-card3{
         background-color: $card-bg;
         width: 23rem!important;
-        height: 21rem;
+        height: 20rem;
         border-radius: 2px;
         position: absolute;
         right: 18rem;

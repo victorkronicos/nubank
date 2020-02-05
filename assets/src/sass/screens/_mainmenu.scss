@@ -52,15 +52,11 @@
     > .logo-name {
       color: white;
       font-size: 2rem;
-      &:after {
-        content: "\f107";
-        font-family: $fa;
-        font-size: 2rem;
-        color: white;
-        font-weight: 600;
-        display: block;
-        margin-top: 0.5rem;
-      }
+    }
+    >.arrow{
+      color: white;
+      display: block;
+      margin-top: 1rem;
     }
     > .nu-name {
       width: 5rem;

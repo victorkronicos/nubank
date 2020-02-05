@@ -76,18 +76,43 @@ window.addEventListener('load', function(){
         li.classList.add('list-item-order');
         li.innerHTML += '<i class="material-icons icon-order">reorder</i></li>';
     }
-
-    // Buscar elemento pai
-    
-
-    
-
 }, false);
 
+// Fatura Expandido
+
+const InvoiceBtn = document.querySelector('#invoice-btn');
+const InvoiceView = document.querySelector('#invoice-view');
+const InvoiceReturn = document.querySelector('#invoice-return');
+
+InvoiceBtn.addEventListener("click", function (){
+    InvoiceView.classList.add('whitescreen');
+});
+
+InvoiceReturn.addEventListener("click", function(){
+    InvoiceView.classList.remove('whitescreen');
+});
+
+// Exibir / Esconder Saldo
+
+const BalanceControl = document.querySelector('#balance-control');
+const Balance = document.querySelector('#balance');
+var prevBalance = Balance.innerHTML;
+
+BalanceControl.addEventListener("click", function() {
+
+    if (Balance.classList.contains('balance-toggle')){
+        Balance.innerHTML = prevBalance;
+    }else{
+        Balance.textContent = " ";
+    }
+
+    Balance.classList.toggle('balance-toggle');
+});
 const HamburguerMenu = document.querySelector('#hamburguer-menu');
 const MenuItems = document.querySelector('#toggle-menu');
 const MainCards = document.querySelector('#main-cards');
 const BottomCards = document.querySelector('#bottom-menu');
+const Arrow = document.querySelector('#arrow');
 
 // Função para esconder o Menu Principal
 function CardPrincipal (){
@@ -101,10 +126,14 @@ function CardsBottom (){
 
 HamburguerMenu.addEventListener('click', function(e) {
   MenuItems.classList.toggle('show');
+  if(MenuItems.classList.contains('show')) {
+    Arrow.style.transform = 'rotate(0)';
+  } else {
+    Arrow.style.transform = 'rotate(180deg)';
+  }
   CardPrincipal();
   CardsBottom();
   e.stopPropagation();
 });
-
 
 
