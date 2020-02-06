@@ -1,0 +1,198 @@
+.balance-view{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 100%;
+
+    // &::-webkit-scrollbar{
+    //     display: none;
+    // }
+
+    .balance-header{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+        .dots{
+            display: flex;
+        }
+        .doubt{
+            margin-right: 1rem;
+        }
+    }
+
+    .control-view{
+        width: 200%;
+        height: 100%;
+        display: flex;
+        .view-1{
+            width: 100%;
+            height: 100%;
+            .balance-info{
+                font-size: 2rem;
+                margin-top: 2rem;
+                text-align: center;
+                font-family: $font-secondary;
+                >.value{
+                    >b{
+                        font-weight: bold;
+                    }
+                }
+                >.desc{
+                    margin-top: 0.5rem;
+                    font-size: 1rem;
+                    line-height: 1.2rem;
+                    >b{
+                        color: $money;
+                        font-weight: bold;
+                    }
+                }
+            }
+            .balance-chart{
+                position: relative;
+                top: 2rem;
+                .info-earnings{
+                    color: lightgray;
+                    position: relative;
+                    font-size: 0.9rem;
+                    left: 15rem;
+                    font-weight: bold;
+                }
+                >.chart{
+                    background-color: transparent;
+                    height: 30vh;
+                    width: 100%;
+                    display: flex;
+                    -webkit-box-orient: horizontal;
+                    -webkit-box-direction: normal;
+                    flex-direction: row;
+                    -webkit-box-align: end;
+                    align-items: flex-end;
+                    justify-content: center;
+                    .chart-item{
+                        display: block;
+                        height: 50%;
+                        width: 0.2rem;
+                        border-radius: 10px;
+                        background:lightgray;
+                        &:not(:last-child){
+                            margin-right: 1.5rem;
+                        }
+        
+                        @for $i from 1 through 12 {
+                            &:nth-child(#{$i}){
+                                width: 1%;
+                                height: 10% + ($i * 7%);
+                                background: $default-color;
+                                position: relative;
+                                &:after{
+                                    position: absolute;
+                                    transform: rotate(-90deg);
+                                    bottom: -1.8rem;
+                                    left: -0.9rem;
+                                    font-size: 0.9rem;
+                                }
+                            }
+                        }
+        
+                        @for $i from 1 through 5 {
+                            &:nth-child(#{$i}){
+                                width: 1%;
+                                height: 45%;
+                                background: lightgray;
+                                position: relative;
+                            }
+                        }
+        
+                        &:nth-child(1){
+                            &:after{
+                                content: 'Jan';
+                            }
+                        }
+                        &:nth-child(2){
+                            &:after{
+                                content: 'Fev';
+                            }
+                        }
+                        &:nth-child(3){
+                            &:after{
+                                content: 'Mar';
+                            }
+                        }
+                        &:nth-child(4){
+                            &:after{
+                                content: 'Abr';
+                            }
+                        }
+                        &:nth-child(5){
+                            &:after{
+                                content: 'Mai';
+                            }
+                        }
+                        &:nth-child(6){
+                            &:after{
+                                content: 'Jun';
+                            }
+                        }
+                        &:nth-child(7){
+                            &:after{
+                                content: 'Jul';
+                            }
+                        }
+                        &:nth-child(8){
+                            &:after{
+                                content: 'Ago';
+                            }
+                        }
+                        &:nth-child(9){
+                            &:after{
+                                content: 'Set';
+                            }
+                        }
+                        &:nth-child(10){
+                            &:after{
+                                content: 'Out';
+                            }
+                        }
+                        &:nth-child(11){
+                            &:after{
+                                content: 'Nov';
+                            }
+                        }
+                        &:nth-child(12){
+                            &:after{
+                                content: 'Dez';
+                            }
+                        }
+                    }
+                }
+            }
+            .balance-footer-menu{
+                position: relative;
+                top: 10rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                .btn-item{
+                    display: flex;
+                    flex-direction: column;
+                    height: 10vh;
+                    >p{
+                        font-family: $font-secondary;
+                        font-size: 0.9rem;
+                    }
+                    .btn-footer{
+                        width: auto;
+                        height: auto;
+                        max-width: 26px;
+                        max-height: 26px;
+                        display: block;
+                        margin: auto;
+                    }
+                }
+            }
+        }
+        .view-2{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

@@ -22,11 +22,13 @@
 
 // Views
 @import 'views/invoiceview';
+@import 'views/balanceview';
 
 
+// Media Query
+@import 'mediaquery';
 
 // Background and Phone
-
 *{
     &:focus{
         outline:none;
@@ -37,7 +39,6 @@
 body{
     font-family: $font-default;
     font-weight: 100;
-
 }
 
 .background{

@@ -81,5 +81,21 @@ BalanceControl.addEventListener("click", function() {
         Balance.textContent = " ";
     }
 
+
     Balance.classList.toggle('balance-toggle');
+});
+
+
+// Saldo Expandido
+
+const BalanceBtn = document.querySelector('#balance-btn');
+const BalanceView = document.querySelector('#balance-view');
+const BalanceReturn = document.querySelector('#balance-return');
+
+BalanceBtn.addEventListener("click", function(){
+    BalanceView.classList.add('whitescreen');
+});
+
+BalanceReturn.addEventListener("click", function(){
+    BalanceView.classList.remove('whitescreen');
 });

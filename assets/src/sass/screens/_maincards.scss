@@ -123,14 +123,44 @@
         .card-value{
             display: block;
             position: relative;
-            top: 5rem;
+            top: 4rem;
             right: 5rem;
 
-            >.avaiable-balance{
-                color: gray;
-                position: absolute;
-                left: 6.2rem;
-                bottom: 5rem;            
+            >.chart{
+                background-color: transparent;
+                display: block;
+                height: 8vh;
+                width: 50%;
+                position: relative;
+                left: 6.5rem;
+                bottom: 1rem;
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                .chart-item{
+                    display: block;
+                    height: 50%;
+                    width: 0.2rem;
+                    border-radius: 10px;
+                    background:lightgray;
+                    margin-right: 10px;
+
+                    @for $i from 1 through 12 {
+                        &:nth-child(#{$i}){
+                            width: 2%;
+                            height: 10% + ($i * 7%);
+                            background: $default-color;
+                        }
+                    }
+
+                    @for $i from 1 through 5 {
+                        &:nth-child(#{$i}){
+                            width: 2%;
+                            height: 45%;
+                            background: lightgray;
+                        }
+                    }
+                }
             }
 
             >.balance{
@@ -139,7 +169,6 @@
                 font-weight: normal;
                 background-color: transparent;
                 font-family: $font-secondary;
-                transition: background-color 1s ease-in-out;
                 >b{
                     font-weight: bold;
                 }
@@ -158,13 +187,14 @@
                     color: $money;
                 }
             }
-            .balance-control{
-                position: relative;
-                left: 14rem;
-                color: lightgray;
-                font-size: 2rem;
-                bottom: 9rem;
-            }
+        }
+
+        .balance-control{
+            color: lightgray;
+            font-size: 2rem;
+            position: relative;
+            bottom: 2.5rem;
+            left: 10rem;
         }
 
         .account-news{
@@ -174,7 +204,7 @@
             display: block;
             border-radius: 2px;
             position: relative;
-            top: 8rem;
+            top: 4.7rem;
 
             .card-value-bottom{
                 display: block;

@@ -8,9 +8,9 @@
     <title>Nubank - Treinamento KBR</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/dist/css/gallery.theme.css">
-    <link rel="stylesheet" href="/assets/dist/css/gallery.min.css">
-    <link rel="stylesheet" href="/assets/dist/css/style.min.css">
+    <link rel="stylesheet" href="assets/dist/css/gallery.theme.css">
+    <link rel="stylesheet" href="assets/dist/css/gallery.min.css">
+    <link rel="stylesheet" href="assets/dist/css/style.min.css">
 </head>
 
 <body>
@@ -21,8 +21,8 @@
         <span class="d-none" id="invoice-view">
             <div class="invoice-view">
                 <div class="invoice-header">
-                    <span class="return" id="invoice-return"><i class="material-icons">keyboard_arrow_left</i><img class="btn-img" src="/assets/dist/images/icons/card-b.png"></span>
-                    <span class="search"><img class="btn-img" src="/assets/dist/images/icons/gray/search.png"></span>
+                    <span class="return" id="invoice-return"><i class="material-icons">keyboard_arrow_left</i><img class="btn-img" src="assets/dist/images/icons/card-b.png"></span>
+                    <span class="search"><img class="btn-img" src="assets/dist/images/icons/gray/search.png"></span>
                 </div>
                 
                 <div class="invoice-info">
@@ -33,7 +33,7 @@
 
                 <div class="invoice-list">
                     <div class="invoice-item">
-                        <img class="btn-img icon" src="/assets/dist/images/icons/gray/cart.png">
+                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
                                 <p class="item-desc">Empório Gourmet</p>
@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="invoice-item">
-                        <img class="btn-img icon" src="/assets/dist/images/icons/gray/cart.png">
+                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
                                 <p class="item-desc">Empório Gourmet</p>
@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="invoice-item">
-                        <img class="btn-img icon" src="/assets/dist/images/icons/gray/cart.png">
+                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
                                 <p class="item-desc">Empório Gourmet</p>
@@ -63,7 +63,7 @@
                     </div>
 
                     <div class="invoice-item">
-                        <img class="btn-img icon" src="/assets/dist/images/icons/gray/cart.png">
+                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
                                 <p class="item-desc">Empório Gourmet</p>
@@ -73,7 +73,35 @@
                     </div>
 
                     <div class="invoice-item">
-                        <img class="btn-img icon" src="/assets/dist/images/icons/gray/cart.png">
+                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                            <div class="invoice-content">
+                                <p class="item-title">Supermercado</p>
+                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-value">R$ 0,00</p>
+                            </div>
+                        <span class="item-date">Hoje</span>
+                    </div>
+
+                    <div class="invoice-item">
+                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                            <div class="invoice-content">
+                                <p class="item-title">Supermercado</p>
+                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-value">R$ 0,00</p>
+                            </div>
+                        <span class="item-date">Hoje</span>
+                    </div>
+                    <div class="invoice-item">
+                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                            <div class="invoice-content">
+                                <p class="item-title">Supermercado</p>
+                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-value">R$ 0,00</p>
+                            </div>
+                        <span class="item-date">Hoje</span>
+                    </div>
+                    <div class="invoice-item">
+                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
                                 <p class="item-desc">Empório Gourmet</p>
@@ -89,6 +117,66 @@
             </div>
         </span>
         <!-- Opção Fatura -->
+
+        <!-- Opção Saldo -->
+        <span class="d-none" id="balance-view">
+            <div class="balance-view">
+                <div class="balance-header">
+                    <span id="balance-return"><i class="material-icons">keyboard_arrow_left</i><img src="assets/dist/images/icons/gray/coin.png" class="btn-img icon"></span>
+                    <div class="dots">
+                        <p>•</p>
+                        <p>•</p>
+                    </div>
+                    <img src="assets/dist/images/icons/gray/question.png" class="btn-img icon doubt">
+                </div>
+
+                <div class="control-view">
+                    <div class="view-1">
+                        <div class="balance-info">
+                            <p class="value">R$ <b>1.500</b>,00</p>
+                            <p class="desc">Você já ganhou <br> <b>R$ 1,39</b> neste mês</p>
+                        </div>
+                        <div class="balance-chart">
+                            <span class="info-earnings">+ R$ 37,06<br>em seis meses</span>
+                            <span class="chart">
+                                <span class="chart-item"></span>
+                                <span class="chart-item"></span>
+                                <span class="chart-item"></span>
+                                <span class="chart-item"></span>
+                                <span class="chart-item"></span>
+                                <span class="chart-item"></span>
+                                <span class="chart-item"></span>
+                                <span class="chart-item"></span>
+                                <span class="chart-item"></span>
+                                <span class="chart-item"></span>
+                                <span class="chart-item"></span>
+                                <span class="chart-item"></span>
+                            </span>
+                        </div>
+                        <div class="balance-footer-menu">
+                            <div class="btn-item">
+                                <img class="btn-footer" src="assets/dist/images/icons/coin.png">
+                                <p>Minha Conta</p>
+                            </div>
+                            <div class="btn-item">
+                                <img class="btn-footer" src="assets/dist/images/icons/bar-code.png">
+                                <p>Pagar</p>
+                            </div>
+                            <div class="btn-item">
+                                <img class="btn-footer" src="assets/dist/images/icons/deposit.png">
+                                <p>Transferir</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="view-2">
+                        <h1>aaassdasddadasd</h1>
+                    </div>
+                </div>
+
+            </div>
+        </span>
+        <!-- Opção Saldo -->
 
         <!-- Opção de bloquear o cartão -->
         <span class="d-none" id="blockcard">
@@ -122,13 +210,13 @@
         <div class="screen" id="mobile-screen">
             <div class="screen-block">
                 <!-- Splash Screen -->
-                <span class="logo"><img class="splash-nu" src="/assets/dist/images/nu-name.png"></span>
+                <span class="logo"><img class="splash-nu" src="assets/dist/images/nu-name.png"></span>
                 <!-- Splash Screen -->
 
                 <!-- Menu Principal -->
                 <span class="main-menu">
                     <button id="hamburguer-menu">
-                        <img src="/assets/dist/images/nu-name.png" class="img-fluid nu-name">
+                        <img src="assets/dist/images/nu-name.png" class="img-fluid nu-name">
                         <span class="logo-name">Victor</span>
                         <i class="material-icons arrow" id="arrow">keyboard_arrow_down</i>
                     </button>
@@ -186,12 +274,26 @@
                                 <p class="nu-account">NuConta</p>
 
                                 <!-- Saldo bancário -->
-                                <span class="card-value">
-                                    <p class="avaiable-balance">Saldo disponível</p>
+                                <span class="card-value" id="balance-btn">
+                                    <span class="chart">
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                    </span>
                                     <p class="balance" id="balance">R$ <b>1.500</b>,00</p>
                                     <p class="yield">Você já ganhou <b>R$ 1,39</b> neste mês</p>
-                                    <img src="assets/dist/images/icons/gray/eye.png" class="balance-control btn-card" id="balance-control">
                                 </span>
+                                <img src="assets/dist/images/icons/gray/eye.png" class="balance-control btn-card" id="balance-control">
+                                <!-- <img src="assets/dist/images/icons/gray/hide.png" class="balance-control btn-card"> -->
                                 <!-- Saldo bancário -->
 
                                 <!-- Últimas movimentações -->
@@ -238,76 +340,76 @@
                     <div class="bottom-list" id="wrapperBoxes">
                         <div class="box">
                             <button class="btn-item">
-                                <img class="btn-icon" src="/assets/dist/images/icons/white/invite-home.png">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/invite-home.png">
                                 <p class="name-item">Indicar amigos</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
-                                <img class="btn-icon" src="/assets/dist/images/icons/white/phone.png">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/phone.png">
                                 <p class="name-item">Recarga de celular</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
-                                <img class="btn-icon" src="/assets/dist/images/icons/white/money-talk.png">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/money-talk.png">
                                 <p class="name-item">Cobrar</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
-                                <img class="btn-icon" src="/assets/dist/images/icons/white/money-talk.png">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/money-talk.png">
                                 <p class="name-item">Empréstimos</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
-                                <img class="btn-icon" src="/assets/dist/images/icons/white/deposit.png">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/deposit.png">
                                 <p class="name-item">Depositar</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
-                                <img class="btn-icon" src="/assets/dist/images/icons/white/transfer.png">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/transfer.png">
                                 <p class="name-item">Transferir</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
-                                <img class="btn-icon" src="/assets/dist/images/icons/white/help-me.png">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/help-me.png">
                                 <p class="name-item">Me Ajuda</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
-                                <img class="btn-icon" src="/assets/dist/images/icons/white/bar-code.png">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/bar-code.png">
                                 <p class="name-item">Pagar</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item" id="blockcard-btn">
-                                <img class="btn-icon" src="/assets/dist/images/icons/white/lock.png">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/lock.png">
                                 <p class="name-item">Bloquear cartão</p>
                             </button>
                         </div>
 
                         <div class="box">
                             <button class="btn-item">
-                                <img class="btn-icon" src="/assets/dist/images/icons/white/virtual-card.png">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/virtual-card.png">
                                 <p class="name-item">Cartão virtual</p>
                             </button>
                         </div>
                         <div class="box">
                             <button class="btn-item" id="order-btn">
-                                <img class="btn-icon" src="/assets/dist/images/icons/white/filter.png">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/filter.png">
                                 <p class="name-item">Ordenação atalhos</p>
                             </button>
                         </div>
@@ -321,7 +423,7 @@
 
         <!-- Opção Sair -->
         <!-- <div class="login" id="login">
-            <img src="/assets/dist/images/nu-name.png">
+            <img src="assets/dist/images/nu-name.png">
         </div> -->
         <!-- Opção Sair -->
 
