@@ -124,6 +124,20 @@ BalanceBtn.addEventListener("click", function(){
 BalanceReturn.addEventListener("click", function(){
     BalanceView.classList.remove('whitescreen');
 });
+
+// Rewards Expandido
+
+const RewardsBtn = document.querySelector('#rewards-btn');
+const RewardsView = document.querySelector('#rewards-view');
+const RewardsReturn = document.querySelector('#rewards-return');
+
+RewardsBtn.addEventListener("click", function(){
+    RewardsView.classList.add('whitescreen');
+});
+
+RewardsReturn.addEventListener("click", function(){
+    RewardsView.classList.remove('whitescreen');
+});
 const HamburguerMenu = document.querySelector('#hamburguer-menu');
 const MenuItems = document.querySelector('#toggle-menu');
 const MainCards = document.querySelector('#main-cards');
