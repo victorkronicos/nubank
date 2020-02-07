@@ -1,13 +1,23 @@
 .gallery{
     .controls{
-        display: flex;
         position: relative;
-        right: 27rem;
-        width: 100%;
-        top: 10rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .control-button {
+        font-size: 2em;
     }
 
     .item{
-        overflow: visible;
+        display: flex!important;
+        justify-content: center!important;
+        align-items: center!important;
+        overflow: visible!important;
+        background: transparent;
+        width: auto;
+        height: auto;
+        width: 100%!important;
     }
 }
+

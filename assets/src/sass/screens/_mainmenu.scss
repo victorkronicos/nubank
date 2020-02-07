@@ -1,71 +1,132 @@
 .main-menu {
-  min-width: 100%;
-  animation: maincards 5s;
-  animation-delay: 3s;
-  animation-fill-mode: forwards;
   position: relative;
+  right: -5%;
+  min-width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  left: 30rem;
+  animation: maincards 5s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
   @keyframes maincards {
     0%{
-      left: 30rem;
+      right: -5%;
     }
     50%{
-      left: 30rem;
+      right: -5%;
     }
     80%{
-      left: 0.3rem;
+      right: 100%;
     }
     100%{
-      left: 2.1rem;
+      right: 100%;
+    }
+  }
+  
+
+  .flex-menu{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    .list-block {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 1s ease-in-out;
+      width: 100%;
+
+      .qr-block{
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        align-items: center;
+        .qr-code{
+          width: 25%;
+          height: 25%;
+        }
+      }
+    
+      .menu-nav {
+        margin: 0 2rem;
+        .list-item {
+          font-size: 0.9rem;
+          color: white;
+          border-bottom: 1px $menu-border-color solid;
+          padding-top: 0.6rem;
+          padding-bottom: 0.6rem;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+    
+          &:first-child{
+            margin-top: 1rem;
+          }
+    
+          &:after{
+            content: '\f054';
+            font-family: $fa;
+            font-weight: 600;
+            color: lightgray;
+            display: block;
+            margin-left: auto;
+          }
+    
+          >.material-icons{
+            font-weight: 100;
+            margin-right: 1rem;
+          }
+        }
+    
+        .app-exit{
+            border: 2px $menu-border-color solid;
+            background-color: transparent;
+            width: 100%;
+            height: 3rem;
+            margin-top: 1rem;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-family: $font-default;
+        }
+      }
     }
   }
 
   #hamburguer-menu {
     background: transparent;
     border: none;
-    position: fixed;
-    left: 60rem;
-    top: 1rem;
     animation: hamburguer 5s;
     animation-delay: 3s;
     animation-fill-mode: forwards;
     opacity: 0;
-
     @keyframes hamburguer {
       0%{
-        left: 60rem;
         opacity: 0;
       }
       60%{
-        left: 60rem;
         opacity: 0;
       }
       100%{
-        left: 38rem;
         opacity: 1;
       }
     }
 
     > .logo-name {
       color: white;
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
     >.arrow{
       color: white;
       display: block;
-      margin-top: 1rem;
     }
     > .nu-name {
-      width: 5rem;
-      height: 4rem;
+      width: 50px;
+      height: 37px;
       margin-right: 0.5rem;
       position: relative;
-      top: 1rem;
+      top: 0.5rem;
     }
   }
+}
 
   .qr-block {
     > .bank-data {
@@ -88,73 +149,8 @@
       }
     }
   }
-}
-
-.list-block {
-  max-height: 100vh;
-  overflow: hidden;
-  transition: max-height 1s ease-in-out;
-  position: absolute;
-  top: -2rem;
-  right: 17.5rem;
-  width: 90%;
-
-  .menu-nav {
-    .qr-code {
-      position: relative;
-      bottom: 0rem;
-      width: 25%;
-      height: 25%;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .list-item {
-      font-size: 0.9rem;
-      color: white;
-      border-bottom: 1px $menu-border-color solid;
-      padding-top: 0.6rem;
-      padding-bottom: 0.6rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      &:first-child{
-        margin-top: 1rem;
-      }
-
-      &:after{
-        content: '\f054';
-        font-family: $fa;
-        font-weight: 600;
-        position: absolute;
-        right: 0.5rem;
-        color: lightgray;
-      }
-
-      >.material-icons{
-        font-weight: 100;
-        margin-right: 1rem;
-      }
-    }
-
-    .app-exit{
-        border: 2px $menu-border-color solid;
-        background-color: transparent;
-        width: 100%;
-        height: 3rem;
-        margin-top: 1rem;
-        color: white;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-family: $font-default;
-    }
-  }
-}
-
 
 .show{
-  max-height: 0!important;
+  max-height: 100vh!important;
+  overflow: visible;
 }
-
-

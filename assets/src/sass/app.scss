@@ -51,22 +51,13 @@ body{
     position: fixed;
 }
 
-.screen{
+.mobile{
     width: 30%;
-    height: 95vh;
+    height: 90vh;
     background-color: $default-color;
     display: flex;
-    align-items: center;
-    position: absolute;
     overflow: hidden;
 }
-
-.screen-block{
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-}
-
 
 .btn-img{
     width: auto;

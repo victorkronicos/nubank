@@ -1,12 +1,11 @@
 .bottom-menu{
-    position: absolute;
-    bottom: 0.5rem;
     animation: bottomcards 5s;
     animation-delay: 2.5s;
     transition: bottom 2s;
     animation-fill-mode: forwards;
-    left: 30rem;
+    left: 1rem;
     width: 400px;
+    height: 20vh;
     @keyframes bottomcards {
       0%{
         left: 30rem;

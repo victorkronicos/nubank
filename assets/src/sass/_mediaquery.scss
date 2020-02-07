@@ -1,6 +1,8 @@
-@media (max-width: 991px) {
-    .screen{
+@media screen and (max-width: 991px) {
+    .mobile{
         width: 100%!important;
-        height: 100vh!important;
+        height: calc(var(--vh, 1vh) * 100)!important;
+        background-color: $default-color;
+        display: flex;
     }
 }
