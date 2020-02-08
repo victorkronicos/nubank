@@ -51,30 +51,24 @@ body{
 }
 
 .mobile{
-    // width: 100%;
-    // height: 100vh;
-    // background-color: $default-color;
-    // display: flex;
-    // overflow: hidden;
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     width: 100%;
     height: 100%;
 }
 
-/* Container App */
 .container-app {
     position: relative;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 30%;
     height: 100%;
     background: $default-color;
     overflow: hidden;
-    @media(min-width: 426px) {
-      max-width: 375px;
+    @media (max-width: 991px) {
+      width: 100%;
     }
   }
 
