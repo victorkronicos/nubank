@@ -27,7 +27,8 @@
   .flex-menu{
     display:flex;
     flex-direction: column;
-    width: 100%;
+    width: 35%;
+    align-items: center;
     .list-block {
       max-height: 0;
       overflow: hidden;
@@ -40,8 +41,8 @@
         flex-direction: column;
         align-items: center;
         .qr-code{
-          width: 25%;
-          height: 25%;
+          width: 80px;
+          height: 80px;
         }
       }
     
@@ -70,9 +71,12 @@
             margin-left: auto;
           }
     
-          >.material-icons{
-            font-weight: 100;
+          >.btn-float{
             margin-right: 1rem;
+            width: auto;
+            height: auto;
+            max-width: 20px;
+            max-height: 20px; 
           }
         }
     

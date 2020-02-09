@@ -9,297 +9,305 @@
 
 .main-cards{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     transition: bottom 2s ease-in-out;
     height: 60vh;
+    transform: translateX(398px);
 
-    .big-card1{
-        background-color: $card-bg;
-        width: 22rem;
-        height: 18rem;
-        border-radius: 2px;
-        overflow: hidden;
-    
-        .credit-card{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            position: relative;
-            top: 1rem;
-            left: 1rem;
-            >.card{
-                font-size: 2rem;
-                color: lightgray;
-            }
-            p{
-                margin-left: 1rem;
-                font-family: $font-secondary;
-            }
-        }
+    .wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 1150px;
 
-        .invoice{
-            position: relative;
-            top: 5rem;
-            right: 7rem;
-            >.recent-invoice{
-                text-transform: uppercase;
-                font-size: 0.9rem;
-                font-weight: bold;
-                color: deepskyblue;
-                margin-bottom: 0.5rem;
-                font-family: $font-secondary;
-            }
-            >.invoice-value{
-                font-size: 2rem;
-                color: deepskyblue;
-                margin-bottom: 0.5rem;
-                font-family: $font-secondary;
-                >b{
-                    font-weight: bold;
-                }
-            }
-            
-            >.invoice-limit{
-                font-size: 0.9rem;
-                position: relative;
-                left: 2rem;
-                >b{
-                    font-weight: 800;
-                    color: $money;
-                }
-            }
-        }
-
-        .invoice-news{
-            background-color: $card-bottom;
-            width: 23rem;
-            height: 5.5rem;
-            display: block;
+        .big-card1{
+            background-color: $card-bg;
+            width: 22rem;
+            height: 18rem;
             border-radius: 2px;
-            position: relative;
-            top: 7rem;
-            
-            >.invoice-msg{
-                position: relative;
-                top: 1.5rem;
-                color: gray;
-                left: 2rem;
-                font-size: 0.9rem;
-                line-height: 1rem;
-                text-align: left;
-            }
-        }
-
-        .invoice-green{
-            background-color: $money;
-            width: 0.5rem;
-            height: 13.7rem;
-            display: block;
-            border-radius: 2px;
-            position: relative;
-            bottom: 12.2rem;
-            left: 21.5rem;
-        }
-
-    }
-
-    .big-card2{
-        background-color: $card-bg;
-        width: 22rem;
-        height: 18rem;
-        border-radius: 2px;
-        overflow: hidden;
+            overflow: hidden;
+            transform: scale(0.9);
         
-        .nu-account{
-            position: absolute;
-            left: 5rem;
-            color: gray;
-            top: 5rem;
-        }
-    
-        .money-icon{
-            font-size: 2rem;
-            color: lightgray;
-            position: relative;
-            top: 1rem;
-            right: 9rem;
-        }
-
-        .card-value{
-            display: block;
-            position: relative;
-            top: 3rem;
-            right: 5rem;
-
-            >.chart{
-                background-color: transparent;
-                display: block;
-                height: 8vh;
-                width: 50%;
-                position: relative;
-                left: 6.5rem;
-                bottom: 1rem;
+            .credit-card{
                 display: flex;
                 flex-direction: row;
-                align-items: flex-end;
-                .chart-item{
-                    display: block;
-                    height: 50%;
-                    width: 0.2rem;
-                    border-radius: 10px;
-                    background:lightgray;
-                    margin-right: 10px;
-
-                    @for $i from 1 through 12 {
-                        &:nth-child(#{$i}){
-                            width: 2%;
-                            height: 10% + ($i * 7%);
-                            background: $default-color;
-                        }
-                    }
-
-                    @for $i from 1 through 5 {
-                        &:nth-child(#{$i}){
-                            width: 2%;
-                            height: 45%;
-                            background: lightgray;
-                        }
-                    }
-                }
-            }
-
-            >.balance{
-                font-size: 2rem;
-                color: $text-card;
-                font-weight: normal;
-                background-color: transparent;
-                font-family: $font-secondary;
-                >b{
-                    font-weight: bold;
-                }
-            }
-
-            >.yield{
-                font-family: $font-secondary;
-                margin-top: 0.5rem;
-                font-size: 0.8rem;
-                font-weight: 400;
-                color: $text-card;
+                align-items: center;
                 position: relative;
+                top: 1rem;
                 left: 1rem;
-                >b{
-                    font-weight: 800;
-                    color: $money;
+                >.card{
+                    font-size: 2rem;
+                    color: lightgray;
+                }
+                p{
+                    margin-left: 1rem;
+                    font-family: $font-secondary;
                 }
             }
-        }
-
-        .balance-control{
-            color: lightgray;
-            font-size: 2rem;
-            position: relative;
-            bottom: 6.5rem;
-            left: 9rem;
-        }
-
-        .account-news{
-            background-color: $card-bottom;
-            width: 23rem;
-            height: 5.5rem;
-            display: block;
-            border-radius: 2px;
-            position: relative;
-            top: 3.2rem;
-
-            .card-value-bottom{
-                display: block;
+    
+            .invoice{
                 position: relative;
-                left: 4rem;
-                bottom: 0.5rem;
-                .news-description{
+                top: 5rem;
+                left: 1rem;
+                >.recent-invoice{
+                    text-transform: uppercase;
                     font-size: 0.9rem;
+                    font-weight: bold;
+                    color: deepskyblue;
+                    margin-bottom: 0.5rem;
+                    font-family: $font-secondary;
+                }
+                >.invoice-value{
+                    font-size: 2rem;
+                    color: deepskyblue;
+                    margin-bottom: 0.5rem;
+                    font-family: $font-secondary;
+                    >b{
+                        font-weight: bold;
+                    }
+                }
+                
+                >.invoice-limit{
+                    font-size: 0.9rem;
+                    >b{
+                        font-weight: 800;
+                        color: $money;
+                    }
+                }
+            }
+    
+            .invoice-news{
+                background-color: $card-bottom;
+                width: 23rem;
+                height: 5.5rem;
+                display: block;
+                border-radius: 2px;
+                position: relative;
+                top: 7rem;
+                
+                >.invoice-msg{
+                    position: relative;
+                    top: 1.5rem;
                     color: gray;
+                    left: 2rem;
+                    font-size: 0.9rem;
                     line-height: 1rem;
                     text-align: left;
                 }
             }
-        }
-
-    }
-
-    .big-card3{
-        background-color: $card-bg;
-        width: 22rem;
-        height: 18rem;
-        border-radius: 2px;
-        overflow: hidden;
-
-        .rewards{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            >.gift{
-                color: lightgray;
-                width: 38px;
-                height: 38px;
-                align-self: flex-start;
-                margin-left: 1rem;
-                margin-top: 1rem;
+    
+            .invoice-green{
+                background-color: $money;
+                width: 0.5rem;
+                height: 13.7rem;
+                display: block;
+                border-radius: 2px;
+                position: relative;
+                bottom: 12.2rem;
+                left: 21.5rem;
             }
-
-            >.rewards-value{
-                font-size: 2.3rem;
-                font-weight: bold;
-                color: $default-color;
-                align-self: flex-start;
-                margin-top: 2rem;
-                margin-left: 1rem;
-                >b{
-                    font-weight: lighter;
+    
+        }
+    
+        .big-card2{
+            background-color: $card-bg;
+            width: 22rem;
+            height: 18rem;
+            border-radius: 2px;
+            overflow: hidden;
+            transform: scale(0.9);
+            
+            .nu-account{
+                position: relative;
+                left: 3rem;
+                bottom: 0.5rem;
+                color: gray;
+            }
+        
+            .money-icon{
+                font-size: 2rem;
+                color: lightgray;
+                position: relative;
+                top: 1rem;
+                left: 1rem;
+            }
+    
+            .card-value{
+                display: block;
+                position: relative;
+                top: 3rem;
+                left: 1rem;
+    
+                >.chart{
+                    background-color: transparent;
+                    display: block;
+                    height: 8vh;
+                    width: 50%;
+                    position: relative;
+                    left: 0.5rem;
+                    bottom: 1rem;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-end;
+                    .chart-item{
+                        display: block;
+                        height: 50%;
+                        width: 0.2rem;
+                        border-radius: 10px;
+                        background:lightgray;
+                        margin-right: 10px;
+    
+                        @for $i from 1 through 12 {
+                            &:nth-child(#{$i}){
+                                width: 2%;
+                                height: 10% + ($i * 7%);
+                                background: $default-color;
+                            }
+                        }
+    
+                        @for $i from 1 through 5 {
+                            &:nth-child(#{$i}){
+                                width: 2%;
+                                height: 45%;
+                                background: lightgray;
+                            }
+                        }
+                    }
+                }
+    
+                >.balance{
+                    font-size: 2rem;
+                    color: $text-card;
+                    font-weight: normal;
+                    background-color: transparent;
+                    font-family: $font-secondary;
+                    >b{
+                        font-weight: bold;
+                    }
+                }
+    
+                >.yield{
+                    font-family: $font-secondary;
+                    margin-top: 0.5rem;
+                    font-size: 0.8rem;
+                    font-weight: 400;
+                    color: $text-card;
+                    >b{
+                        font-weight: 800;
+                        color: $money;
+                    }
                 }
             }
-
-            >.rewards-desc{
-                margin-top: 1rem;
-                font-size: 1rem;
-                align-self: flex-start;
-                margin-left: 1rem;
-                text-align: justify;
-                >b{
+    
+            .balance-control{
+                color: lightgray;
+                position: relative;
+                bottom: 8rem;
+                left: 19rem;
+            }
+    
+            .account-news{
+                background-color: $card-bottom;
+                width: 22rem;
+                height: 4.3rem;
+                display: block;
+                border-radius: 2px;
+                position: relative;
+                top: 3.2rem;
+    
+                .card-value-bottom{
+                    display: block;
+                    position: relative;
+                    left: 4rem;
+                    bottom: 0.8rem;
+                    .news-description{
+                        font-size: 0.9rem;
+                        color: gray;
+                        line-height: 1rem;
+                        text-align: left;
+                    }
+                }
+            }
+    
+        }
+    
+        .big-card3{
+            background-color: $card-bg;
+            width: 22rem;
+            height: 18rem;
+            border-radius: 2px;
+            overflow: hidden;
+            transform: scale(0.9);
+    
+            .rewards{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+    
+                >.gift{
+                    color: lightgray;
+                    width: 38px;
+                    height: 38px;
+                    align-self: flex-start;
+                    margin-left: 1rem;
+                    margin-top: 1rem;
+                }
+    
+                >.rewards-value{
+                    font-size: 2.3rem;
                     font-weight: bold;
                     color: $default-color;
+                    align-self: flex-start;
+                    margin-top: 2rem;
+                    margin-left: 1rem;
+                    >b{
+                        font-weight: lighter;
+                    }
+                }
+    
+                >.rewards-desc{
+                    margin-top: 1rem;
+                    font-size: 1rem;
+                    align-self: flex-start;
+                    margin-left: 1rem;
+                    text-align: justify;
+                    >b{
+                        font-weight: bold;
+                        color: $default-color;
+                    }
+                }
+            }
+    
+            .rewards-news{
+                background-color: #F6F6F6;
+                width: 23rem;
+                height: 5.5rem;
+                display: block;
+                border-radius: 2px;
+                position: relative;
+                top: 2.2rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                .rewards-recent{
+                    font-size: 0.9rem;
+                    color: gray;
+                    line-height: 1rem;
+                    text-align: justify;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
                 }
             }
         }
-
-        .rewards-news{
-            background-color: #F6F6F6;
-            width: 23rem;
-            height: 5.5rem;
-            display: block;
-            border-radius: 2px;
-            position: relative;
-            top: 2.2rem;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            align-items: center;
-            .rewards-recent{
-                font-size: 0.9rem;
-                color: gray;
-                line-height: 1rem;
-                text-align: justify;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-            }
-        }
     }
+
 }
 
 .hide{

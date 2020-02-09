@@ -8,86 +8,349 @@
     <title>Nubank - Treinamento KBR</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="assets/dist/css/gallery.theme.css">
-    <link rel="stylesheet" href="assets/dist/css/gallery.min.css">
     <link rel="stylesheet" href="assets/dist/css/style.min.css">
 </head>
 
 <body>
     <div class="container-app">
-    <div class="mobile">
-        <!-- Splash Screen -->
-        <span class="logo"><img class="splash-nu" src="assets/dist/images/nu-name.png"></span>
-        <!-- Splash Screen -->
+        <div class="mobile">
+            <!-- Splash Screen -->
+            <span class="logo"><img class="splash-nu" src="assets/dist/images/nu-name.png"></span>
+            <!-- Splash Screen -->
 
-        <!-- Tela Principal -->
-        <span class="main-menu">
+            <!-- Tela Principal -->
+            <span class="main-menu">
 
-            <div class="flex-cards">
-                <!-- Hamburguer Menu -->
-                <div class="flex-menu">
-                    <button id="hamburguer-menu">
-                        <img src="assets/dist/images/nu-name.png" class="img-fluid nu-name">
-                        <span class="logo-name">Victor</span>
-                        <i class="material-icons arrow" id="arrow">keyboard_arrow_down</i>
-                    </button>
-                    <div class="list-block" id="toggle-menu">
-                        <div class="qr-block">
-                            <img src="assets/dist/images/qr-code.png" class="img-fluid qr-code">
-                            <span class="bank-data">
-                                <p>Agência<b>0001</b></p>
-                                <p>Conta<b>26255-6</b></p>
-                            </span>
+                <div class="flex-cards">
+                    <!-- Hamburguer Menu -->
+                    <div class="flex-menu">
+                        <button id="hamburguer-menu">
+                            <img src="assets/dist/images/nu-name.png" class="img-fluid nu-name">
+                            <span class="logo-name">Victor</span>
+                            <i class="material-icons arrow" id="arrow">keyboard_arrow_down</i>
+                        </button>
+                        <div class="list-block" id="toggle-menu">
+                            <div class="qr-block">
+                                <img src="assets/dist/images/qr-code.png" class="img-fluid qr-code">
+                                <span class="bank-data">
+                                    <p>Agência<b>0001</b></p>
+                                    <p>Conta<b>26255-6</b></p>
+                                </span>
+                            </div>
+                            <ul class="menu-nav">
+                                <li class="list-item"><img class="btn-float"
+                                        src="assets/dist/images/icons/white/question.png">Me ajuda</li>
+                                <li class="list-item"><img class="btn-float"
+                                        src="assets/dist/images/icons/white/user.png">Perfil</li>
+                                <li class="list-item"><img class="btn-float"
+                                        src="assets/dist/images/icons/white/coin.png">Configurar NuConta</li>
+                                <li class="list-item"><img class="btn-float"
+                                        src="assets/dist/images/icons/white/card.png">Configurar Cartão</li>
+                                <li><button class="app-exit" id="sair">Sair da Conta</button></li>
+                            </ul>
                         </div>
-                        <ul class="menu-nav">
-                            <li class="list-item"><i class="material-icons">help_outline</i>Me ajuda</li>
-                            <li class="list-item"><i class="material-icons">account_circle</i>Perfil</li>
-                            <li class="list-item"><i class="material-icons">monetization_on</i>Configurar NuConta
-                            </li>
-                            <li class="list-item"><i class="material-icons">credit_card</i>Configurar Cartão</li>
-                            <li><button class="app-exit" id="sair">Sair da Conta</button></li>
-                        </ul>
                     </div>
+                    <!-- Hamburguer Menu -->
+
+                    <!-- Card Principal -->
+                    <div class="main-cards" id="#main-cards">
+
+                        <div class="wrapper">
+                            <div class="big-card1" id="invoice-btn">
+                                <span class="credit-card"><img class="btn-img"
+                                        src="assets/dist/images/icons/gray/card.png">
+                                    <p>Cartão de crédito</p>
+                                </span>
+                                <!-- Fatura Atual -->
+                                <span class="invoice">
+                                    <p class="recent-invoice">Fatura Atual</p>
+                                    <p class="invoice-value">R$ <b>0</b>,00</p>
+                                    <p class="invoice-limit">Limite disponível <b>R$ 350,00</b></p>
+                                </span>
+                                <!-- Fatura Atual -->
+
+                                <!-- Mensagem Rodapé -->
+                                <span class="invoice-news">
+                                    <p class="invoice-msg">Aguardando sua primeira compra<br>com o cartão.</p>
+                                </span>
+                                <!-- Mensagem Rodapé -->
+
+                                <span class="invoice-green"></span>
+                            </div>
+
+                            <div class="big-card2">
+                                <img src="assets/dist/images/icons/gray/coin.png" class="money-icon btn-card">
+                                <p class="nu-account">NuConta</p>
+
+                                <!-- Saldo bancário -->
+                                <span class="card-value" id="balance-btn">
+                                    <span class="chart">
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                        <span class="chart-item"></span>
+                                    </span>
+                                    <p class="balance" id="balance">R$ <b>1.500</b>,00</p>
+                                    <p class="yield">Você já ganhou <b>R$ 1,39</b> neste mês</p>
+                                </span>
+                                <img src="assets/dist/images/icons/gray/eye.png" class="balance-control btn-card"
+                                    id="balance-control">
+                                <!-- Últimas movimentações -->
+                                <span class="account-news">
+                                    <img src="assets/dist/images/icons/gray/deposit.png" class="money-icon btn-card">
+                                    <span class="card-value-bottom">
+                                        <p class="news-description">Transferência de R$ 414,10<br>recebida de Victor
+                                            Henrique</p>
+                                    </span>
+                                </span>
+                                <!-- Últimas movimentações -->
+                            </div>
+
+                            <div class="big-card3" id="rewards-btn">
+                                <span class="rewards">
+                                    <img src="assets/dist/images/icons/gray/gift.png" class="gift">
+                                    <p class="rewards-value">28.496 <b>pts</b></p>
+                                    <p class="rewards-desc">Você acumulou <b>2.248 pontos</b><br> nos últimos 30 dias
+                                    </p>
+                                </span>
+
+                                <!-- Últimas movimentações -->
+                                <span class="rewards-news">
+                                    <img class="btn-card" src="assets/dist/images/icons/gray/travel.png">
+                                    <p class="rewards-recent">Apagar compra de R$ 268,35 em<br>Brasil Airlines com
+                                        26.835pts
+                                    </p>
+                                </span>
+                                <!-- Últimas movimentações -->
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- Card Principal -->
+
+                    <!-- Menu Rodapé -->
+                    <span class="bottom-menu" id="bottom-menu">
+                        <div class="bottom-list" id="wrapperBoxes">
+                            <div class="box">
+                                <button class="btn-item">
+                                    <img class="btn-icon" src="assets/dist/images/icons/white/invite-home.png">
+                                    <p class="name-item">Indicar amigos</p>
+                                </button>
+                            </div>
+
+                            <div class="box">
+                                <button class="btn-item">
+                                    <img class="btn-icon" src="assets/dist/images/icons/white/phone.png">
+                                    <p class="name-item">Recarga de celular</p>
+                                </button>
+                            </div>
+
+                            <div class="box">
+                                <button class="btn-item">
+                                    <img class="btn-icon" src="assets/dist/images/icons/white/money-talk.png">
+                                    <p class="name-item">Cobrar</p>
+                                </button>
+                            </div>
+
+                            <div class="box">
+                                <button class="btn-item">
+                                    <img class="btn-icon" src="assets/dist/images/icons/white/money-talk.png">
+                                    <p class="name-item">Empréstimos</p>
+                                </button>
+                            </div>
+
+                            <div class="box">
+                                <button class="btn-item">
+                                    <img class="btn-icon" src="assets/dist/images/icons/white/deposit.png">
+                                    <p class="name-item">Depositar</p>
+                                </button>
+                            </div>
+
+                            <div class="box">
+                                <button class="btn-item">
+                                    <img class="btn-icon" src="assets/dist/images/icons/white/transfer.png">
+                                    <p class="name-item">Transferir</p>
+                                </button>
+                            </div>
+
+                            <div class="box">
+                                <button class="btn-item">
+                                    <img class="btn-icon" src="assets/dist/images/icons/white/help-me.png">
+                                    <p class="name-item">Me Ajuda</p>
+                                </button>
+                            </div>
+
+                            <div class="box">
+                                <button class="btn-item">
+                                    <img class="btn-icon" src="assets/dist/images/icons/white/bar-code.png">
+                                    <p class="name-item">Pagar</p>
+                                </button>
+                            </div>
+
+                            <div class="box">
+                                <button class="btn-item" id="blockcard-btn">
+                                    <img class="btn-icon" src="assets/dist/images/icons/white/lock.png">
+                                    <p class="name-item">Bloquear cartão</p>
+                                </button>
+                            </div>
+
+                            <div class="box">
+                                <button class="btn-item">
+                                    <img class="btn-icon" src="assets/dist/images/icons/white/virtual-card.png">
+                                    <p class="name-item">Cartão virtual</p>
+                                </button>
+                            </div>
+                            <div class="box">
+                                <button class="btn-item" id="order-btn">
+                                    <img class="btn-icon" src="assets/dist/images/icons/white/filter.png">
+                                    <p class="name-item">Ordenação atalhos</p>
+                                </button>
+                            </div>
+                        </div>
+                    </span>
+                    <!-- Menu Rodapé -->
                 </div>
-                <!-- Hamburguer Menu -->
 
-                <!-- Card Principal -->
-                <div class="main-cards gallery items-3" id="main-cards">
-                    <div id="item-1" class="control-operator"></div>
-                    <div id="item-2" class="control-operator"></div>
-                    <div id="item-3" class="control-operator"></div>
+            </span>
+            <!-- Tela Principal -->
 
-                    <figure class="item">
-                        <span class="big-card1" id="invoice-btn">
-                            <span class="credit-card"><img class="btn-img" src="assets/dist/images/icons/gray/card.png">
-                                <p>Cartão de crédito</p>
-                            </span>
-                            <!-- Fatura Atual -->
-                            <span class="invoice">
-                                <p class="recent-invoice">Fatura Atual</p>
-                                <p class="invoice-value">R$ <b>0</b>,00</p>
-                                <p class="invoice-limit">Limite disponível <b>R$ 350,00</b></p>
-                            </span>
-                            <!-- Fatura Atual -->
 
-                            <!-- Mensagem Rodapé -->
-                            <span class="invoice-news">
-                                <p class="invoice-msg">Aguardando sua primeira compra<br>com o cartão.</p>
-                            </span>
-                            <!-- Mensagem Rodapé -->
-
-                            <span class="invoice-green"></span>
-
+            <!-- Menu Integra -->
+            <!-- Opção Fatura -->
+            <span class="d-none" id="invoice-view">
+                <div class="invoice-view">
+                    <div class="invoice-header">
+                        <span class="return" id="invoice-return"><i class="material-icons">keyboard_arrow_left</i><img
+                                class="btn-img" src="assets/dist/images/icons/card-b.png"></span>
+                        <span class="search">
+                            <span><input type="text" id="invoice-search-input" class="invoice-search d-none1"></span>
+                            <img class="btn-img" id="invoice-search" src="assets/dist/images/icons/gray/search.png">
                         </span>
-                    </figure>
+                    </div>
 
-                    <figure class="item">
-                        <span class="big-card2">
-                            <img src="assets/dist/images/icons/gray/coin.png" class="money-icon btn-card">
-                            <p class="nu-account">NuConta</p>
+                    <div class="invoice-info">
+                        <p class="value">R$ <b>0</b>,00</p>
+                        <p class="due-date">Vencimento 10 Fev</p>
+                        <button class="pay"> pagar</button>
+                    </div>
 
-                            <!-- Saldo bancário -->
-                            <span class="card-value" id="balance-btn">
+                    <div class="invoice-list">
+                        <div class="invoice-item">
+                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                            <div class="invoice-content">
+                                <p class="item-title">Supermercado</p>
+                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-value">R$ 0,00</p>
+                            </div>
+                            <span class="item-date">Hoje</span>
+                        </div>
+
+                        <div class="invoice-item">
+                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                            <div class="invoice-content">
+                                <p class="item-title">Supermercado</p>
+                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-value">R$ 0,00</p>
+                            </div>
+                            <span class="item-date">Hoje</span>
+                        </div>
+
+                        <div class="invoice-item">
+                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                            <div class="invoice-content">
+                                <p class="item-title">Supermercado</p>
+                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-value">R$ 0,00</p>
+                            </div>
+                            <span class="item-date">Hoje</span>
+                        </div>
+
+                        <div class="invoice-item">
+                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                            <div class="invoice-content">
+                                <p class="item-title">Supermercado</p>
+                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-value">R$ 0,00</p>
+                            </div>
+                            <span class="item-date">Hoje</span>
+                        </div>
+
+                        <div class="invoice-item">
+                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                            <div class="invoice-content">
+                                <p class="item-title">Supermercado</p>
+                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-value">R$ 0,00</p>
+                            </div>
+                            <span class="item-date">Hoje</span>
+                        </div>
+
+                        <div class="invoice-item">
+                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                            <div class="invoice-content">
+                                <p class="item-title">Supermercado</p>
+                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-value">R$ 0,00</p>
+                            </div>
+                            <span class="item-date">Hoje</span>
+                        </div>
+                        <div class="invoice-item">
+                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                            <div class="invoice-content">
+                                <p class="item-title">Supermercado</p>
+                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-value">R$ 0,00</p>
+                            </div>
+                            <span class="item-date">Hoje</span>
+                        </div>
+                        <div class="invoice-item">
+                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                            <div class="invoice-content">
+                                <p class="item-title">Supermercado</p>
+                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-value">R$ 0,00</p>
+                            </div>
+                            <span class="item-date">Hoje</span>
+                        </div>
+                    </div>
+
+                    <span class="invoice-bars">
+                        <span class="green-bar"></span>
+                    </span>
+                </div>
+            </span>
+            <!-- Opção Fatura -->
+
+            <!-- Opção Saldo -->
+            <span class="d-none" id="balance-view">
+                <div class="balance-view">
+                    <div class="balance-header">
+                        <span id="balance-return"><i class="material-icons">keyboard_arrow_left</i><img
+                                src="assets/dist/images/icons/gray/coin.png" class="btn-img icon"></span>
+                        <div class="dots">
+                            <p>•</p>
+                            <p>•</p>
+                        </div>
+                        <img src="assets/dist/images/icons/gray/question.png" class="btn-img icon doubt">
+                    </div>
+
+                    <div class="control-view">
+                        <div class="view-1">
+                            <div class="balance-info">
+                                <p class="value">R$ <b>1.500</b>,00</p>
+                                <p class="desc">Você já ganhou <br> <b>R$ 1,39</b> neste mês</p>
+                            </div>
+                            <div class="balance-chart">
+                                <span class="info-earnings">+ R$ 37,06<br>em seis meses</span>
                                 <span class="chart">
                                     <span class="chart-item"></span>
                                     <span class="chart-item"></span>
@@ -102,418 +365,145 @@
                                     <span class="chart-item"></span>
                                     <span class="chart-item"></span>
                                 </span>
-                                <p class="balance" id="balance">R$ <b>1.500</b>,00</p>
-                                <p class="yield">Você já ganhou <b>R$ 1,39</b> neste mês</p>
-                            </span>
-                            <img src="assets/dist/images/icons/gray/eye.png" class="balance-control btn-card"
-                                id="balance-control">
-                            <!-- <img src="assets/dist/images/icons/gray/hide.png" class="balance-control btn-card"> -->
-                            <!-- Saldo bancário -->
-
-                            <!-- Últimas movimentações -->
-                            <span class="account-news">
-                                <i class="material-icons money-icon">monetization_on</i>
-                                <span class="card-value-bottom">
-                                    <p class="news-description">Transferência de R$ 414,10<br>recebida de Victor
-                                        Henrique</p>
-                                </span>
-                            </span>
-                            <!-- Últimas movimentações -->
-
-                        </span>
-                    </figure>
-
-                    <figure class="item">
-                        <span class="big-card3" id="rewards-btn">
-                            <span class="rewards">
-                                <img src="assets/dist/images/icons/gray/gift.png" class="gift">
-                                <p class="rewards-value">28.496 <b>pts</b></p>
-                                <p class="rewards-desc">Você acumulou <b>2.248 pontos</b><br> nos últimos 30 dias</p>
-                            </span>
-
-                            <!-- Últimas movimentações -->
-                            <span class="rewards-news">
-                                <img class="btn-card" src="assets/dist/images/icons/gray/travel.png">
-                                <p class="rewards-recent">Apagar compra de R$ 268,35 em<br>Brasil Airlines com 26.835pts
-                                </p>
-                            </span>
-                            <!-- Últimas movimentações -->
-                        </span>
-                    </figure>
-
-                    <div class="controls">
-                        <a href="#item-1" class="control-button">•</a>
-                        <a href="#item-2" class="control-button">•</a>
-                        <a href="#item-3" class="control-button">•</a>
-                    </div>
-
-                </div>
-                <!-- Card Principal -->
-
-                <!-- Menu Rodapé -->
-                <span class="bottom-menu" id="bottom-menu">
-                    <div class="bottom-list" id="wrapperBoxes">
-                        <div class="box">
-                            <button class="btn-item">
-                                <img class="btn-icon" src="assets/dist/images/icons/white/invite-home.png">
-                                <p class="name-item">Indicar amigos</p>
-                            </button>
-                        </div>
-
-                        <div class="box">
-                            <button class="btn-item">
-                                <img class="btn-icon" src="assets/dist/images/icons/white/phone.png">
-                                <p class="name-item">Recarga de celular</p>
-                            </button>
-                        </div>
-
-                        <div class="box">
-                            <button class="btn-item">
-                                <img class="btn-icon" src="assets/dist/images/icons/white/money-talk.png">
-                                <p class="name-item">Cobrar</p>
-                            </button>
-                        </div>
-
-                        <div class="box">
-                            <button class="btn-item">
-                                <img class="btn-icon" src="assets/dist/images/icons/white/money-talk.png">
-                                <p class="name-item">Empréstimos</p>
-                            </button>
-                        </div>
-
-                        <div class="box">
-                            <button class="btn-item">
-                                <img class="btn-icon" src="assets/dist/images/icons/white/deposit.png">
-                                <p class="name-item">Depositar</p>
-                            </button>
-                        </div>
-
-                        <div class="box">
-                            <button class="btn-item">
-                                <img class="btn-icon" src="assets/dist/images/icons/white/transfer.png">
-                                <p class="name-item">Transferir</p>
-                            </button>
-                        </div>
-
-                        <div class="box">
-                            <button class="btn-item">
-                                <img class="btn-icon" src="assets/dist/images/icons/white/help-me.png">
-                                <p class="name-item">Me Ajuda</p>
-                            </button>
-                        </div>
-
-                        <div class="box">
-                            <button class="btn-item">
-                                <img class="btn-icon" src="assets/dist/images/icons/white/bar-code.png">
-                                <p class="name-item">Pagar</p>
-                            </button>
-                        </div>
-
-                        <div class="box">
-                            <button class="btn-item" id="blockcard-btn">
-                                <img class="btn-icon" src="assets/dist/images/icons/white/lock.png">
-                                <p class="name-item">Bloquear cartão</p>
-                            </button>
-                        </div>
-
-                        <div class="box">
-                            <button class="btn-item">
-                                <img class="btn-icon" src="assets/dist/images/icons/white/virtual-card.png">
-                                <p class="name-item">Cartão virtual</p>
-                            </button>
-                        </div>
-                        <div class="box">
-                            <button class="btn-item" id="order-btn">
-                                <img class="btn-icon" src="assets/dist/images/icons/white/filter.png">
-                                <p class="name-item">Ordenação atalhos</p>
-                            </button>
-                        </div>
-                    </div>
-                </span>
-                <!-- Menu Rodapé -->
-            </div>
-
-        </span>
-        <!-- Tela Principal -->
-
-
-        <!-- Menu Integra -->
-        <!-- Opção Fatura -->
-        <span class="d-none" id="invoice-view">
-            <div class="invoice-view">
-                <div class="invoice-header">
-                    <span class="return" id="invoice-return"><i class="material-icons">keyboard_arrow_left</i><img
-                            class="btn-img" src="assets/dist/images/icons/card-b.png"></span>
-                    <span class="search"><img class="btn-img" src="assets/dist/images/icons/gray/search.png"></span>
-                </div>
-
-                <div class="invoice-info">
-                    <p class="value">R$ <b>0</b>,00</p>
-                    <p class="due-date">Vencimento 10 Fev</p>
-                    <button class="pay"> pagar</button>
-                </div>
-
-                <div class="invoice-list">
-                    <div class="invoice-item">
-                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                        <div class="invoice-content">
-                            <p class="item-title">Supermercado</p>
-                            <p class="item-desc">Empório Gourmet</p>
-                            <p class="item-value">R$ 0,00</p>
-                        </div>
-                        <span class="item-date">Hoje</span>
-                    </div>
-
-                    <div class="invoice-item">
-                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                        <div class="invoice-content">
-                            <p class="item-title">Supermercado</p>
-                            <p class="item-desc">Empório Gourmet</p>
-                            <p class="item-value">R$ 0,00</p>
-                        </div>
-                        <span class="item-date">Hoje</span>
-                    </div>
-
-                    <div class="invoice-item">
-                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                        <div class="invoice-content">
-                            <p class="item-title">Supermercado</p>
-                            <p class="item-desc">Empório Gourmet</p>
-                            <p class="item-value">R$ 0,00</p>
-                        </div>
-                        <span class="item-date">Hoje</span>
-                    </div>
-
-                    <div class="invoice-item">
-                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                        <div class="invoice-content">
-                            <p class="item-title">Supermercado</p>
-                            <p class="item-desc">Empório Gourmet</p>
-                            <p class="item-value">R$ 0,00</p>
-                        </div>
-                        <span class="item-date">Hoje</span>
-                    </div>
-
-                    <div class="invoice-item">
-                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                        <div class="invoice-content">
-                            <p class="item-title">Supermercado</p>
-                            <p class="item-desc">Empório Gourmet</p>
-                            <p class="item-value">R$ 0,00</p>
-                        </div>
-                        <span class="item-date">Hoje</span>
-                    </div>
-
-                    <div class="invoice-item">
-                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                        <div class="invoice-content">
-                            <p class="item-title">Supermercado</p>
-                            <p class="item-desc">Empório Gourmet</p>
-                            <p class="item-value">R$ 0,00</p>
-                        </div>
-                        <span class="item-date">Hoje</span>
-                    </div>
-                    <div class="invoice-item">
-                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                        <div class="invoice-content">
-                            <p class="item-title">Supermercado</p>
-                            <p class="item-desc">Empório Gourmet</p>
-                            <p class="item-value">R$ 0,00</p>
-                        </div>
-                        <span class="item-date">Hoje</span>
-                    </div>
-                    <div class="invoice-item">
-                        <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                        <div class="invoice-content">
-                            <p class="item-title">Supermercado</p>
-                            <p class="item-desc">Empório Gourmet</p>
-                            <p class="item-value">R$ 0,00</p>
-                        </div>
-                        <span class="item-date">Hoje</span>
-                    </div>
-                </div>
-
-                <span class="invoice-bars">
-                    <span class="green-bar"></span>
-                </span>
-            </div>
-        </span>
-        <!-- Opção Fatura -->
-
-        <!-- Opção Saldo -->
-        <span class="d-none" id="balance-view">
-            <div class="balance-view">
-                <div class="balance-header">
-                    <span id="balance-return"><i class="material-icons">keyboard_arrow_left</i><img
-                            src="assets/dist/images/icons/gray/coin.png" class="btn-img icon"></span>
-                    <div class="dots">
-                        <p>•</p>
-                        <p>•</p>
-                    </div>
-                    <img src="assets/dist/images/icons/gray/question.png" class="btn-img icon doubt">
-                </div>
-
-                <div class="control-view">
-                    <div class="view-1">
-                        <div class="balance-info">
-                            <p class="value">R$ <b>1.500</b>,00</p>
-                            <p class="desc">Você já ganhou <br> <b>R$ 1,39</b> neste mês</p>
-                        </div>
-                        <div class="balance-chart">
-                            <span class="info-earnings">+ R$ 37,06<br>em seis meses</span>
-                            <span class="chart">
-                                <span class="chart-item"></span>
-                                <span class="chart-item"></span>
-                                <span class="chart-item"></span>
-                                <span class="chart-item"></span>
-                                <span class="chart-item"></span>
-                                <span class="chart-item"></span>
-                                <span class="chart-item"></span>
-                                <span class="chart-item"></span>
-                                <span class="chart-item"></span>
-                                <span class="chart-item"></span>
-                                <span class="chart-item"></span>
-                                <span class="chart-item"></span>
-                            </span>
-                        </div>
-                        <div class="balance-footer-menu">
-                            <div class="btn-item">
-                                <img class="btn-footer" src="assets/dist/images/icons/coin.png">
-                                <p>Minha Conta</p>
                             </div>
-                            <div class="btn-item">
-                                <img class="btn-footer" src="assets/dist/images/icons/bar-code.png">
-                                <p>Pagar</p>
-                            </div>
-                            <div class="btn-item">
-                                <img class="btn-footer" src="assets/dist/images/icons/deposit.png">
-                                <p>Transferir</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="view-2">
-                        <div class="transfer-news">
-                            <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
-                            <div class="transfer-data">
-                                <p class="transfer-info">Transferência Recebida</p>
-                                <p class="transfer-name">Marina Soares</p>
-                                <p class="transfer-value">R$ 414,10</p>
-                                <p class="transfer-day">sábado</p>
+                            <div class="balance-footer-menu">
+                                <div class="btn-item">
+                                    <img class="btn-footer" src="assets/dist/images/icons/coin.png">
+                                    <p>Minha Conta</p>
+                                </div>
+                                <div class="btn-item">
+                                    <img class="btn-footer" src="assets/dist/images/icons/bar-code.png">
+                                    <p>Pagar</p>
+                                </div>
+                                <div class="btn-item">
+                                    <img class="btn-footer" src="assets/dist/images/icons/deposit.png">
+                                    <p>Transferir</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="transfer-news">
-                            <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
-                            <div class="transfer-data">
-                                <p class="transfer-info">Transferência Recebida</p>
-                                <p class="transfer-name">Marina Soares</p>
-                                <p class="transfer-value">R$ 414,10</p>
-                                <p class="transfer-day">sábado</p>
+                        <div class="view-2">
+                            <div class="transfer-news">
+                                <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
+                                <div class="transfer-data">
+                                    <p class="transfer-info">Transferência Recebida</p>
+                                    <p class="transfer-name">Marina Soares</p>
+                                    <p class="transfer-value">R$ 414,10</p>
+                                    <p class="transfer-day">sábado</p>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="transfer-news">
-                            <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
-                            <div class="transfer-data">
-                                <p class="transfer-info">Transferência Recebida</p>
-                                <p class="transfer-name">Marina Soares</p>
-                                <p class="transfer-value">R$ 414,10</p>
-                                <p class="transfer-day">sábado</p>
+                            <div class="transfer-news">
+                                <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
+                                <div class="transfer-data">
+                                    <p class="transfer-info">Transferência Recebida</p>
+                                    <p class="transfer-name">Marina Soares</p>
+                                    <p class="transfer-value">R$ 414,10</p>
+                                    <p class="transfer-day">sábado</p>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="transfer-news">
-                            <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
-                            <div class="transfer-data">
-                                <p class="transfer-info">Transferência Recebida</p>
-                                <p class="transfer-name">Marina Soares</p>
-                                <p class="transfer-value">R$ 414,10</p>
-                                <p class="transfer-day">sábado</p>
+                            <div class="transfer-news">
+                                <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
+                                <div class="transfer-data">
+                                    <p class="transfer-info">Transferência Recebida</p>
+                                    <p class="transfer-name">Marina Soares</p>
+                                    <p class="transfer-value">R$ 414,10</p>
+                                    <p class="transfer-day">sábado</p>
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-                </div>
+                            <div class="transfer-news">
+                                <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
+                                <div class="transfer-data">
+                                    <p class="transfer-info">Transferência Recebida</p>
+                                    <p class="transfer-name">Marina Soares</p>
+                                    <p class="transfer-value">R$ 414,10</p>
+                                    <p class="transfer-day">sábado</p>
+                                </div>
+                            </div>
 
-            </div>
-        </span>
-        <!-- Opção Saldo -->
-
-        <!-- Opção Rewards -->
-        <span class="d-none" id="rewards-view">
-            <div class="rewards-view">
-                <div class="rewards-header">
-                    <span id="rewards-return">
-                        <i class="material-icons">keyboard_arrow_left</i><img
-                            src="assets/dist/images/icons/gray/gift.png" class="btn-card">
-                    </span i>
-                    <img src="assets/dist/images/icons/gray/question.png" class="btn-card">
-                </div>
-                <div class="rewards-main">
-                    <p class="rewards-title">rewards</p>
-                    <p class="rewards-points">28.496</p>
-                </div>
-                <div class="rewards-mid">
-                    <div class="card">
-                        <img src="assets/dist/images/icons/gray/travel.png" class="btn-card">
-                        <p class="title">VOOS E HOTÉIS</p>
-                        <p class="subtitle">Seus pontos valem mais</p>
-                    </div>
-                    <div class="card">
-                        <img src="assets/dist/images/icons/gray/extra.png" class="btn-card">
-                        <p class="title">EXTRAS</p>
-                        <p class="subtitle">Recompensas Rápidas</p>
-                    </div>
-                </div>
-
-                <div class="rewards-list">
-                    <div class="rewards-item">
-                        <img src="assets/dist/images/icons/gray/travel.png" class="btn-card rewards-icon">
-                        <div class="rewards-data">
-                            <p class="rewards-info">Viagem</p>
-                            <p class="rewards-name">Brasil Airlines</p>
-                            <p class="rewards-value">Apagar R$ 268,35 com 26.835pts</p>
-                            <p class="rewards-day">sábado</p>
                         </div>
                     </div>
+
                 </div>
-            </div>
-        </span>
-        <!-- Opção Rewards -->
-
-        <!-- Opção de bloquear o cartão -->
-        <span class="d-none" id="blockcard">
-
-            <div class="options">
-                <i class="material-icons flex-center">lock_open</i>
-                <p class="text">Você quer <b>bloquear<br>temporariamente</b> o seu<br>cartão?</p>
-                <div class="flex-options">
-                    <button class="cancel">cancelar</button>
-                    <button class="block">bloquear</button>
-                </div>
-            </div>
-        </span>
-        <!-- Opção de bloquear o cartão -->
-
-        <!-- Opção de organizar atalhos -->
-        <span class="d-none" id="orderbtns">
-            <span class="order-list">
-                <span class="title-list">
-                    <i id="order-close" class="material-icons icon-arrow">arrow_back</i>
-                    <p>Organizar atalhos</p>
-                </span>
-                <ul class="list-render" id="list-render">
-                    <!-- Aqui será gerado a lista -->
-                </ul>
             </span>
-        </span>
-        <!-- Opção de organizar atalhos -->
+            <!-- Opção Saldo -->
 
-        <!-- Menu Integra -->
+            <!-- Opção Rewards -->
+            <span class="d-none" id="rewards-view">
+                <div class="rewards-view">
+                    <div class="rewards-header">
+                        <span id="rewards-return">
+                            <i class="material-icons">keyboard_arrow_left</i><img
+                                src="assets/dist/images/icons/gray/gift.png" class="btn-card">
+                        </span i>
+                        <img src="assets/dist/images/icons/gray/question.png" class="btn-card">
+                    </div>
+                    <div class="rewards-main">
+                        <p class="rewards-title">rewards</p>
+                        <p class="rewards-points">28.496</p>
+                    </div>
+                    <div class="rewards-mid">
+                        <div class="card">
+                            <img src="assets/dist/images/icons/gray/travel.png" class="btn-card">
+                            <p class="title">VOOS E HOTÉIS</p>
+                            <p class="subtitle">Seus pontos valem mais</p>
+                        </div>
+                        <div class="card">
+                            <img src="assets/dist/images/icons/gray/extra.png" class="btn-card">
+                            <p class="title">EXTRAS</p>
+                            <p class="subtitle">Recompensas Rápidas</p>
+                        </div>
+                    </div>
 
+                    <div class="rewards-list">
+                        <div class="rewards-item">
+                            <img src="assets/dist/images/icons/gray/travel.png" class="btn-card rewards-icon">
+                            <div class="rewards-data">
+                                <p class="rewards-info">Viagem</p>
+                                <p class="rewards-name">Brasil Airlines</p>
+                                <p class="rewards-value">Apagar R$ 268,35 com 26.835pts</p>
+                                <p class="rewards-day">sábado</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+            <!-- Opção Rewards -->
+
+            <!-- Opção de bloquear o cartão -->
+            <span class="d-none" id="blockcard">
+
+                <div class="options">
+                    <i class="material-icons flex-center">lock_open</i>
+                    <p class="text">Você quer <b>bloquear<br>temporariamente</b> o seu<br>cartão?</p>
+                    <div class="flex-options">
+                        <button class="cancel">cancelar</button>
+                        <button class="block">bloquear</button>
+                    </div>
+                </div>
+            </span>
+            <!-- Opção de bloquear o cartão -->
+
+            <!-- Opção de organizar atalhos -->
+            <span class="d-none" id="orderbtns">
+                <span class="order-list">
+                    <span class="title-list">
+                        <i id="order-close" class="material-icons icon-arrow">arrow_back</i>
+                        <p>Organizar atalhos</p>
+                    </span>
+                    <ul class="list-render" id="list-render">
+                        <!-- Aqui será gerado a lista -->
+                    </ul>
+                </span>
+            </span>
+            <!-- Opção de organizar atalhos -->
+
+            <!-- Menu Integra -->
+
+        </div>
     </div>
-</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/js/all.min.js"
         data-search-pseudo-elements></script>
     <script src="assets/dist/js/main-min.js"></script>
