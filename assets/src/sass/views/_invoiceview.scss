@@ -22,7 +22,8 @@
         }
         .invoice-search{
             display: none;
-            border: 1px solid lightgray;
+            border: none;
+            border-bottom: 1px solid lightgray;
             vertical-align: super;
             font-size: 1.1rem;
             width: 10rem;

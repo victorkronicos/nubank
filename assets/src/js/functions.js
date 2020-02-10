@@ -66,34 +66,36 @@ InvoiceReturn.addEventListener("click", function(){
     InvoiceView.classList.remove('whitescreen');
 });
 
-// Fatura opção de busca
+//Fatura opção de busca
 
-// const InvoiceSearch = document.querySelector('#invoice-search');
-// const InvoiceInput = document.querySelector('#invoice-search-input');
+const InvoiceSearch = document.querySelector('#invoice-search');
+const InvoiceInput = document.querySelector('#invoice-search-input');
 
-// InvoiceSearch.addEventListener("click", function(){
+InvoiceSearch.addEventListener("click", function(){
+        InvoiceInput.style.cssText = "display: inline";
+        InvoiceInput.autofocus;
+});
 
-//     if (InvoiceInput.classList.contains('d-none1')){
-//         InvoiceInput.style.cssText = "display: inline";
-//     }
+function Pesquisar() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('invoice-search-input');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('invoice-list');
+    li = ul.getElementsByTagName('li');
+  
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      p = li[i].getElementsByTagName("p")[0];
+      txtValue = p.textContent || p.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
 
-
-
-
-// });
-
-
-
-// var filtro = document.getElementById('filtro-nome');
-// var tabela = document.getElementById('lista');
-// filtro.onkeyup = function() {
-//     var nomeFiltro = filtro.value;
-//     for (var i = 1; i < tabela.rows.length; i++) {
-//         var conteudoCelula = tabela.rows[i].cells[0].innerText;
-//         var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
-//         tabela.rows[i].style.display = corresponde ? '' : 'none';
-//     }
-// };
 
 
 // Exibir / Esconder Saldo

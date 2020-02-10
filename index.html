@@ -232,7 +232,7 @@
                         <span class="return" id="invoice-return"><i class="material-icons">keyboard_arrow_left</i><img
                                 class="btn-img" src="assets/dist/images/icons/card-b.png"></span>
                         <span class="search">
-                            <span><input type="text" id="invoice-search-input" class="invoice-search d-none1"></span>
+                            <span><input placeholder="Pesquisar..." onkeyup="Pesquisar()" type="text" id="invoice-search-input" class="invoice-search"></span>
                             <img class="btn-img" id="invoice-search" src="assets/dist/images/icons/gray/search.png">
                         </span>
                     </div>
@@ -243,8 +243,8 @@
                         <button class="pay"> pagar</button>
                     </div>
 
-                    <div class="invoice-list">
-                        <div class="invoice-item">
+                    <ul class="invoice-list" id="invoice-list">
+                        <li class="invoice-item">
                             <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
@@ -252,9 +252,9 @@
                                 <p class="item-value">R$ 0,00</p>
                             </div>
                             <span class="item-date">Hoje</span>
-                        </div>
+                        </li>
 
-                        <div class="invoice-item">
+                        <li class="invoice-item">
                             <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
@@ -262,9 +262,9 @@
                                 <p class="item-value">R$ 0,00</p>
                             </div>
                             <span class="item-date">Hoje</span>
-                        </div>
+                        </li>
 
-                        <div class="invoice-item">
+                        <li class="invoice-item">
                             <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
@@ -272,9 +272,9 @@
                                 <p class="item-value">R$ 0,00</p>
                             </div>
                             <span class="item-date">Hoje</span>
-                        </div>
+                        </li>
 
-                        <div class="invoice-item">
+                        <li class="invoice-item">
                             <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
@@ -282,9 +282,9 @@
                                 <p class="item-value">R$ 0,00</p>
                             </div>
                             <span class="item-date">Hoje</span>
-                        </div>
+                        </li>
 
-                        <div class="invoice-item">
+                        <li class="invoice-item">
                             <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
@@ -292,9 +292,9 @@
                                 <p class="item-value">R$ 0,00</p>
                             </div>
                             <span class="item-date">Hoje</span>
-                        </div>
+                        </li>
 
-                        <div class="invoice-item">
+                        <li class="invoice-item">
                             <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
@@ -302,8 +302,8 @@
                                 <p class="item-value">R$ 0,00</p>
                             </div>
                             <span class="item-date">Hoje</span>
-                        </div>
-                        <div class="invoice-item">
+                        </li>
+                        <li class="invoice-item">
                             <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
@@ -311,8 +311,8 @@
                                 <p class="item-value">R$ 0,00</p>
                             </div>
                             <span class="item-date">Hoje</span>
-                        </div>
-                        <div class="invoice-item">
+                        </li>
+                        <li class="invoice-item">
                             <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
@@ -320,8 +320,8 @@
                                 <p class="item-value">R$ 0,00</p>
                             </div>
                             <span class="item-date">Hoje</span>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
 
                     <span class="invoice-bars">
                         <span class="green-bar"></span>
