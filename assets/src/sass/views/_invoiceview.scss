@@ -7,99 +7,240 @@
     opacity: 1;
 }
 
+.grayscreen{
+    background: white;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    opacity: 1;
+}
+
+.slide-invoice{
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}
+
 .invoice-view{
-    >.invoice-header{
-        display: flex;
-        justify-content: space-between;
-        margin-top: 1rem;
-        .return{
-            margin-left: 1rem;
+    display: flex;
+    width: 200%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    .view-1{
+        width: 100%;
+        >.invoice-header{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            .return{
+                margin-left: 1rem;
+                display: flex;
+                align-items: center;
+            }
+            .search{
+                margin-right: 1rem;
+            }
+            .invoice-search{
+                display: none;
+                border: none;
+                border-bottom: 1px solid lightgray;
+                vertical-align: super;
+                font-size: 1.1rem;
+                width: 10rem;
+            }
+        }
+    
+        .invoice-info{
             display: flex;
             align-items: center;
+            flex-direction: column;
+            font-family: $font-secondary;
+            >.value{
+                margin-top: 2rem;
+                font-size: 2rem;
+                color: $money;
+                >b{
+                    font-weight: bold;
+                }
+            }
+            >.due-date{
+                margin-top: 0.5rem;
+                text-transform: uppercase;
+                color: lightgray;
+            }
+            >.pay{
+                margin-top: 1.5rem;
+                border-radius: 2px;
+                border: 1px solid purple;
+                padding: 1rem 4rem;
+                background-color: transparent;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: purple;
+            }
         }
-        .search{
-            margin-right: 1rem;
-        }
-        .invoice-search{
-            display: none;
-            border: none;
-            border-bottom: 1px solid lightgray;
-            vertical-align: super;
-            font-size: 1.1rem;
-            width: 10rem;
+    
+        .invoice-list{
+            margin-top: 1rem;
+            background: $white-dark;
+            overflow-y: scroll;
+            height: 68vh;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            .invoice-item{
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                border-bottom: 1px solid #e6e6e6;
+                align-items: center;
+                .invoice-content{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    .item-title{
+                        font-size: 0.9rem;
+                        align-self: center;
+                    }
+                    .item-desc{
+                        font-size: 1.2rem;
+                        align-self: center;
+                    }
+                    .item-value{
+                        align-self: center;
+                        font-size: 1.1rem;
+                    }
+                }
+                >.icon{
+                    margin-left: 1rem;
+                }
+                .item-date{
+                    margin-right: 1rem;
+                    font-size: 0.9rem;
+                    color: gray;
+                }
+            }
         }
     }
 
-    .invoice-info{
+    .view-2{
+        background-color: $bg-invoice;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        .list-options{
+            display: flex;
+            flex-direction: column;
+            width: 90px;
+            padding-top: 2rem;
+            background: $menu-invoice;
+            height: 100vh;
+            .option{
+                height: 15%;
+                .btn-icon{
+                    width: auto;
+                    height: auto;
+                    max-width: 26px;
+                    max-height: 26px;
+                    display: block;
+                    margin: 0 auto;
+                }
+                .title{
+                    color: white;
+                    font-size: 0.9rem;
+                    text-align: center;
+                    margin-top: 0.5rem;
+                }
+            }
+        }
+        .info-news{
+            display: flex;
+            width: 100%;
+            justify-content: flex-end;
+            margin-right: 1rem;
+            line-height: 1.4rem;
+            .avaiable-limit{
+                color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: center;
+                height: 100vh;
+                .title{
+                    text-transform: uppercase;
+                    color: gray;
+                }
+                .value{
+                    color: $money;
+                    font-weight: bold;
+                }
+                .adjustment{
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+    .green-bar{
+        background-color: $money;
+        width: 10px;
+        height: 100vh;
+        border-radius: 2px;
+        right: 29.5rem;
+        position: fixed;
+    }
+}
+
+.invoice-item-details{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    .btn-return{
+        position: absolute;
+        margin-top: 0.5rem;
+        margin-left: 0.5rem;
+        >.icon{
+            font-size: 2rem;
+        }
+    }
+    .map{
+        overflow: hidden;
+        width: auto;
+        height: auto;
+        object-fit: cover;
+    }
+    .purple-circle{
+        padding: 1.6rem;
+        background: purple;
+        border-radius: 100%;
+        align-self: center;
+        position: relative;
+        bottom: 2.3rem;
+    }
+    .invoice-item-desc{
         display: flex;
         align-items: center;
         flex-direction: column;
-        font-family: $font-secondary;
-        >.value{
-            margin-top: 2rem;
+        height: 20vh;
+        justify-content: space-around;
+        .item-data{
+            text-transform: uppercase;
+            color: gray;
+            font-size: 1.2rem;
+        }
+        .item-name{
             font-size: 2rem;
-            color: $money;
-            >b{
-                font-weight: bold;
-            }
+            font-weight: 500;
         }
-        >.due-date{
-            margin-top: 0.5rem;
-            text-transform: uppercase;
-            color: lightgray;
-        }
-        >.pay{
-            margin-top: 1.5rem;
-            border-radius: 2px;
-            border: 1px solid purple;
-            padding: 1rem 4rem;
-            background-color: transparent;
-            text-transform: uppercase;
-            font-weight: bold;
-            color: purple;
-        }
-    }
-
-    .invoice-list{
-        margin-top: 1rem;
-        background: $white-dark;
-        overflow-y: scroll;
-        height: 62vh;
-        &::-webkit-scrollbar {
-            display: none;
-        }
-        .invoice-item{
-            padding-top: 1.5rem;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            .invoice-content{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                .item-title{
-                    font-size: 0.9rem;
-                    align-self: center;
-                }
-                .item-desc{
-                    font-size: 1.2rem;
-                    align-self: center;
-                }
-                .item-value{
-                    align-self: center;
-                    font-size: 1.1rem;
-                }
-            }
-            >.icon{
-                margin-left: 1rem;
-            }
-            .item-date{
-                margin-right: 1rem;
-                font-size: 0.9rem;
-                color: gray;
-            }
+        .item-value{
+            font-size: 2rem;
         }
     }
 }

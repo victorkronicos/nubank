@@ -46,3 +46,6 @@ var slider = tns({
   center: true,
   items: 1,
 });
+
+
+// Slider Fatura

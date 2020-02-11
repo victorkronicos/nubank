@@ -66,6 +66,35 @@ InvoiceReturn.addEventListener("click", function(){
     InvoiceView.classList.remove('whitescreen');
 });
 
+// Fatura Expandir compra
+const InvoiceList = document.querySelector('#invoice-list');
+const InvoiceItem = InvoiceList.querySelectorAll('#invoice-item');
+const InvoiceHide = InvoiceView.querySelector('#view-hide');
+
+for (i = 0; i < InvoiceItem.length; i++){
+    InvoiceItem[i].addEventListener("click", function(){
+        // if (InvoiceHide.style.contains == "display: flex"){
+        //     InvoiceHide.style.cssText = "display: none";
+        //     InvoiceView.classList.add('grayscreen');
+        // }
+        // else{
+        //     InvoiceView.classList.er('grayscreen');  
+        // }
+
+        InvoiceHide.style.cssText = "display: none";
+        InvoiceView.classList.add('grayscreen');
+    });
+}
+
+// Fatura fechar compra
+
+const InvoiceItemBtn = document.querySelector('#btn-details-return');
+
+InvoiceItemBtn.addEventListener("click", function(){
+    InvoiceHide.style.cssText = "display: flex";
+    InvoiceView.classList.remove('grayscreen');
+});
+
 //Fatura opção de busca
 
 const InvoiceSearch = document.querySelector('#invoice-search');
@@ -73,7 +102,7 @@ const InvoiceInput = document.querySelector('#invoice-search-input');
 
 InvoiceSearch.addEventListener("click", function () {
     InvoiceInput.style.cssText = "display: inline";
-    InvoiceInput.autofocus;
+    InvoiceInput.focus();
 });
 
 function Pesquisar() {
@@ -84,7 +113,7 @@ function Pesquisar() {
     li = ul.getElementsByTagName('li');
 
     for (i = 0; i < li.length; i++) {
-        p = li[i].getElementsByTagName("p")[0];
+        p = li[i].getElementsByTagName("p")[1];
         txtValue = p.textContent || p.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = "";
@@ -104,6 +133,7 @@ const SearchInput = BalanceHeader.querySelector("#balance-search-input");
 
 Search.addEventListener("click", function () {
     SearchInput.style.cssText = "display: inline";
+    SearchInput.focus();
 });
 
 function PesquisarTransferencias() {
@@ -114,7 +144,7 @@ function PesquisarTransferencias() {
     li = ul.getElementsByTagName('li');
 
     for (i = 0; i < li.length; i++) {
-        p = li[i].getElementsByTagName("p")[0];
+        p = li[i].getElementsByTagName("p")[1];
         txtValue = p.textContent || p.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = "";

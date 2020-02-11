@@ -228,85 +228,157 @@
 
             <!-- Menu Integra -->
             <!-- Opção Fatura -->
-            <span class="d-none" id="invoice-view">
-                <div class="invoice-view">
-                    <div class="invoice-header">
-                        <span class="return" id="invoice-return"><i class="material-icons">keyboard_arrow_left</i><img
-                                class="btn-img" src="assets/dist/images/icons/card-b.png"></span>
-                        <span class="search">
-                            <span><input placeholder="Pesquisar..." onkeyup="Pesquisar()" type="text" id="invoice-search-input" class="invoice-search"></span>
-                            <img class="btn-img" id="invoice-search" src="assets/dist/images/icons/gray/search.png">
+            <span class="d-none slide-invoice" id="invoice-view">
+                <div class="invoice-view" id="view-hide">
+                    <div class="view-1">
+                        <div class="invoice-header">
+                            <span class="return" id="invoice-return"><i class="material-icons">keyboard_arrow_left</i><img
+                                    class="btn-img" src="assets/dist/images/icons/card-b.png"></span>
+                            <span class="search">
+                                <span><input placeholder="Pesquisar..." onkeyup="Pesquisar()" type="text" id="invoice-search-input" class="invoice-search"></span>
+                                <img class="btn-img" id="invoice-search" src="assets/dist/images/icons/gray/search.png">
+                            </span>
+                        </div>
+    
+                        <div class="invoice-info">
+                            <p class="value">R$ <b>0</b>,00</p>
+                            <p class="due-date">Vencimento 10 Fev</p>
+                            <button class="pay"> pagar</button>
+                        </div>
+    
+                        <ul class="invoice-list" id="invoice-list">
+                            <li class="invoice-item" id="invoice-item">
+                                <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                                <div class="invoice-content">
+                                    <p class="item-title">Supermercado</p>
+                                    <p class="item-desc">Armazém do Sertão</p>
+                                    <p class="item-value">R$ 0,00</p>
+                                </div>
+                                <span class="item-date">Hoje</span>
+                            </li>
+    
+    
+                            <li class="invoice-item" id="invoice-item">
+                                <img class="btn-img icon" src="assets/dist/images/icons/gray/food.png">
+                                <div class="invoice-content">
+                                    <p class="item-title">Restaurante</p>
+                                    <p class="item-desc">Bar do Toninho</p>
+                                    <p class="item-value">R$ 0,00</p>
+                                </div>
+                                <span class="item-date">Hoje</span>
+                            </li>
+    
+                            
+                            <li class="invoice-item" id="invoice-item">
+                                <img class="btn-img icon" src="assets/dist/images/icons/gray/bus.png">
+                                <div class="invoice-content">
+                                    <p class="item-title">Transporte</p>
+                                    <p class="item-desc">Piracicabana</p>
+                                    <p class="item-value">R$ 0,00</p>
+                                </div>
+                                <span class="item-date">Hoje</span>
+                            </li>
+    
+                            
+                            <li class="invoice-item" id="invoice-item">
+                                <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                                <div class="invoice-content">
+                                    <p class="item-title">Pastelaria</p>
+                                    <p class="item-desc">Pastel</p>
+                                    <p class="item-value">R$ 0,00</p>
+                                </div>
+                                <span class="item-date">Hoje</span>
+                            </li>
+    
+                            
+                            <li class="invoice-item" id="invoice-item">
+                                <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                                <div class="invoice-content">
+                                    <p class="item-title">Pastelaria</p>
+                                    <p class="item-desc">Pastel</p>
+                                    <p class="item-value">R$ 0,00</p>
+                                </div>
+                                <span class="item-date">Hoje</span>
+                            </li>
+
+                            <li class="invoice-item" id="invoice-item">
+                                <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                                <div class="invoice-content">
+                                    <p class="item-title">Pastelaria</p>
+                                    <p class="item-desc">Pastel</p>
+                                    <p class="item-value">R$ 0,00</p>
+                                </div>
+                                <span class="item-date">Hoje</span>
+                            </li>
+
+                            <li class="invoice-item" id="invoice-item">
+                                <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                                <div class="invoice-content">
+                                    <p class="item-title">Pastelaria</p>
+                                    <p class="item-desc">Pastel</p>
+                                    <p class="item-value">R$ 0,00</p>
+                                </div>
+                                <span class="item-date">Hoje</span>
+                            </li>
+    
+                        </ul>
+    
+                        <span class="invoice-bars">
+                            <span class="green-bar"></span>
                         </span>
                     </div>
-
-                    <div class="invoice-info">
-                        <p class="value">R$ <b>0</b>,00</p>
-                        <p class="due-date">Vencimento 10 Fev</p>
-                        <button class="pay"> pagar</button>
-                    </div>
-
-                    <ul class="invoice-list" id="invoice-list">
-                        <li class="invoice-item">
-                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                            <div class="invoice-content">
-                                <p class="item-title">Supermercado</p>
-                                <p class="item-desc">Armazém do Sertão</p>
-                                <p class="item-value">R$ 0,00</p>
+                    <div class="view-2">
+                        <div class="list-options">
+                            <div class="option">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/bars.png">
+                                <p class="title">Meus dados</p>
                             </div>
-                            <span class="item-date">Hoje</span>
-                        </li>
-
-
-                        <li class="invoice-item">
-                            <img class="btn-img icon" src="assets/dist/images/icons/gray/food.png">
-                            <div class="invoice-content">
-                                <p class="item-title">Restaurante</p>
-                                <p class="item-desc">Bar do Toninho</p>
-                                <p class="item-value">R$ 0,00</p>
+                            <div class="option">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/help-me.png">
+                                <p class="title">Me ajuda</p>
                             </div>
-                            <span class="item-date">Hoje</span>
-                        </li>
-
-                        
-                        <li class="invoice-item">
-                            <img class="btn-img icon" src="assets/dist/images/icons/gray/bus.png">
-                            <div class="invoice-content">
-                                <p class="item-title">Transporte</p>
-                                <p class="item-desc">Piracicabana</p>
-                                <p class="item-value">R$ 0,00</p>
+                            <div class="option">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/invite.png">
+                                <p class="title">Indicar</p>
                             </div>
-                            <span class="item-date">Hoje</span>
-                        </li>
-
-                        
-                        <li class="invoice-item">
-                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                            <div class="invoice-content">
-                                <p class="item-title">Supermercado</p>
-                                <p class="item-desc">Empório Gourmet</p>
-                                <p class="item-value">R$ 0,00</p>
+                            <div class="option">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/lock.png">
+                                <p class="title">Bloqueio Temporário</p>
                             </div>
-                            <span class="item-date">Hoje</span>
-                        </li>
-
-                        
-                        <li class="invoice-item">
-                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                            <div class="invoice-content">
-                                <p class="item-title">Supermercado</p>
-                                <p class="item-desc">Empório Gourmet</p>
-                                <p class="item-value">R$ 0,00</p>
+                            <div class="option">
+                                <img class="btn-icon" src="assets/dist/images/icons/white/virtual-card.png">
+                                <p class="title">Cartão Virtual</p>
                             </div>
-                            <span class="item-date">Hoje</span>
-                        </li>
+                        </div>
+                        <div class="info-news">
+                            <span class="next-invoices">
+                                
+                            </span>
+                            <span class="actual-invoice">
 
-                    </ul>
-
-                    <span class="invoice-bars">
+                            </span>
+                            <div class="avaiable-limit">
+                                <p class="title">limite disponível</p>
+                                <p class="value">R$ 350,00</p>
+                                <p class="adjustment">ajustar</p>
+                            </div>
+                        </div>
                         <span class="green-bar"></span>
-                    </span>
+                    </div>
+                </div>
+                <div class="invoice-item-details">
+                    <span class="btn-return" id="btn-details-return"><i class="material-icons icon">
+                        arrow_back</i></span>
+                    <img class="map" src="assets/dist/images/maps.png">
+                    <span class="purple-circle"><img class="btn-card" src="assets/dist/images/icons/white/bus.png"></span>
+                    <div class="invoice-item-desc">
+                        <p class="item-data">11 fev 2020, 18:00</p>
+                        <p class="item-name">Uber</p>
+                        <p class="item-value">R$ 0,00</p>
+                    </div>
                 </div>
             </span>
+
             <!-- Opção Fatura -->
 
             <!-- Opção Saldo -->
