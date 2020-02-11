@@ -1,22 +1,37 @@
+.balance-header{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    .dots{
+        display: flex;
+    }
+    .balance-search{
+        display: none;
+        border: none;
+        border-bottom: 1px solid lightgray;
+        vertical-align: super;
+        font-size: 1.1rem;
+        width: 8rem;
+        position: absolute;
+        top: 1rem;
+        right: 3rem;
+    }
+    .doubt{
+        margin-right: 1rem;
+        display: none;
+    }
+    .search{
+        margin-right: 1rem;
+    }
+}
+
 .balance-view{
     overflow-x: scroll;
     overflow-y: hidden;
     height: 100%;
 
-    // &::-webkit-scrollbar{
-    //     display: none;
-    // }
-
-    .balance-header{
-        display: flex;
-        justify-content: space-between;
-        margin-top: 1rem;
-        .dots{
-            display: flex;
-        }
-        .doubt{
-            margin-right: 1rem;
-        }
+    &::-webkit-scrollbar{
+        display: none;
     }
 
     .control-view{

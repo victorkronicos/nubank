@@ -8,6 +8,7 @@
     <title>Nubank - Treinamento KBR</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css">
     <link rel="stylesheet" href="assets/dist/css/style.min.css">
 </head>
 
@@ -55,7 +56,8 @@
                     <!-- Card Principal -->
                     <div class="main-cards" id="#main-cards">
 
-                        <div class="wrapper">
+                        <div class="wrapper my-slider">
+
                             <div class="big-card1" id="invoice-btn">
                                 <span class="credit-card"><img class="btn-img"
                                         src="assets/dist/images/icons/gray/card.png">
@@ -248,42 +250,35 @@
                             <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
                                 <p class="item-title">Supermercado</p>
-                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-desc">Armazém do Sertão</p>
                                 <p class="item-value">R$ 0,00</p>
                             </div>
                             <span class="item-date">Hoje</span>
                         </li>
+
 
                         <li class="invoice-item">
-                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                            <img class="btn-img icon" src="assets/dist/images/icons/gray/food.png">
                             <div class="invoice-content">
-                                <p class="item-title">Supermercado</p>
-                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-title">Restaurante</p>
+                                <p class="item-desc">Bar do Toninho</p>
                                 <p class="item-value">R$ 0,00</p>
                             </div>
                             <span class="item-date">Hoje</span>
                         </li>
 
+                        
                         <li class="invoice-item">
-                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
+                            <img class="btn-img icon" src="assets/dist/images/icons/gray/bus.png">
                             <div class="invoice-content">
-                                <p class="item-title">Supermercado</p>
-                                <p class="item-desc">Empório Gourmet</p>
+                                <p class="item-title">Transporte</p>
+                                <p class="item-desc">Piracicabana</p>
                                 <p class="item-value">R$ 0,00</p>
                             </div>
                             <span class="item-date">Hoje</span>
                         </li>
 
-                        <li class="invoice-item">
-                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                            <div class="invoice-content">
-                                <p class="item-title">Supermercado</p>
-                                <p class="item-desc">Empório Gourmet</p>
-                                <p class="item-value">R$ 0,00</p>
-                            </div>
-                            <span class="item-date">Hoje</span>
-                        </li>
-
+                        
                         <li class="invoice-item">
                             <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
@@ -294,6 +289,7 @@
                             <span class="item-date">Hoje</span>
                         </li>
 
+                        
                         <li class="invoice-item">
                             <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
                             <div class="invoice-content">
@@ -303,24 +299,7 @@
                             </div>
                             <span class="item-date">Hoje</span>
                         </li>
-                        <li class="invoice-item">
-                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                            <div class="invoice-content">
-                                <p class="item-title">Supermercado</p>
-                                <p class="item-desc">Empório Gourmet</p>
-                                <p class="item-value">R$ 0,00</p>
-                            </div>
-                            <span class="item-date">Hoje</span>
-                        </li>
-                        <li class="invoice-item">
-                            <img class="btn-img icon" src="assets/dist/images/icons/gray/cart.png">
-                            <div class="invoice-content">
-                                <p class="item-title">Supermercado</p>
-                                <p class="item-desc">Empório Gourmet</p>
-                                <p class="item-value">R$ 0,00</p>
-                            </div>
-                            <span class="item-date">Hoje</span>
-                        </li>
+
                     </ul>
 
                     <span class="invoice-bars">
@@ -332,18 +311,20 @@
 
             <!-- Opção Saldo -->
             <span class="d-none" id="balance-view">
-                <div class="balance-view">
-                    <div class="balance-header">
-                        <span id="balance-return"><i class="material-icons">keyboard_arrow_left</i><img
-                                src="assets/dist/images/icons/gray/coin.png" class="btn-img icon"></span>
-                        <div class="dots">
-                            <p>•</p>
-                            <p>•</p>
-                        </div>
-                        <img src="assets/dist/images/icons/gray/question.png" class="btn-img icon doubt">
+                <div class="balance-header" id="balance-header">
+                    <span id="balance-return"><i class="material-icons">keyboard_arrow_left</i><img
+                            src="assets/dist/images/icons/gray/coin.png" class="btn-img icon"></span>
+                    <div class="dots">
+                        <p>•</p>
+                        <p>•</p>
                     </div>
+                    <img src="assets/dist/images/icons/gray/question.png" id="doubt" class="btn-img icon doubt">
+                    <input placeholder="Pesquisar..." onkeyup="PesquisarTransferencias()" type="text" id="balance-search-input" class="balance-search">
+                    <img src="assets/dist/images/icons/gray/search.png" id="search" class="btn-img search">
+                </div>
+                <div class="balance-view">
 
-                    <div class="control-view">
+                    <div class="control-view" id="control-view">
                         <div class="view-1">
                             <div class="balance-info">
                                 <p class="value">R$ <b>1.500</b>,00</p>
@@ -383,46 +364,57 @@
                         </div>
 
                         <div class="view-2">
-                            <div class="transfer-news">
-                                <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
-                                <div class="transfer-data">
-                                    <p class="transfer-info">Transferência Recebida</p>
-                                    <p class="transfer-name">Marina Soares</p>
-                                    <p class="transfer-value">R$ 414,10</p>
-                                    <p class="transfer-day">sábado</p>
-                                </div>
-                            </div>
+                            <ul id="view-transfers">
+                                <li class="transfer-news">
+                                    <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
+                                    <div class="transfer-data">
+                                        <p class="transfer-info">Transferência Recebida</p>
+                                        <p class="transfer-name">Marina Soares</p>
+                                        <p class="transfer-value">R$ 414,10</p>
+                                        <p class="transfer-day">sábado</p>
+                                    </div>
+                                </li>
 
-                            <div class="transfer-news">
-                                <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
-                                <div class="transfer-data">
-                                    <p class="transfer-info">Transferência Recebida</p>
-                                    <p class="transfer-name">Marina Soares</p>
-                                    <p class="transfer-value">R$ 414,10</p>
-                                    <p class="transfer-day">sábado</p>
-                                </div>
-                            </div>
+                                <li class="transfer-news">
+                                    <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
+                                    <div class="transfer-data">
+                                        <p class="transfer-info">Transferência Recebida</p>
+                                        <p class="transfer-name">Marina Soares</p>
+                                        <p class="transfer-value">R$ 414,10</p>
+                                        <p class="transfer-day">sábado</p>
+                                    </div>
+                                </li>
 
-                            <div class="transfer-news">
-                                <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
-                                <div class="transfer-data">
-                                    <p class="transfer-info">Transferência Recebida</p>
-                                    <p class="transfer-name">Marina Soares</p>
-                                    <p class="transfer-value">R$ 414,10</p>
-                                    <p class="transfer-day">sábado</p>
-                                </div>
-                            </div>
+                                <li class="transfer-news">
+                                    <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
+                                    <div class="transfer-data">
+                                        <p class="transfer-info">Transferência Recebida</p>
+                                        <p class="transfer-name">Gabriel Lima</p>
+                                        <p class="transfer-value">R$ 519,50</p>
+                                        <p class="transfer-day">sábado</p>
+                                    </div>
+                                </li>
 
-                            <div class="transfer-news">
-                                <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
-                                <div class="transfer-data">
-                                    <p class="transfer-info">Transferência Recebida</p>
-                                    <p class="transfer-name">Marina Soares</p>
-                                    <p class="transfer-value">R$ 414,10</p>
-                                    <p class="transfer-day">sábado</p>
-                                </div>
-                            </div>
+                                <li class="transfer-news">
+                                    <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
+                                    <div class="transfer-data">
+                                        <p class="transfer-info">Transferência Recebida</p>
+                                        <p class="transfer-name">Marina Soares</p>
+                                        <p class="transfer-value">R$ 300,10</p>
+                                        <p class="transfer-day">sábado</p>
+                                    </div>
+                                </li>
 
+                                <li class="transfer-news">
+                                    <img src="assets/dist/images/icons/deposit_1.png" class="btn-card transfer-icon">
+                                    <div class="transfer-data">
+                                        <p class="transfer-info">Transferência Recebida</p>
+                                        <p class="transfer-name">Gabriel Lima</p>
+                                        <p class="transfer-value">R$ 100,00</p>
+                                        <p class="transfer-day">sábado</p>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
@@ -506,6 +498,7 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/js/all.min.js"
         data-search-pseudo-elements></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <script src="assets/dist/js/main-min.js"></script>
 </body>
 

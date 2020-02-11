@@ -15,21 +15,22 @@
     width: 100%;
     transition: bottom 2s ease-in-out;
     height: 60vh;
-    transform: translateX(398px);
+    //transform: translateX(398px);
 
     .wrapper{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 1150px;
+        width: 1150px!important;
 
         .big-card1{
             background-color: $card-bg;
-            width: 22rem;
+            width: 22rem!important;
             height: 18rem;
             border-radius: 2px;
             overflow: hidden;
             transform: scale(0.9);
+            margin-left: 2rem;
         
             .credit-card{
                 display: flex;
@@ -114,7 +115,7 @@
     
         .big-card2{
             background-color: $card-bg;
-            width: 22rem;
+            width: 22rem!important;
             height: 18rem;
             border-radius: 2px;
             overflow: hidden;
@@ -138,7 +139,7 @@
             .card-value{
                 display: block;
                 position: relative;
-                top: 3rem;
+                top: 2rem;
                 left: 1rem;
     
                 >.chart{
@@ -212,11 +213,11 @@
             .account-news{
                 background-color: $card-bottom;
                 width: 22rem;
-                height: 4.3rem;
+                height: 5.5rem;
                 display: block;
                 border-radius: 2px;
                 position: relative;
-                top: 3.2rem;
+                top: 2.2rem;
     
                 .card-value-bottom{
                     display: block;
@@ -236,7 +237,7 @@
     
         .big-card3{
             background-color: $card-bg;
-            width: 22rem;
+            width: 22rem!important;
             height: 18rem;
             border-radius: 2px;
             overflow: hidden;

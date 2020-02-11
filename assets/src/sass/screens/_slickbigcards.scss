@@ -1,7 +1,32 @@
-.siema{
-    div{
-        div{
-            width: auto!important;
+.tns-ovh {
+    overflow: visible!important;
+    position: relative;
+    left: 23rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.tns-outer{
+    width: 100%;
+}
+
+.tns-visually-hidden {
+    position: relative;
+    left: 0;
+    display: none;
+}
+
+.tns-nav{
+    display: flex;
+    justify-content: center;
+    >button{
+        transform: scale(0.7);
+        height: 12px;
+        border: 0;
+        border-radius: 25px;
+        &:not(:last-child){
+        margin-right: 0.6rem;
         }
     }
 }

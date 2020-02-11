@@ -36,3 +36,13 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 
 // Slider
+var slider = tns({
+  container: '.my-slider',
+  controls: false,
+  mouseDrag: true,
+  loop: false,
+  navPosition: 'bottom',
+  ArrowKeys: true,
+  center: true,
+  items: 1,
+});
