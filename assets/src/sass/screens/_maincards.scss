@@ -129,11 +129,17 @@
             }
         
             .money-icon{
-                font-size: 2rem;
                 color: lightgray;
                 position: relative;
                 top: 1rem;
                 left: 1rem;
+            }
+
+            .deposit{
+                color: lightgray;
+                position: relative;
+                top: 1.7rem;
+                left: 1.5rem;
             }
     
             .card-value{
@@ -223,7 +229,7 @@
                     display: block;
                     position: relative;
                     left: 4rem;
-                    bottom: 0.8rem;
+                    bottom: 0.3rem;
                     .news-description{
                         font-size: 0.9rem;
                         color: gray;
@@ -295,15 +301,18 @@
                 flex-direction: row;
                 justify-content: space-evenly;
                 align-items: center;
+
+                .bag{
+                    position: relative;
+                    right: 1rem;
+                }
                 .rewards-recent{
                     font-size: 0.9rem;
                     color: gray;
                     line-height: 1rem;
                     text-align: justify;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 100%;
+                    position: relative;
+                    right: 3rem;
                 }
             }
         }

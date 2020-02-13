@@ -55,6 +55,83 @@ orderbtn.addEventListener("click", function () {
 
 orderclose.addEventListener("click", function () {
     orderoption.classList.remove('blackscreen');
+    var ListItemOrder = document.querySelector('#list-render');
+    var ListItems = ListItemOrder.querySelectorAll('.list-item-order');
+
+    var wrapperBoxes = document.querySelector('#wrapperBoxes');
+    wrapperBoxes.innerHTML = " ";
+
+    ListItems.forEach(function(value){
+
+        var Text = value.textContent.replace('reorder', "").trim();
+        var image = 0;
+
+        switch(Text){
+                case 'Indicar amigos': 
+                    image = 'invite-home.png';
+            break;
+                case 'Recarga de celular': //2
+                    image = 'phone.png';
+            break;
+                case 'Cobrar': //3
+                    image = 'money-talk.png';
+            break;
+                case 'Empréstimos': //4
+                    image = 'money-talk.png';
+            break;
+                case 'Depositar': //5
+                    image = 'deposit.png';
+            break;
+                case 'Transferir': //6
+                    image = 'transfer.png';
+            break;
+                case 'Me Ajuda': //6
+                    image = 'help-me.png';
+            break;
+                case 'Pagar': //6
+                    image = 'bar-code.png';
+            break;
+                case 'Bloquear cartão': //6
+                    image = 'lock.png';
+            break;
+                case 'Cartão virtual': //6
+                    image = 'virtual-card.png';
+            break;
+        }
+
+        wrapperBoxes.innerHTML += `<div class="box">
+                                        <button class="btn-item" `+((Text === 'Bloquear cartão')? 'id="blockcard-btn"' : '')+`>
+                                            <img class="btn-icon" src="assets/dist/images/icons/white/`+image+`">
+                                            <p class="name-item">`+Text+`</p>
+                                        </button>
+                                    </div>`
+    });
+
+    wrapperBoxes.innerHTML += `<div class="box">
+                                    <button class="btn-item" id="order-btn">
+                                        <img class="btn-icon" src="assets/dist/images/icons/white/filter.png">
+                                        <p class="name-item">Ordenação atalhos</p>
+                                    </button>
+                                </div>`
+
+    var orderbtns = document.querySelector('#order-btn');
+
+    orderbtns.addEventListener("click", function(){
+        orderoption.classList.add('blackscreen');
+    });
+
+    var blockcardbtn = document.querySelector("#blockcard-btn");
+    var blockcard = document.querySelector("#blockcard");
+    
+    blockcardbtn.addEventListener("click", function () {
+        blockcard.classList.add('blockcard');
+    });
+    
+    blockcard.addEventListener("click", function () {
+        blockcard.classList.remove('blockcard');
+    });
+
+
 });
 
 // Função de ordenação dos icones
@@ -75,6 +152,7 @@ window.addEventListener('load', function () {
         li.classList.add('list-item-order');
         li.innerHTML += '<i class="material-icons icon-order">reorder</i></li>';
     }
+
 }, false);
 
 // Fatura Expandido
@@ -98,18 +176,66 @@ const InvoiceHide = InvoiceView.querySelector('#view-hide');
 
 for (i = 0; i < InvoiceItem.length; i++){
     InvoiceItem[i].addEventListener("click", function(){
-        // if (InvoiceHide.style.contains == "display: flex"){
-        //     InvoiceHide.style.cssText = "display: none";
-        //     InvoiceView.classList.add('grayscreen');
-        // }
-        // else{
-        //     InvoiceView.classList.er('grayscreen');  
-        // }
-
         InvoiceHide.style.cssText = "display: none";
         InvoiceView.classList.add('grayscreen');
+
+        // Exibir dinamicamente icones
+
+        var icon = this.querySelector('.icon').src;
+        var desc = this.querySelector('.item-desc').textContent;
+        var value =  this.querySelector('.item-value').textContent;
+        var date = this.querySelector('.item-date').textContent;
+        icon = icon.replace('/gray/', '/white/')
+
+        const InvoiceItemDesc = document.querySelector('.invoice-item-details');
+
+        InvoiceItemDesc.querySelector('.btn-card').src = icon;
+        InvoiceItemDesc.querySelector('.item-name').textContent = desc;
+        InvoiceItemDesc.querySelector('.item-value').textContent = value;
+        InvoiceItemDesc.querySelector('.item-data').textContent = date;
     });
 }
+
+// Fatura Tags de compra
+
+const AddTag = document.querySelector('#add-tag');
+const InputTag = document.querySelector('#input-tag');
+const InputPlus = document.querySelector('#plus-tag');
+const TagList = document.querySelector('#tag-list');
+
+AddTag.addEventListener("click", function(){
+    InputTag.style.cssText = "display: block;";
+    InputPlus.style.cssText = "display: block;";
+    InputTag.focus();
+});
+
+InputPlus.addEventListener("click", function(){
+    if (InputTag.value == ""){
+        alert('Erro! A tag não pode ser vazia!');
+        InputTag.focus();
+    }
+    else{
+        var li = document.createElement('li');
+        TagList.appendChild(li);
+        li.classList.add('tag');
+        li.textContent = InputTag.value;
+        tagname = InputTag.value;
+        InputTag.value = "";
+        InputTag.focus();
+    }
+});
+
+// // Pega a lista já cadastrada, se não houver vira um array vazio
+// var TagList = JSON.parse(localStorage.getItem('tag-list') || '[]');
+// // Adiciona tag ao cadastro
+// TagList.push({
+//     tag: tagname,
+// });
+// // Salva a lista alterada
+// localStorage.setItem("tag-list", JSON.stringify(TagList));
+// console.log('Salva com sucesso.');
+// console.log(TagList);
+
 
 // Fatura fechar compra
 
@@ -119,6 +245,7 @@ InvoiceItemBtn.addEventListener("click", function(){
     InvoiceHide.style.cssText = "display: flex";
     InvoiceView.classList.remove('grayscreen');
 });
+
 
 //Fatura opção de busca
 
@@ -228,6 +355,12 @@ RewardsReturn.addEventListener("click", function () {
     RewardsView.classList.remove('whitescreen');
 });
 
+// Arrastar e Ordenar Menu Rodapé
+
+var ListRender = document.querySelector('#list-render');
+Sortable.create(ListRender, {
+    animation: 300,
+});
 
 
 const HamburguerMenu = document.querySelector('#hamburguer-menu');
@@ -281,3 +414,13 @@ var slider = tns({
 
 
 // Slider Fatura
+var slider = tns({
+  container: '.invoice-slider',
+  controls: false,
+  mouseDrag: true,
+  loop: false,
+  navPosition: 'bottom',
+  ArrowKeys: true,
+  center: true,
+  items: 1,
+});

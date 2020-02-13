@@ -31,7 +31,7 @@
     overflow-x: scroll;
     overflow-y: hidden;
     .view-1{
-        width: 100%;
+        width: 50%;
         >.invoice-header{
             display: flex;
             justify-content: space-between;
@@ -57,30 +57,60 @@
         .invoice-info{
             display: flex;
             align-items: center;
-            flex-direction: column;
+            flex-direction: row;
             font-family: $font-secondary;
-            >.value{
-                margin-top: 2rem;
-                font-size: 2rem;
-                color: $money;
-                >b{
-                    font-weight: bold;
+            .invoice-card{
+                flex-direction: column;
+                display: flex;
+                align-items: center;
+                >.value{
+                    margin-top: 2rem;
+                    font-size: 2rem;
+                    color: $money;
+                    >b{
+                        font-weight: bold;
+                    }
                 }
-            }
-            >.due-date{
-                margin-top: 0.5rem;
-                text-transform: uppercase;
-                color: lightgray;
-            }
-            >.pay{
-                margin-top: 1.5rem;
-                border-radius: 2px;
-                border: 1px solid purple;
-                padding: 1rem 4rem;
-                background-color: transparent;
-                text-transform: uppercase;
-                font-weight: bold;
-                color: purple;
+                >.due-date{
+                    margin-top: 0.5rem;
+                    text-transform: uppercase;
+                    color: lightgray;
+                }
+                >.pay{
+                    margin-top: 1.5rem;
+                    border-radius: 2px;
+                    border: 1px solid purple;
+                    padding: 1rem 4rem;
+                    background-color: transparent;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    color: purple;
+                }
+                >.last-news{
+                    color: black;
+                    text-align: center;
+                }
+                >.value-invoice-closed{
+                    margin-top: 2rem;
+                    font-size: 2rem;
+                    color: deepskyblue;
+                    >b{
+                        font-weight: bold;
+                    }
+                }
+                >.invoice-due-date{
+                    margin-top: 0.5rem;
+                    text-transform: uppercase;
+                    color: lightgray;
+                }
+                >.invoice-avaiable-limit{
+                    margin-top: 0.5rem;
+                    color: lightgray;
+                    >b{
+                        color: $money;
+                        font-weight: bold;
+                    } 
+                }
             }
         }
     
@@ -89,6 +119,7 @@
             background: $white-dark;
             overflow-y: scroll;
             height: 68vh;
+            width: 100%;
             &::-webkit-scrollbar {
                 display: none;
             }
@@ -141,7 +172,7 @@
             width: 90px;
             padding-top: 2rem;
             background: $menu-invoice;
-            height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
             .option{
                 height: 15%;
                 .btn-icon{
@@ -201,7 +232,7 @@
 .invoice-item-details{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     .btn-return{
         position: absolute;
         margin-top: 0.5rem;
@@ -213,7 +244,7 @@
     .map{
         overflow: hidden;
         width: auto;
-        height: auto;
+        height: 25vh;
         object-fit: cover;
     }
     .purple-circle{
@@ -223,13 +254,21 @@
         align-self: center;
         position: relative;
         bottom: 2.3rem;
+        min-width: 25px;
+        max-width: 25px;
+        min-height: 26px;
+        max-height: 26px;
+        .icon-center{
+            display: block;
+            margin: auto;
+        }
     }
     .invoice-item-desc{
         display: flex;
         align-items: center;
         flex-direction: column;
         height: 20vh;
-        justify-content: space-around;
+        justify-content: space-between;
         .item-data{
             text-transform: uppercase;
             color: gray;
@@ -241,6 +280,57 @@
         }
         .item-value{
             font-size: 2rem;
+        }
+        .tags{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2rem;
+            .input-tag{
+                display: none;
+                font-size: 1.5rem;
+                margin-top: 1rem;
+                border: 0;
+                border-bottom: 1px solid lightgray;
+            }
+
+            .add-tag{
+                background: lightgray;
+                font-size: 1.1rem;
+                color: black;
+                font-weight: 400;
+                padding: 0.2rem 0.5rem;
+                &:before{
+                    content: '+ ';
+                }
+            }
+
+            .plus{
+                display: none;
+                position: relative;
+                font-size: 2rem;
+                font-weight: bold;
+                bottom: 2rem;
+                left: 8.5rem;
+                z-index: 1;
+            }
+            .tag-list{
+                display: flex;
+                width: 70%;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+                .tag{
+                    background: lightgray;
+                    font-size: 1.1rem;
+                    color: black;
+                    font-weight: 400;
+                    padding: 0.2rem 0.5rem;
+                    margin-top: 1rem;
+                    &:before{
+                        content: '#';
+                    }
+                }
+            }
         }
     }
 }
