@@ -31,7 +31,10 @@
     overflow-x: scroll;
     overflow-y: hidden;
     .view-1{
-        width: 50%;
+        width: 100%;
+        @media screen and (max-width: 991.98px) {
+            width: 50%;
+        }
         >.invoice-header{
             display: flex;
             justify-content: space-between;
@@ -147,6 +150,21 @@
                     .item-value{
                         align-self: center;
                         font-size: 1.1rem;
+                    }
+                    .item-tags{
+                        margin-top: 0.3rem;
+                        display: flex;
+                        flex-wrap: wrap;
+                        width: 100%;
+                        justify-content: center;
+                        >.tag{
+                            font-weight: bold;
+                            color: black;
+                            margin-right: 0.5rem;
+                            &:before{
+                                content: '#';
+                            }
+                        }
                     }
                 }
                 >.icon{

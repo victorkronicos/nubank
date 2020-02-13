@@ -171,12 +171,15 @@ for (i = 0; i < InvoiceItem.length; i++){
     });
 }
 
+
+
 // Fatura Tags de compra
 
 const AddTag = document.querySelector('#add-tag');
 const InputTag = document.querySelector('#input-tag');
 const InputPlus = document.querySelector('#plus-tag');
 const TagList = document.querySelector('#tag-list');
+var TagListRender = [];
 
 AddTag.addEventListener("click", function(){
     InputTag.style.cssText = "display: block;";
@@ -193,24 +196,18 @@ InputPlus.addEventListener("click", function(){
         var li = document.createElement('li');
         TagList.appendChild(li);
         li.classList.add('tag');
+        li.setAttribute("id","tag-item");
         li.textContent = InputTag.value;
         tagname = InputTag.value;
         InputTag.value = "";
         InputTag.focus();
+
+        var TagItems = "#";
+        var TagItems = TagItems + tagname;
+        TagListRender.push(TagItems);
     }
+
 });
-
-// // Pega a lista já cadastrada, se não houver vira um array vazio
-// var TagList = JSON.parse(localStorage.getItem('tag-list') || '[]');
-// // Adiciona tag ao cadastro
-// TagList.push({
-//     tag: tagname,
-// });
-// // Salva a lista alterada
-// localStorage.setItem("tag-list", JSON.stringify(TagList));
-// console.log('Salva com sucesso.');
-// console.log(TagList);
-
 
 // Fatura fechar compra
 
@@ -219,6 +216,12 @@ const InvoiceItemBtn = document.querySelector('#btn-details-return');
 InvoiceItemBtn.addEventListener("click", function(){
     InvoiceHide.style.cssText = "display: flex";
     InvoiceView.classList.remove('grayscreen');
+
+    const ItemTags = document.querySelector('#item-tags');
+    var li = document.createElement('li');
+    ItemTags.appendChild(li);
+    li.classList.add('tag');
+    li.textContent = TagListRender;
 });
 
 
