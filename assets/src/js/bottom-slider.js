@@ -1,3 +1,5 @@
+// Slider Rodapé
+
 function sliderShort() {
     const slider = document.querySelector('#wrapperBoxes');
     let isScroll = false,

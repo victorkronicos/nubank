@@ -1,3 +1,16 @@
+//Para bloquear o cartão
+const blockcardbtn = document.querySelector("#blockcard-btn");
+const blockcard = document.querySelector("#blockcard");
+
+blockcardbtn.addEventListener("click", function () {
+    blockcard.classList.add('blockcard');
+});
+
+blockcard.addEventListener("click", function () {
+    blockcard.classList.remove('blockcard');
+});
+// Slider Rodapé
+
 function sliderShort() {
     const slider = document.querySelector('#wrapperBoxes');
     let isScroll = false,
@@ -23,6 +36,167 @@ function sliderShort() {
     });
   }
   window.onload = sliderShort;
+// Fatura Expandido
+
+const InvoiceBtn = document.querySelector('#invoice-btn');
+const InvoiceView = document.querySelector('#invoice-view');
+const InvoiceReturn = document.querySelector('#invoice-return');
+
+InvoiceBtn.addEventListener("click", function (){
+    InvoiceView.classList.add('whitescreen');
+});
+
+InvoiceReturn.addEventListener("click", function(){
+    InvoiceView.classList.remove('whitescreen');
+});
+
+// Fatura Expandir compra
+const InvoiceList = document.querySelector('#invoice-list');
+const InvoiceItem = InvoiceList.querySelectorAll('.invoice-item');
+const InvoiceHide = InvoiceView.querySelector('#view-hide');
+
+var myItem;
+
+for (i = 0; i < InvoiceItem.length; i++){
+    InvoiceItem[i].addEventListener("click", function(){
+        InvoiceHide.style.cssText = "display: none";
+        InvoiceView.classList.add('grayscreen');
+        myItem = this.getElementsByClassName("item-tags")[0];
+    });
+}
+
+for (i = 0; i < InvoiceItem.length; i++){
+    InvoiceItem[i].addEventListener("click", function(){
+        //const ListTags = InvoiceItemDesc.querySelectorAll('.item-tags')[0];
+
+        var VerificaLista = this.querySelector('.item-tags').innerHTML;
+        var TagList = document.querySelector('#tag-list').innerHTML;
+
+        if(TagList.length <= 0){
+            console.log('Ta vazia');
+        }
+        else{
+            console.log('tem tag já');
+            console.log(TagList);
+            TagList = " ";
+        }
+
+
+        // console.log(VerificaLista);
+        //console.log(TagList);
+
+        // if(!MyItems.hasChildNodes()){
+        //     ListTags.innerHTML = " ";
+        //     TagListRender = Array();
+        // }
+
+    });
+}
+
+
+
+// Renderiza os Icones
+for (i = 0; i < InvoiceItem.length; i++){
+    InvoiceItem[i].addEventListener("click", function(){        
+        var icon = this.querySelector('.icon').src;
+        var desc = this.querySelector('.item-desc').textContent;
+        var value =  this.querySelector('.item-value').textContent;
+        var date = this.querySelector('.item-date').textContent;
+        icon = icon.replace('/gray/', '/white/')
+
+        const InvoiceItemDesc = document.querySelector('.invoice-item-details');
+
+        InvoiceItemDesc.querySelector('.btn-card').src = icon;
+        InvoiceItemDesc.querySelector('.item-name').textContent = desc;
+        InvoiceItemDesc.querySelector('.item-value').textContent = value;
+        InvoiceItemDesc.querySelector('.item-data').textContent = date;
+    });
+}
+
+
+
+
+// Fatura Tags de compra
+
+const AddTag = document.querySelector('#add-tag');
+const InputTag = document.querySelector('#input-tag');
+const InputPlus = document.querySelector('#plus-tag');
+const TagList = document.querySelector('#tag-list');
+
+var TagListRender = [];
+
+AddTag.addEventListener("click", function(){
+    InputTag.style.cssText = "display: block;";
+    InputPlus.style.cssText = "display: block;";
+    InputTag.focus();
+});
+
+InputPlus.addEventListener("click", function(){
+    if (InputTag.value == ""){
+        alert('Erro! A tag não pode ser vazia!');
+        InputTag.focus();
+    }
+    else{
+        var li = document.createElement('li');
+        TagList.appendChild(li);
+        li.classList.add('tag');
+        li.setAttribute("id","tag-item");
+        li.textContent = InputTag.value;
+        tagname = InputTag.value;
+        InputTag.value = "";
+        InputTag.focus();
+        TagListRender.push(tagname);
+    }
+
+});
+
+// Fatura fechar compra
+
+const InvoiceItemBtn = document.querySelector('#btn-details-return');
+
+InvoiceItemBtn.addEventListener("click", function(){
+    InvoiceHide.style.cssText = "display: flex";
+    InvoiceView.classList.remove('grayscreen');
+
+    const ItemTags = myItem;
+    ItemTags.innerHTML = " ";
+    var li = document.createElement('li');
+    ItemTags.appendChild(li);
+    li.classList.add('tag');
+    for (i = 0; i < TagListRender.length; i++){
+        li.textContent += ` #${TagListRender[i]}`;
+    }
+
+});
+
+
+//Fatura opção de busca
+
+const InvoiceSearch = document.querySelector('#invoice-search');
+const InvoiceInput = document.querySelector('#invoice-search-input');
+
+InvoiceSearch.addEventListener("click", function () {
+    InvoiceInput.style.cssText = "display: inline";
+    InvoiceInput.focus();
+});
+
+function Pesquisar() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('invoice-search-input');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('invoice-list');
+    li = ul.getElementsByTagName('li');
+
+    for (i = 0; i < li.length; i++) {
+        p = li[i].getElementsByTagName("p")[1];
+        txtValue = p.textContent || p.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
 // Para sair do Aplicativo
 const sair = document.querySelector("#sair");
 const screen = document.querySelector("#mobile-screen");
@@ -31,17 +205,8 @@ sair.addEventListener("click", function () {
     screen.classList.add('logoff');
 });
 
-//Para bloquear o cartão
-const blockcardbtn = document.querySelector("#blockcard-btn");
-const blockcard = document.querySelector("#blockcard");
 
-blockcardbtn.addEventListener("click", function () {
-    blockcard.classList.add('blockcard');
-});
 
-blockcard.addEventListener("click", function () {
-    blockcard.classList.remove('blockcard');
-});
 
 // Para Abrir a opção Organizar Icones
 const orderbtn = document.querySelector("#order-btn");
@@ -155,129 +320,25 @@ window.addEventListener('load', function () {
 
 }, false);
 
-// Fatura Expandido
+// Arrastar e Ordenar Menu Rodapé
 
-const InvoiceBtn = document.querySelector('#invoice-btn');
-const InvoiceView = document.querySelector('#invoice-view');
-const InvoiceReturn = document.querySelector('#invoice-return');
+var ListRender = document.querySelector('#list-render');
+Sortable.create(ListRender, {
+    animation: 300,
+});
+// Rewards Expandido
 
-InvoiceBtn.addEventListener("click", function (){
-    InvoiceView.classList.add('whitescreen');
+const RewardsBtn = document.querySelector('#rewards-btn');
+const RewardsView = document.querySelector('#rewards-view');
+const RewardsReturn = document.querySelector('#rewards-return');
+
+RewardsBtn.addEventListener("click", function () {
+    RewardsView.classList.add('whitescreen');
 });
 
-InvoiceReturn.addEventListener("click", function(){
-    InvoiceView.classList.remove('whitescreen');
+RewardsReturn.addEventListener("click", function () {
+    RewardsView.classList.remove('whitescreen');
 });
-
-// Fatura Expandir compra
-const InvoiceList = document.querySelector('#invoice-list');
-const InvoiceItem = InvoiceList.querySelectorAll('#invoice-item');
-const InvoiceHide = InvoiceView.querySelector('#view-hide');
-
-for (i = 0; i < InvoiceItem.length; i++){
-    InvoiceItem[i].addEventListener("click", function(){
-        InvoiceHide.style.cssText = "display: none";
-        InvoiceView.classList.add('grayscreen');
-
-        // Exibir dinamicamente icones
-
-        var icon = this.querySelector('.icon').src;
-        var desc = this.querySelector('.item-desc').textContent;
-        var value =  this.querySelector('.item-value').textContent;
-        var date = this.querySelector('.item-date').textContent;
-        icon = icon.replace('/gray/', '/white/')
-
-        const InvoiceItemDesc = document.querySelector('.invoice-item-details');
-
-        InvoiceItemDesc.querySelector('.btn-card').src = icon;
-        InvoiceItemDesc.querySelector('.item-name').textContent = desc;
-        InvoiceItemDesc.querySelector('.item-value').textContent = value;
-        InvoiceItemDesc.querySelector('.item-data').textContent = date;
-    });
-}
-
-
-
-// Fatura Tags de compra
-
-const AddTag = document.querySelector('#add-tag');
-const InputTag = document.querySelector('#input-tag');
-const InputPlus = document.querySelector('#plus-tag');
-const TagList = document.querySelector('#tag-list');
-var TagListRender = [];
-
-AddTag.addEventListener("click", function(){
-    InputTag.style.cssText = "display: block;";
-    InputPlus.style.cssText = "display: block;";
-    InputTag.focus();
-});
-
-InputPlus.addEventListener("click", function(){
-    if (InputTag.value == ""){
-        alert('Erro! A tag não pode ser vazia!');
-        InputTag.focus();
-    }
-    else{
-        var li = document.createElement('li');
-        TagList.appendChild(li);
-        li.classList.add('tag');
-        li.setAttribute("id","tag-item");
-        li.textContent = InputTag.value;
-        tagname = InputTag.value;
-        InputTag.value = "";
-        InputTag.focus();
-
-        var TagItems = "#";
-        var TagItems = TagItems + tagname;
-        TagListRender.push(TagItems);
-    }
-
-});
-
-// Fatura fechar compra
-
-const InvoiceItemBtn = document.querySelector('#btn-details-return');
-
-InvoiceItemBtn.addEventListener("click", function(){
-    InvoiceHide.style.cssText = "display: flex";
-    InvoiceView.classList.remove('grayscreen');
-
-    const ItemTags = document.querySelector('#item-tags');
-    var li = document.createElement('li');
-    ItemTags.appendChild(li);
-    li.classList.add('tag');
-    li.textContent = TagListRender;
-});
-
-
-//Fatura opção de busca
-
-const InvoiceSearch = document.querySelector('#invoice-search');
-const InvoiceInput = document.querySelector('#invoice-search-input');
-
-InvoiceSearch.addEventListener("click", function () {
-    InvoiceInput.style.cssText = "display: inline";
-    InvoiceInput.focus();
-});
-
-function Pesquisar() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById('invoice-search-input');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById('invoice-list');
-    li = ul.getElementsByTagName('li');
-
-    for (i = 0; i < li.length; i++) {
-        p = li[i].getElementsByTagName("p")[1];
-        txtValue = p.textContent || p.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-}
-
 // Saldo Opção de busca
 
 const BalanceHeader = document.querySelector("#balance-header");
@@ -343,29 +404,6 @@ BalanceBtn.addEventListener("click", function () {
 BalanceReturn.addEventListener("click", function () {
     BalanceView.classList.remove('whitescreen');
 });
-
-// Rewards Expandido
-
-const RewardsBtn = document.querySelector('#rewards-btn');
-const RewardsView = document.querySelector('#rewards-view');
-const RewardsReturn = document.querySelector('#rewards-return');
-
-RewardsBtn.addEventListener("click", function () {
-    RewardsView.classList.add('whitescreen');
-});
-
-RewardsReturn.addEventListener("click", function () {
-    RewardsView.classList.remove('whitescreen');
-});
-
-// Arrastar e Ordenar Menu Rodapé
-
-var ListRender = document.querySelector('#list-render');
-Sortable.create(ListRender, {
-    animation: 300,
-});
-
-
 const HamburguerMenu = document.querySelector('#hamburguer-menu');
 const MenuItems = document.querySelector('#toggle-menu');
 const MainCards = document.querySelector('#main-cards');
@@ -402,28 +440,27 @@ let vh = window.innerHeight * 0.01;
 // Configura o valor em --vh na raiz do documento
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-
 // Slider
 var slider = tns({
-  container: '.my-slider',
-  controls: false,
-  mouseDrag: true,
-  loop: false,
-  navPosition: 'bottom',
-  ArrowKeys: true,
-  center: true,
-  items: 1,
-});
-
-
-// Slider Fatura
-var slider = tns({
-  container: '.invoice-slider',
-  controls: false,
-  mouseDrag: true,
-  loop: false,
-  navPosition: 'bottom',
-  ArrowKeys: true,
-  center: true,
-  items: 1,
-});
+    container: '.my-slider',
+    controls: false,
+    mouseDrag: true,
+    loop: false,
+    navPosition: 'bottom',
+    ArrowKeys: true,
+    center: true,
+    items: 1,
+  });
+  
+  
+  // Slider Fatura
+  var slider = tns({
+    container: '.invoice-slider',
+    controls: false,
+    mouseDrag: true,
+    loop: false,
+    navPosition: 'bottom',
+    ArrowKeys: true,
+    center: true,
+    items: 1,
+  });
