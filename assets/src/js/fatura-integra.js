@@ -78,16 +78,17 @@ for (i = 0; i < InvoiceItem.length; i++){
     InvoiceItem[i].addEventListener("click", function(){        
         InvoiceTagsExpanded = this;
         ActualTag = InvoiceTagsExpanded.querySelector('.item-tags');
+        MyTags = ActualTag.querySelectorAll('.tag');
 
         if (ActualTag.hasChildNodes()){
-            console.log('já tem filhos');
             var TagListInclude = document.querySelector('#tag-list');
-            var li = document.createElement('li');    
-            TagListInclude.appendChild(li);
-    
-            li.classList.add('tag'); 
+            for (i = 0;MyTags.length; i++){
+                var li = document.createElement('li');
+                TagListInclude.appendChild(li);
+                li.classList.add('tag'); 
+                li.textContent = MyTags[i].textContent;
+            }
 
-            li.textContent = ActualTag.textContent;
         }
         else{
             console.log('não tem filhos');

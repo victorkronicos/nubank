@@ -1,6 +1,7 @@
 // Para sair do Aplicativo
 const SairBtn = document.querySelector("#sair");
 const Exit = document.querySelector("#exit");
+const Refresh = document.querySelector('#refresh');
 
 SairBtn.addEventListener("click", function () {
     Exit.classList.add('sair');
@@ -18,8 +19,15 @@ SairBtn.addEventListener("click", function () {
     }
     const titulo = document.querySelector('.creditos');
     typeWrite(titulo);
+
+setTimeout(function(){
+    Refresh.style.display = "block";
+}, 8000);
+
 });
 
 
 
-
+Refresh.addEventListener("click", function(){
+    location.reload();
+},false);

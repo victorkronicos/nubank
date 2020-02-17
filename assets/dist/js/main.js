@@ -116,16 +116,17 @@ for (i = 0; i < InvoiceItem.length; i++){
     InvoiceItem[i].addEventListener("click", function(){        
         InvoiceTagsExpanded = this;
         ActualTag = InvoiceTagsExpanded.querySelector('.item-tags');
+        MyTags = ActualTag.querySelectorAll('.tag');
 
         if (ActualTag.hasChildNodes()){
-            console.log('já tem filhos');
             var TagListInclude = document.querySelector('#tag-list');
-            var li = document.createElement('li');    
-            TagListInclude.appendChild(li);
-    
-            li.classList.add('tag'); 
+            for (i = 0;MyTags.length; i++){
+                var li = document.createElement('li');
+                TagListInclude.appendChild(li);
+                li.classList.add('tag'); 
+                li.textContent = MyTags[i].textContent;
+            }
 
-            li.textContent = ActualTag.textContent;
         }
         else{
             console.log('não tem filhos');
@@ -186,6 +187,7 @@ InvoiceItemBtn.addEventListener("click", function(){
 // Para sair do Aplicativo
 const SairBtn = document.querySelector("#sair");
 const Exit = document.querySelector("#exit");
+const Refresh = document.querySelector('#refresh');
 
 SairBtn.addEventListener("click", function () {
     Exit.classList.add('sair');
@@ -203,12 +205,18 @@ SairBtn.addEventListener("click", function () {
     }
     const titulo = document.querySelector('.creditos');
     typeWrite(titulo);
+
+setTimeout(function(){
+    Refresh.style.display = "block";
+}, 8000);
+
 });
 
 
 
-
-
+Refresh.addEventListener("click", function(){
+    location.reload();
+},false);
 // Para Abrir a opção Organizar Icones
 const orderbtn = document.querySelector("#order-btn");
 const orderoption = document.querySelector("#orderbtns");

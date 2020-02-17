@@ -127,3 +127,16 @@ body{
         }
     }
 }
+
+.btn-refresh{
+    border: 2px #975EB1 solid;
+    background-color: transparent;
+    padding: 1rem 3rem;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: $font-default;
+    display: block;
+    margin: auto;
+    display: none;
+}
