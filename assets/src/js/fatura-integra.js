@@ -12,10 +12,42 @@ InvoiceReturn.addEventListener("click", function(){
     InvoiceView.classList.remove('whitescreen');
 });
 
+//Fatura opção de busca
+
+const InvoiceSearch = document.querySelector('#invoice-search');
+const InvoiceInput = document.querySelector('#invoice-search-input');
+
+InvoiceSearch.addEventListener("click", function () {
+    InvoiceInput.style.cssText = "display: inline";
+    InvoiceInput.focus();
+});
+
+function Pesquisar() {
+    var input, filter, ul, li, i, txtValue;
+    input = document.getElementById('invoice-search-input');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('invoice-list');
+    li = ul.getElementsByTagName('li');
+
+    for (i = 0; i < li.length; i++) {
+        p = li[i].getElementsByTagName("p")[1];
+        txtValue = p.textContent || p.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+
+
 // Fatura Expandir compra
 const InvoiceList = document.querySelector('#invoice-list');
 const InvoiceItem = InvoiceList.querySelectorAll('.invoice-item');
 const InvoiceHide = InvoiceView.querySelector('#view-hide');
+var InvoiceTagsExpanded;
+var ActualTag;
 
 
 for (i = 0; i < InvoiceItem.length; i++){
@@ -25,49 +57,6 @@ for (i = 0; i < InvoiceItem.length; i++){
     });
 }
 
-
-// Verifica se tem Tags
-
-/* <div id="add-tag" class="add-tag">tag</div>
-<input type="text" class="input-tag" id="input-tag">
-<span class="plus" id="plus-tag">+</span>
-<ul class="tag-list" id="tag-list"> */
-
-/* <span class="item-tags" id="item-tags">
-</span> */
-
-var VerificaLista = this.querySelector('.item-tags').innerHTML;
-var TagList = document.querySelector('#tag-list').innerHTML;
-
-
-for (i = 0; i < InvoiceItem.length; i++){
-    InvoiceItem[i].addEventListener("click", function(){
-
-        if(TagList.length <= 0){
-            console.log('Ta vazia');
-        }
-        else{
-            console.log('tem tag já');
-            console.log(TagList);
-            TagList.innerHTML = " ";
-            console.log(TagList);
-        }
-
-
-        // console.log(VerificaLista);
-        //console.log(TagList);
-
-        // if(!MyItems.hasChildNodes()){
-        //     ListTags.innerHTML = " ";
-        //     TagListRender = Array();
-        // }
-
-    });
-}
-
-
-
-// Renderiza os Icones
 for (i = 0; i < InvoiceItem.length; i++){
     InvoiceItem[i].addEventListener("click", function(){        
         var icon = this.querySelector('.icon').src;
@@ -85,35 +74,34 @@ for (i = 0; i < InvoiceItem.length; i++){
     });
 }
 
-// Fatura fechar compra
+for (i = 0; i < InvoiceItem.length; i++){
+    InvoiceItem[i].addEventListener("click", function(){        
+        InvoiceTagsExpanded = this;
+        ActualTag = InvoiceTagsExpanded.querySelector('.item-tags');
 
-const InvoiceItemBtn = document.querySelector('#btn-details-return');
+        if (ActualTag.hasChildNodes()){
+            console.log('já tem filhos');
+            var TagListInclude = document.querySelector('#tag-list');
+            var li = document.createElement('li');    
+            TagListInclude.appendChild(li);
+    
+            li.classList.add('tag'); 
 
-InvoiceItemBtn.addEventListener("click", function(){
-    InvoiceHide.style.cssText = "display: flex";
-    InvoiceView.classList.remove('grayscreen');
-
-    const ItemTags = myItem;
-    ItemTags.innerHTML = " ";
-    var li = document.createElement('li');
-    ItemTags.appendChild(li);
-    li.classList.add('tag');
-    for (i = 0; i < TagListRender.length; i++){
-        li.textContent += ` #${TagListRender[i]}`;
-    }
-});
-
-
+            li.textContent = ActualTag.textContent;
+        }
+        else{
+            console.log('não tem filhos');
+        }
+    });
+}
 
 
-// Fatura Tags de compra
+// Fatura Integra Tags de compra
 
 const AddTag = document.querySelector('#add-tag');
 const InputTag = document.querySelector('#input-tag');
 const InputPlus = document.querySelector('#plus-tag');
 const TagList = document.querySelector('#tag-list');
-
-var TagListRender = [];
 
 AddTag.addEventListener("click", function(){
     InputTag.style.cssText = "display: block;";
@@ -128,42 +116,32 @@ InputPlus.addEventListener("click", function(){
     }
     else{
         var li = document.createElement('li');
-        TagList.appendChild(li);
+        var litag = document.createElement('li');
+
+        ActualTag.appendChild(li);
+        TagList.appendChild(litag);
+
+        litag.classList.add('tag');
+        litag.textContent = InputTag.value;
+        
         li.classList.add('tag');
-        li.setAttribute("id","tag-item");
         li.textContent = InputTag.value;
-        tagname = InputTag.value;
+        tagname = ActualTag.value;
         InputTag.value = "";
         InputTag.focus();
-        TagListRender.push(tagname);
     }
 });
 
+// Fatura fechar compra
 
-//Fatura opção de busca
+const InvoiceItemBtn = document.querySelector('#btn-details-return');
 
-const InvoiceSearch = document.querySelector('#invoice-search');
-const InvoiceInput = document.querySelector('#invoice-search-input');
+InvoiceItemBtn.addEventListener("click", function(){
+    InvoiceHide.style.cssText = "display: flex";
+    InvoiceView.classList.remove('grayscreen');
 
-InvoiceSearch.addEventListener("click", function () {
-    InvoiceInput.style.cssText = "display: inline";
-    InvoiceInput.focus();
+
+    InputTag.style.cssText = "display: none;";
+    InputPlus.style.cssText = "display: none;";
+    TagList.innerHTML = "";
 });
-
-function Pesquisar() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById('invoice-search-input');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById('invoice-list');
-    li = ul.getElementsByTagName('li');
-
-    for (i = 0; i < li.length; i++) {
-        p = li[i].getElementsByTagName("p")[1];
-        txtValue = p.textContent || p.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-}

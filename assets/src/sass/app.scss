@@ -89,3 +89,41 @@ body{
 .d-none1{
     display: none;
 }
+
+.sair{
+    background: $default-color;
+    position: absolute;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    z-index: 1;
+    opacity: 1;
+
+    .exit-nu{
+        width: auto;
+        height: auto;
+        display: block;
+        margin: auto;
+        transform: scale(0.5);
+    }
+
+    .creditos{
+        max-width: 480px;
+        text-align: center;
+        margin: 1rem 3rem;
+        color: #fff;
+        &:after{
+            content: '|';
+            margin-left: 5px;
+            opacity: 1;
+            animation: pisca .7s infinite;
+           }
+    }
+    @keyframes pisca{
+        0%, 100%{
+            opacity: 1;
+        }
+        50%{
+            opacity: 0;
+        }
+    }
+}

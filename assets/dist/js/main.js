@@ -50,52 +50,51 @@ InvoiceReturn.addEventListener("click", function(){
     InvoiceView.classList.remove('whitescreen');
 });
 
+//Fatura opção de busca
+
+const InvoiceSearch = document.querySelector('#invoice-search');
+const InvoiceInput = document.querySelector('#invoice-search-input');
+
+InvoiceSearch.addEventListener("click", function () {
+    InvoiceInput.style.cssText = "display: inline";
+    InvoiceInput.focus();
+});
+
+function Pesquisar() {
+    var input, filter, ul, li, i, txtValue;
+    input = document.getElementById('invoice-search-input');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('invoice-list');
+    li = ul.getElementsByTagName('li');
+
+    for (i = 0; i < li.length; i++) {
+        p = li[i].getElementsByTagName("p")[1];
+        txtValue = p.textContent || p.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+
+
 // Fatura Expandir compra
 const InvoiceList = document.querySelector('#invoice-list');
 const InvoiceItem = InvoiceList.querySelectorAll('.invoice-item');
 const InvoiceHide = InvoiceView.querySelector('#view-hide');
+var InvoiceTagsExpanded;
+var ActualTag;
 
-var myItem;
 
 for (i = 0; i < InvoiceItem.length; i++){
     InvoiceItem[i].addEventListener("click", function(){
         InvoiceHide.style.cssText = "display: none";
         InvoiceView.classList.add('grayscreen');
-        myItem = this.getElementsByClassName("item-tags")[0];
     });
 }
 
-for (i = 0; i < InvoiceItem.length; i++){
-    InvoiceItem[i].addEventListener("click", function(){
-        //const ListTags = InvoiceItemDesc.querySelectorAll('.item-tags')[0];
-
-        var VerificaLista = this.querySelector('.item-tags').innerHTML;
-        var TagList = document.querySelector('#tag-list').innerHTML;
-
-        if(TagList.length <= 0){
-            console.log('Ta vazia');
-        }
-        else{
-            console.log('tem tag já');
-            console.log(TagList);
-            TagList = " ";
-        }
-
-
-        // console.log(VerificaLista);
-        //console.log(TagList);
-
-        // if(!MyItems.hasChildNodes()){
-        //     ListTags.innerHTML = " ";
-        //     TagListRender = Array();
-        // }
-
-    });
-}
-
-
-
-// Renderiza os Icones
 for (i = 0; i < InvoiceItem.length; i++){
     InvoiceItem[i].addEventListener("click", function(){        
         var icon = this.querySelector('.icon').src;
@@ -113,17 +112,34 @@ for (i = 0; i < InvoiceItem.length; i++){
     });
 }
 
+for (i = 0; i < InvoiceItem.length; i++){
+    InvoiceItem[i].addEventListener("click", function(){        
+        InvoiceTagsExpanded = this;
+        ActualTag = InvoiceTagsExpanded.querySelector('.item-tags');
+
+        if (ActualTag.hasChildNodes()){
+            console.log('já tem filhos');
+            var TagListInclude = document.querySelector('#tag-list');
+            var li = document.createElement('li');    
+            TagListInclude.appendChild(li);
+    
+            li.classList.add('tag'); 
+
+            li.textContent = ActualTag.textContent;
+        }
+        else{
+            console.log('não tem filhos');
+        }
+    });
+}
 
 
-
-// Fatura Tags de compra
+// Fatura Integra Tags de compra
 
 const AddTag = document.querySelector('#add-tag');
 const InputTag = document.querySelector('#input-tag');
 const InputPlus = document.querySelector('#plus-tag');
 const TagList = document.querySelector('#tag-list');
-
-var TagListRender = [];
 
 AddTag.addEventListener("click", function(){
     InputTag.style.cssText = "display: block;";
@@ -138,16 +154,20 @@ InputPlus.addEventListener("click", function(){
     }
     else{
         var li = document.createElement('li');
-        TagList.appendChild(li);
+        var litag = document.createElement('li');
+
+        ActualTag.appendChild(li);
+        TagList.appendChild(litag);
+
+        litag.classList.add('tag');
+        litag.textContent = InputTag.value;
+        
         li.classList.add('tag');
-        li.setAttribute("id","tag-item");
         li.textContent = InputTag.value;
-        tagname = InputTag.value;
+        tagname = ActualTag.value;
         InputTag.value = "";
         InputTag.focus();
-        TagListRender.push(tagname);
     }
-
 });
 
 // Fatura fechar compra
@@ -158,52 +178,33 @@ InvoiceItemBtn.addEventListener("click", function(){
     InvoiceHide.style.cssText = "display: flex";
     InvoiceView.classList.remove('grayscreen');
 
-    const ItemTags = myItem;
-    ItemTags.innerHTML = " ";
-    var li = document.createElement('li');
-    ItemTags.appendChild(li);
-    li.classList.add('tag');
-    for (i = 0; i < TagListRender.length; i++){
-        li.textContent += ` #${TagListRender[i]}`;
-    }
 
+    InputTag.style.cssText = "display: none;";
+    InputPlus.style.cssText = "display: none;";
+    TagList.innerHTML = "";
 });
-
-
-//Fatura opção de busca
-
-const InvoiceSearch = document.querySelector('#invoice-search');
-const InvoiceInput = document.querySelector('#invoice-search-input');
-
-InvoiceSearch.addEventListener("click", function () {
-    InvoiceInput.style.cssText = "display: inline";
-    InvoiceInput.focus();
-});
-
-function Pesquisar() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById('invoice-search-input');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById('invoice-list');
-    li = ul.getElementsByTagName('li');
-
-    for (i = 0; i < li.length; i++) {
-        p = li[i].getElementsByTagName("p")[1];
-        txtValue = p.textContent || p.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-}
 // Para sair do Aplicativo
-const sair = document.querySelector("#sair");
-const screen = document.querySelector("#mobile-screen");
+const SairBtn = document.querySelector("#sair");
+const Exit = document.querySelector("#exit");
 
-sair.addEventListener("click", function () {
-    screen.classList.add('logoff');
+SairBtn.addEventListener("click", function () {
+    Exit.classList.add('sair');
+
+    function typeWrite(elemento){
+        const textoArray = elemento.innerHTML.split('');
+        elemento.innerHTML = ' ';
+        textoArray.forEach(function(letra, i){   
+          
+        setTimeout(function(){
+            elemento.innerHTML += letra;
+        }, 75 * i)
+    
+      });
+    }
+    const titulo = document.querySelector('.creditos');
+    typeWrite(titulo);
 });
+
 
 
 
@@ -439,6 +440,9 @@ let vh = window.innerHeight * 0.01;
 
 // Configura o valor em --vh na raiz do documento
 document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+
+
 
 // Slider
 var slider = tns({

@@ -75,7 +75,7 @@ function minJs() {
     return gulp
         .src(paths.dev.js)
         .pipe(concat('main.js'))
-        .pipe(minify())
+        // .pipe(minify())
         .pipe(gulp.dest(paths.dist.js))
 }
 
