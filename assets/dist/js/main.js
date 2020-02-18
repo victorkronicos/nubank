@@ -95,7 +95,7 @@ for (i = 0; i < InvoiceItem.length; i++){
     InvoiceItem[i].addEventListener("click", function(){        
         InvoiceTagsExpanded = this;
         ActualTag = InvoiceTagsExpanded.querySelector('.item-tags');
-        MyTags = ActualTag.querySelectorAll('.tag');
+        var MyTags = ActualTag.querySelectorAll('.tag');
 
         if (ActualTag.hasChildNodes()){
             var TagListInclude = document.querySelector('#tag-list');
@@ -103,12 +103,9 @@ for (i = 0; i < InvoiceItem.length; i++){
                 var li = document.createElement('li');
                 TagListInclude.appendChild(li);
                 li.classList.add('tag'); 
-                li.textContent = MyTags[i].textContent;
+                li.textContent = MyTags[i].textContent;  // DAR UMA ARRUMADA AQUI DEPOIS
             }
 
-        }
-        else{
-            console.log('não tem filhos');
         }
     });
 }
@@ -119,7 +116,6 @@ InvoiceInput.addEventListener("input", function(){
     var input = this.value.toUpperCase();
     var ul = document.querySelector('#invoice-list');
     var li = ul.querySelectorAll('#invoice-item');
-
     var ListarItems = Array();
 
     for (var i = 0; i < li.length; i++) {
@@ -133,7 +129,6 @@ InvoiceInput.addEventListener("input", function(){
                 break;
             }
         }
-
         li[i].style.display = "none";
     }
     
@@ -176,13 +171,38 @@ InputPlus.addEventListener("click", function(){
         InputTag.value = "";
         InputTag.focus();
     }
+
+    if(TagList.hasChildNodes())  // Se tiver filhos, entra aqui
+    {
+        TagRemove = TagList.querySelectorAll('.tag');
+
+        for (i = 0; i < TagRemove.length; i++){
+            TagRemove[i].addEventListener("click", function(){   // Adiciona evento de escutar duplo click para remover tag
+                var nametag = this.textContent;
+                this.remove(TagRemove[i]);                          // Remove o próprio elemento que recebeu o duplo clique (INTEGRA)
+                
+
+
+                SearchEqualTagList = document.querySelectorAll('.item-tags');
+                SearchEqualTagNames = SearchEqualTagList.querySelectorAll('.tag').textContent;
+
+                for (j = 0; j < SearchEqualTagNames.length; j++){
+                    if (nametag == SearchEqualTagNames[i].textContent){
+                        SearchEqualTagNames[i].remove();
+                    }
+                }
+
+            });
+        }
+    }
 });
+
 
 // Fatura fechar compra
 
-const InvoiceItemBtn = document.querySelector('#btn-details-return');
+const InvoiceItemBtn = document.querySelector('#btn-details-return'); // Seleciona o elemento com ID para fechar compra
 
-InvoiceItemBtn.addEventListener("click", function(){
+InvoiceItemBtn.addEventListener("click", function(){  // Adiciona um evento de escutar o clique no botão
     InvoiceHide.style.cssText = "display: flex";
     InvoiceView.classList.remove('grayscreen');
 
