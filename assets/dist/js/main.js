@@ -60,33 +60,12 @@ InvoiceSearch.addEventListener("click", function () {
     InvoiceInput.focus();
 });
 
-function Pesquisar() {
-    var input, filter, ul, li, i, txtValue;
-    input = document.getElementById('invoice-search-input');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById('invoice-list');
-    li = ul.getElementsByTagName('li');
-
-    for (i = 0; i < li.length; i++) {
-        p = li[i].getElementsByTagName("p")[1];
-        txtValue = p.textContent || p.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-}
-
-
-
 // Fatura Expandir compra
 const InvoiceList = document.querySelector('#invoice-list');
 const InvoiceItem = InvoiceList.querySelectorAll('.invoice-item');
 const InvoiceHide = InvoiceView.querySelector('#view-hide');
 var InvoiceTagsExpanded;
 var ActualTag;
-
 
 for (i = 0; i < InvoiceItem.length; i++){
     InvoiceItem[i].addEventListener("click", function(){
@@ -134,6 +113,34 @@ for (i = 0; i < InvoiceItem.length; i++){
     });
 }
 
+// Busca Tags
+
+InvoiceInput.addEventListener("input", function(){
+    var input = this.value.toUpperCase();
+    var ul = document.querySelector('#invoice-list');
+    var li = ul.querySelectorAll('#invoice-item');
+
+    var ListarItems = Array();
+
+    for (var i = 0; i < li.length; i++) {
+        var name = li[i].querySelector(".invoice-content").children;
+
+        for(var x = 0; x < name.length; x++){
+            var valuetocompare = name[x].textContent.toUpperCase();
+
+            if(valuetocompare.includes(input)){
+                ListarItems.push(li[i]);
+                break;
+            }
+        }
+
+        li[i].style.display = "none";
+    }
+    
+    for(var i = 0; i < ListarItems.length; i++){
+        ListarItems[i].style.display = "";
+    }
+});
 
 // Fatura Integra Tags de compra
 
@@ -184,6 +191,12 @@ InvoiceItemBtn.addEventListener("click", function(){
     InputPlus.style.cssText = "display: none;";
     TagList.innerHTML = "";
 });
+
+
+
+
+
+
 // Para sair do Aplicativo
 const SairBtn = document.querySelector("#sair");
 const Exit = document.querySelector("#exit");
