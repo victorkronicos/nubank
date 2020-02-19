@@ -29,14 +29,14 @@ const InvoiceHide = InvoiceView.querySelector('#view-hide');
 var InvoiceTagsExpanded;
 var ActualTag;
 
-for (i = 0; i < InvoiceItem.length; i++){
+for (i = 0; i < InvoiceItem.length; i++){  // Este Loop serve para adicionar a classe e "abrir" a opção do menu
     InvoiceItem[i].addEventListener("click", function(){
         InvoiceHide.style.cssText = "display: none";
         InvoiceView.classList.add('grayscreen');
     });
 }
 
-for (i = 0; i < InvoiceItem.length; i++){
+for (i = 0; i < InvoiceItem.length; i++){  // Este Loop serve para renderizar os icones na integra da fatura
     InvoiceItem[i].addEventListener("click", function(){        
         var icon = this.querySelector('.icon').src;
         var desc = this.querySelector('.item-desc').textContent;
@@ -59,15 +59,32 @@ for (i = 0; i < InvoiceItem.length; i++){
         ActualTag = InvoiceTagsExpanded.querySelector('.item-tags');
         var MyTags = ActualTag.querySelectorAll('.tag');
 
-        if (ActualTag.hasChildNodes()){
+        if (ActualTag.hasChildNodes()){ // Se a tag atual tem filhos
             var TagListInclude = document.querySelector('#tag-list');
-            for (i = 0;MyTags.length; i++){
+            for (j = 0; j < MyTags.length; j++){
                 var li = document.createElement('li');
                 TagListInclude.appendChild(li);
-                li.classList.add('tag'); 
-                li.textContent = MyTags[i].textContent;  // DAR UMA ARRUMADA AQUI DEPOIS
+                li.classList.add('tag');
+                li.textContent = MyTags[j].textContent;  // DAR UMA ARRUMADA AQUI DEPOIS
             }
+            
+            TagRemove = TagListInclude.querySelectorAll('.tag');
 
+            for (i = 0; i < TagRemove.length; i++){
+                TagRemove[i].addEventListener("click", function(){   // Adiciona evento de escutar click para remover tag
+                    var nametag = this.textContent;
+                    this.remove(TagRemove[i]);                          // Remove o próprio elemento que recebeu o duplo clique (INTEGRA)
+                    
+                    
+                    SearchEqualTagNames = document.querySelectorAll('.tag');
+                    
+                    for (j = 0; j < SearchEqualTagNames.length; j++){ 
+                        if (nametag == SearchEqualTagNames[j].textContent){
+                            SearchEqualTagNames[j].remove();
+                        }
+                    }
+                });
+            }
         }
     });
 }
@@ -106,13 +123,13 @@ const InputTag = document.querySelector('#input-tag');
 const InputPlus = document.querySelector('#plus-tag');
 const TagList = document.querySelector('#tag-list');
 
-AddTag.addEventListener("click", function(){
+AddTag.addEventListener("click", function(){ // Abre o input para adicionar TAGS
     InputTag.style.cssText = "display: block;";
     InputPlus.style.cssText = "display: block;";
     InputTag.focus();
 });
 
-InputPlus.addEventListener("click", function(){
+InputPlus.addEventListener("click", function(){ // Evento de Adicionar TAG
     if (InputTag.value == ""){
         alert('Erro! A tag não pode ser vazia!');
         InputTag.focus();
@@ -143,22 +160,17 @@ InputPlus.addEventListener("click", function(){
                 var nametag = this.textContent;
                 this.remove(TagRemove[i]);                          // Remove o próprio elemento que recebeu o duplo clique (INTEGRA)
                 
-
-
-                SearchEqualTagList = document.querySelectorAll('.item-tags');
-                SearchEqualTagNames = SearchEqualTagList.querySelectorAll('.tag').textContent;
-
-                for (j = 0; j < SearchEqualTagNames.length; j++){
-                    if (nametag == SearchEqualTagNames[i].textContent){
-                        SearchEqualTagNames[i].remove();
+                SearchEqualTagNames = document.querySelectorAll('.tag');
+                
+                for (j = 0; j < SearchEqualTagNames.length; j++){ 
+                    if (nametag == SearchEqualTagNames[j].textContent){
+                        SearchEqualTagNames[j].remove();
                     }
                 }
-
             });
         }
     }
 });
-
 
 // Fatura fechar compra
 
