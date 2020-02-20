@@ -34,5 +34,12 @@ let vh = window.innerHeight * 0.01;
 // Configura o valor em --vh na raiz do documento
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
+// Barra Indicativa da Fatura
+
+var app = document.querySelector(".container-app");
+
+const right = window.getComputedStyle(app).marginRight;
+  document.documentElement.style.setProperty('--right', `${right}`);
+
 
 

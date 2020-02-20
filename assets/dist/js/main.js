@@ -100,10 +100,10 @@ for (i = 0; i < InvoiceItem.length; i++){
         if (ActualTag.hasChildNodes()){ // Se a tag atual tem filhos
             var TagListInclude = document.querySelector('#tag-list');
             for (j = 0; j < MyTags.length; j++){
-                var li = document.createElement('li');
+                var li = document.createElement('span');
                 TagListInclude.appendChild(li);
                 li.classList.add('tag');
-                li.textContent = MyTags[j].textContent;  // DAR UMA ARRUMADA AQUI DEPOIS
+                li.textContent = MyTags[j].textContent;
             }
             
             TagRemove = TagListInclude.querySelectorAll('.tag');
@@ -173,8 +173,8 @@ InputPlus.addEventListener("click", function(){ // Evento de Adicionar TAG
         InputTag.focus();
     }
     else{
-        var li = document.createElement('li');
-        var litag = document.createElement('li');
+        var li = document.createElement('span');
+        var litag = document.createElement('span');
 
         ActualTag.appendChild(li);
         TagList.appendChild(litag);
@@ -493,6 +493,13 @@ let vh = window.innerHeight * 0.01;
 
 // Configura o valor em --vh na raiz do documento
 document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+// Barra Indicativa da Fatura
+
+var app = document.querySelector(".container-app");
+
+const right = window.getComputedStyle(app).marginRight;
+  document.documentElement.style.setProperty('--right', `${right}`);
 
 
 

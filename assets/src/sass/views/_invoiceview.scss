@@ -2,7 +2,7 @@
     background: white;
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: 1;
     opacity: 1;
 }
@@ -11,7 +11,7 @@
     background: white;
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: 2;
     opacity: 1;
 }
@@ -32,6 +32,7 @@
     overflow-y: hidden;
     .view-1{
         width: 100%;
+        height: 100%;
         @media screen and (max-width: 991.98px) {
             width: 50%;
         }
@@ -39,13 +40,15 @@
             display: flex;
             justify-content: space-between;
             margin-top: 1rem;
+            height: calc(var(--vh, 1vh) * 1);
             .return{
-                // margin-left: 1rem;
                 display: flex;
                 align-items: center;
             }
             .search{
                 margin-right: 1rem;
+                display: flex;
+                align-items: center;
             }
             .invoice-search{
                 display: none;
@@ -117,63 +120,64 @@
             }
         }
     
-        .invoice-list{
-            margin-top: 1rem;
-            background: $white-dark;
-            overflow-y: scroll;
-            height: 68vh;
-            width: 100%;
-            &::-webkit-scrollbar {
-                display: none;
-            }
-            .invoice-item{
-                padding-top: 1rem;
-                padding-bottom: 1rem;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                border-bottom: 1px solid #e6e6e6;
-                align-items: center;
-                .invoice-content{
+        .container-invoice{
+            height: calc(var(--vh, 1vh) * 60);
+            .invoice-list{
+                background: $white-dark;
+                overflow-y: scroll;
+                height: 100%;
+                width: 100%;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                .invoice-item{
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    border-bottom: 1px solid #e6e6e6;
                     align-items: center;
-                    width: 100%;
-                    .item-title{
-                        font-size: 0.9rem;
-                        align-self: center;
-                    }
-                    .item-desc{
-                        font-size: 1.2rem;
-                        align-self: center;
-                    }
-                    .item-value{
-                        align-self: center;
-                        font-size: 1.1rem;
-                    }
-                    .item-tags{
-                        margin-top: 0.3rem;
+                    min-height: 20%;
+                    .invoice-content{
                         display: flex;
-                        flex-wrap: wrap;
+                        flex-direction: column;
+                        align-items: center;
                         width: 100%;
-                        justify-content: center;
-                        >.tag{
-                            font-weight: bold;
-                            color: black;
-                            margin-right: 0.5rem;
-                            &:before{
-                                content: '#';
+                        .item-title{
+                            font-size: 0.9rem;
+                            align-self: center;
+                        }
+                        .item-desc{
+                            font-size: 1.2rem;
+                            align-self: center;
+                        }
+                        .item-value{
+                            align-self: center;
+                            font-size: 1.1rem;
+                        }
+                        .item-tags{
+                            margin-top: 0.3rem;
+                            display: flex;
+                            flex-wrap: wrap;
+                            width: 100%;
+                            justify-content: center;
+                            >.tag{
+                                font-weight: bold;
+                                color: black;
+                                margin-right: 0.5rem;
+                                &:before{
+                                    content: '#';
+                                }
                             }
                         }
                     }
-                }
-                >.icon{
-                    margin-left: 1rem;
-                }
-                .item-date{
-                    margin-right: 1rem;
-                    font-size: 0.9rem;
-                    color: gray;
+                    >.icon{
+                        margin-left: 1rem;
+                    }
+                    .item-date{
+                        margin-right: 1rem;
+                        font-size: 0.9rem;
+                        color: gray;
+                    }
                 }
             }
         }
@@ -236,27 +240,29 @@
             }
         }
     }
-
-    .green-bar{
-        background-color: $money;
-        width: 12px;
+    .bars{
+        width: 0.7rem;
         height: 100%;
-        position: relative;
-        left: 16px;
-    }
-    .orange-bar{
-        background-color: orange;
-        width: 11px;
-        height: 55%;
-        position: relative;
-        left: 8px;
-    }
-    .red-bar{
-        background-color: red;
-        width: 10px;
-        height: 5.7rem;
         display: block;
-        position: relative;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        right: var(--right);
+        .green-bar{
+            background-color: $money;
+            height: 100%;
+            display: block;        
+        }
+        .orange-bar{
+            background-color: orange;
+            height: 20%;
+            display: block;
+        }
+        .red-bar{
+            background-color: red;
+            height: 40%;
+            display: block;        
+        }
     }
 }
 
