@@ -105,7 +105,24 @@
                 width: 0.5rem;
                 height: 13.7rem;
                 display: block;
-                border-radius: 2px;
+                position: relative;
+                bottom: 12.2rem;
+                left: 21.5rem;
+            }
+            .invoice-orange{
+                background-color: orange;
+                width: 0.5rem;
+                height: 3.7rem;
+                display: block;
+                position: relative;
+                bottom: 12.2rem;
+                left: 21.5rem;
+            }
+            .invoice-red{
+                background-color: red;
+                width: 0.5rem;
+                height: 7.7rem;
+                display: block;
                 position: relative;
                 bottom: 12.2rem;
                 left: 21.5rem;

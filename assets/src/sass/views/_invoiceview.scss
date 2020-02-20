@@ -239,10 +239,24 @@
 
     .green-bar{
         background-color: $money;
+        width: 12px;
+        height: 100%;
+        position: relative;
+        left: 16px;
+    }
+    .orange-bar{
+        background-color: orange;
+        width: 11px;
+        height: 55%;
+        position: relative;
+        left: 8px;
+    }
+    .red-bar{
+        background-color: red;
         width: 10px;
-        height: calc(var(--vh, 1vh) * 100);
-        border-radius: 2px;
-        position: fixed;
+        height: 5.7rem;
+        display: block;
+        position: relative;
     }
 }
 
