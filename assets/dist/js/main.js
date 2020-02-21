@@ -224,11 +224,13 @@ InvoiceItemBtn.addEventListener("click", function(){  // Adiciona um evento de e
     TagList.innerHTML = "";
 });
 
+// Fatura mudar a view
+var BarView = document.querySelector('#bar-view');
+var view1 = InvoiceHide.querySelector('.view-1');
 
-
-
-
-
+BarView.addEventListener("click", function(){
+    view1.classList.toggle('close-view');
+});
 // Para sair do Aplicativo
 const SairBtn = document.querySelector("#sair");
 const Exit = document.querySelector("#exit");
@@ -475,11 +477,11 @@ function CardsBottom (){
 
 
 HamburguerMenu.addEventListener('click', function(e) {
-  MenuItems.classList.toggle('show');
-  if(MenuItems.classList.contains('show')) {
-    Arrow.style.transform = 'rotate(180deg)';
-  } else {
+  MenuItems.classList.toggle('invisible');
+  if(MenuItems.classList.contains('invisible')) {
     Arrow.style.transform = 'rotate(0deg)';
+  } else {
+    Arrow.style.transform = 'rotate(180deg)';
   }
   CardPrincipal();
   CardsBottom();
@@ -514,6 +516,8 @@ var slider = tns({
     ArrowKeys: true,
     center: true,
     items: 1,
+    swipeAngle: false,
+    speed: 400,
   });
   
   
@@ -527,4 +531,6 @@ var slider = tns({
     ArrowKeys: true,
     center: true,
     items: 1,
+    swipeAngle: false,
+    speed: 400,
   });

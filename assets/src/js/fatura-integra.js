@@ -186,7 +186,10 @@ InvoiceItemBtn.addEventListener("click", function(){  // Adiciona um evento de e
     TagList.innerHTML = "";
 });
 
+// Fatura mudar a view
+var BarView = document.querySelector('#bar-view');
+var view1 = InvoiceHide.querySelector('.view-1');
 
-
-
-
+BarView.addEventListener("click", function(){
+    view1.classList.toggle('close-view');
+});

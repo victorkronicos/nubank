@@ -5,7 +5,7 @@
     animation-fill-mode: forwards;
     left: 1rem;
     width: 30%;
-    height: 20vh;
+    height: calc(var(--vh, 1vh) * 20);
     @keyframes bottomcards {
       0%{
         left: 30rem;
@@ -19,6 +19,11 @@
       100%{
         left: 0rem;
       }
+    }
+
+    @media(min-width: 465px) {
+      display: flex;
+      align-items: center;
     }
 
 

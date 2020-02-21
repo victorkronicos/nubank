@@ -15,11 +15,11 @@ function CardsBottom (){
 
 
 HamburguerMenu.addEventListener('click', function(e) {
-  MenuItems.classList.toggle('show');
-  if(MenuItems.classList.contains('show')) {
-    Arrow.style.transform = 'rotate(180deg)';
-  } else {
+  MenuItems.classList.toggle('invisible');
+  if(MenuItems.classList.contains('invisible')) {
     Arrow.style.transform = 'rotate(0deg)';
+  } else {
+    Arrow.style.transform = 'rotate(180deg)';
   }
   CardPrincipal();
   CardsBottom();

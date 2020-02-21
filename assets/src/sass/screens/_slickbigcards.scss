@@ -23,10 +23,13 @@
         >button{
             transform: scale(0.7);
             height: 12px;
+            width: 12px;
+            padding: 0;
             border: 0;
-            border-radius: 25px;
+            border-radius: 100%;
+            background-color: #fff;
             &:not(:last-child){
-            margin-right: 0.6rem;
+            margin-right: 0.875rem;
             }
         }
     }
@@ -34,12 +37,13 @@
 
 .view-1{
     .tns-outer{
-        width: 100%;
+        width: 90%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         height: calc(var(--vh, 1vh) * 39);
+        margin: 0 5%;
         .tns-nav{
             display: flex;
             justify-content: center;
@@ -52,10 +56,13 @@
         >button{
             transform: scale(0.7);
             height: 12px;
+            width: 12px;
+            padding: 0;
             border: 0;
-            border-radius: 25px;
+            border-radius: 100%;
+            background-color: lightgray;
             &:not(:last-child){
-            margin-right: 0.6rem;
+            margin-right: 0.875rem;
             }
         }
     }
