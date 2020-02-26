@@ -115,4 +115,6 @@ BalanceDot2.addEventListener("click", function(){
     }
 });
 
+//teste
+
 
