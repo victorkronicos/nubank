@@ -4,8 +4,8 @@
     transition: bottom 2s;
     animation-fill-mode: forwards;
     left: 1rem;
-    width: 400px;
-    height: 20vh;
+    width: 30%;
+    height: calc(var(--vh, 1vh) * 20);
     @keyframes bottomcards {
       0%{
         left: 30rem;
@@ -21,23 +21,30 @@
       }
     }
 
+    @media(min-width: 465px) {
+      display: flex;
+      align-items: center;
+    }
+
 
     .bottom-list{
         display: flex!important;
         flex-direction: row!important;
         overflow-y: hidden;
         overflow-x: scroll;
+        scroll-behavior: smooth;
         &::-webkit-scrollbar {
           display: none;
       }
     }
     .btn-item{
-        margin-left: 1.5rem;
+        margin-left: 0.6rem;
         border: 0;
         border-radius: 5px;
         background: $bottom-bg;
         height: 6rem;
         max-height: 6rem;
+        cursor: grab;
         width: 6rem;
         max-width: 6rem;
         box-shadow: 1px 1px 5px -6px black;
@@ -65,6 +72,10 @@
 
 .hide2{
   bottom: -65vh;
+}
+
+.bottom-active{
+  cursor: grabbing;
 }
 
 

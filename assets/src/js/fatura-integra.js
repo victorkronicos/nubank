@@ -12,63 +12,31 @@ InvoiceReturn.addEventListener("click", function(){
     InvoiceView.classList.remove('whitescreen');
 });
 
+//Fatura opção de busca
+
+const InvoiceSearch = document.querySelector('#invoice-search');
+const InvoiceInput = document.querySelector('#invoice-search-input');
+
+InvoiceSearch.addEventListener("click", function () {
+    InvoiceInput.style.cssText = "display: inline";
+    InvoiceInput.focus();
+});
+
 // Fatura Expandir compra
 const InvoiceList = document.querySelector('#invoice-list');
 const InvoiceItem = InvoiceList.querySelectorAll('.invoice-item');
 const InvoiceHide = InvoiceView.querySelector('#view-hide');
+var InvoiceTagsExpanded;
+var ActualTag;
 
-
-for (i = 0; i < InvoiceItem.length; i++){
+for (i = 0; i < InvoiceItem.length; i++){  // Este Loop serve para adicionar a classe e "abrir" a opção do menu
     InvoiceItem[i].addEventListener("click", function(){
         InvoiceHide.style.cssText = "display: none";
         InvoiceView.classList.add('grayscreen');
     });
 }
 
-
-// Verifica se tem Tags
-
-/* <div id="add-tag" class="add-tag">tag</div>
-<input type="text" class="input-tag" id="input-tag">
-<span class="plus" id="plus-tag">+</span>
-<ul class="tag-list" id="tag-list"> */
-
-/* <span class="item-tags" id="item-tags">
-</span> */
-
-var VerificaLista = this.querySelector('.item-tags').innerHTML;
-var TagList = document.querySelector('#tag-list').innerHTML;
-
-
-for (i = 0; i < InvoiceItem.length; i++){
-    InvoiceItem[i].addEventListener("click", function(){
-
-        if(TagList.length <= 0){
-            console.log('Ta vazia');
-        }
-        else{
-            console.log('tem tag já');
-            console.log(TagList);
-            TagList.innerHTML = " ";
-            console.log(TagList);
-        }
-
-
-        // console.log(VerificaLista);
-        //console.log(TagList);
-
-        // if(!MyItems.hasChildNodes()){
-        //     ListTags.innerHTML = " ";
-        //     TagListRender = Array();
-        // }
-
-    });
-}
-
-
-
-// Renderiza os Icones
-for (i = 0; i < InvoiceItem.length; i++){
+for (i = 0; i < InvoiceItem.length; i++){  // Este Loop serve para renderizar os icones na integra da fatura
     InvoiceItem[i].addEventListener("click", function(){        
         var icon = this.querySelector('.icon').src;
         var desc = this.querySelector('.item-desc').textContent;
@@ -85,85 +53,165 @@ for (i = 0; i < InvoiceItem.length; i++){
     });
 }
 
-// Fatura fechar compra
+for (i = 0; i < InvoiceItem.length; i++){
+    InvoiceItem[i].addEventListener("click", function(){        
+        InvoiceTagsExpanded = this;
+        ActualTag = InvoiceTagsExpanded.querySelector('.item-tags');
+        var MyTags = ActualTag.querySelectorAll('.tag');
 
-const InvoiceItemBtn = document.querySelector('#btn-details-return');
+        if (ActualTag.hasChildNodes()){ // Se a tag atual tem filhos
+            var TagListInclude = document.querySelector('#tag-list');
+            for (j = 0; j < MyTags.length; j++){
+                var li = document.createElement('span');
+                TagListInclude.appendChild(li);
+                li.classList.add('tag');
+                li.textContent = MyTags[j].textContent;
+            }
+            
+            TagRemove = TagListInclude.querySelectorAll('.tag');
 
-InvoiceItemBtn.addEventListener("click", function(){
-    InvoiceHide.style.cssText = "display: flex";
-    InvoiceView.classList.remove('grayscreen');
+            for (i = 0; i < TagRemove.length; i++){
+                TagRemove[i].addEventListener("click", function(){   // Adiciona evento de escutar click para remover tag
+                    var nametag = this.textContent;
+                    this.remove(TagRemove[i]);                          // Remove o próprio elemento que recebeu o duplo clique (INTEGRA)
+                    
+                    
+                    SearchEqualTagNames = document.querySelectorAll('.tag');
+                    
+                    for (j = 0; j < SearchEqualTagNames.length; j++){ 
+                        if (nametag == SearchEqualTagNames[j].textContent){
+                            SearchEqualTagNames[j].remove();
+                        }
+                    }
+                });
+            }
+        }
+    });
+}
 
-    const ItemTags = myItem;
-    ItemTags.innerHTML = " ";
-    var li = document.createElement('li');
-    ItemTags.appendChild(li);
-    li.classList.add('tag');
-    for (i = 0; i < TagListRender.length; i++){
-        li.textContent += ` #${TagListRender[i]}`;
+// Busca Tags
+
+InvoiceInput.addEventListener("input", function(){
+    var input = this.value.toUpperCase();
+    var ul = document.querySelector('#invoice-list');
+    var li = ul.querySelectorAll('#invoice-item');
+    var ListarItems = Array();
+
+    for (var i = 0; i < li.length; i++) {
+        var name = li[i].querySelector(".invoice-content").children;
+
+        for(var x = 0; x < name.length; x++){
+            var valuetocompare = name[x].textContent.toUpperCase();
+
+            if(valuetocompare.includes(input)){
+                ListarItems.push(li[i]);
+                break;
+            }
+        }
+        li[i].style.display = "none";
+    }
+    
+    for(var i = 0; i < ListarItems.length; i++){
+        ListarItems[i].style.display = "";
     }
 });
 
-
-
-
-// Fatura Tags de compra
+// Fatura Integra Tags de compra
 
 const AddTag = document.querySelector('#add-tag');
 const InputTag = document.querySelector('#input-tag');
 const InputPlus = document.querySelector('#plus-tag');
 const TagList = document.querySelector('#tag-list');
 
-var TagListRender = [];
-
-AddTag.addEventListener("click", function(){
+AddTag.addEventListener("click", function(){ // Abre o input para adicionar TAGS
     InputTag.style.cssText = "display: block;";
     InputPlus.style.cssText = "display: block;";
     InputTag.focus();
 });
 
-InputPlus.addEventListener("click", function(){
+InputPlus.addEventListener("click", function(){ // Evento de Adicionar TAG
     if (InputTag.value == ""){
         alert('Erro! A tag não pode ser vazia!');
         InputTag.focus();
     }
     else{
-        var li = document.createElement('li');
-        TagList.appendChild(li);
+        var li = document.createElement('span');
+        var litag = document.createElement('span');
+
+        ActualTag.appendChild(li);
+        TagList.appendChild(litag);
+
+        litag.classList.add('tag');
+        litag.textContent = InputTag.value;
+        
         li.classList.add('tag');
-        li.setAttribute("id","tag-item");
         li.textContent = InputTag.value;
-        tagname = InputTag.value;
+        tagname = ActualTag.value;
         InputTag.value = "";
         InputTag.focus();
-        TagListRender.push(tagname);
     }
-});
 
+    if(TagList.hasChildNodes())  // Se tiver filhos, entra aqui
+    {
+        TagRemove = TagList.querySelectorAll('.tag');
 
-//Fatura opção de busca
-
-const InvoiceSearch = document.querySelector('#invoice-search');
-const InvoiceInput = document.querySelector('#invoice-search-input');
-
-InvoiceSearch.addEventListener("click", function () {
-    InvoiceInput.style.cssText = "display: inline";
-    InvoiceInput.focus();
-});
-
-function Pesquisar() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById('invoice-search-input');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById('invoice-list');
-    li = ul.getElementsByTagName('li');
-
-    for (i = 0; i < li.length; i++) {
-        p = li[i].getElementsByTagName("p")[1];
-        txtValue = p.textContent || p.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
+        for (i = 0; i < TagRemove.length; i++){
+            TagRemove[i].addEventListener("click", function(){   // Adiciona evento de escutar duplo click para remover tag
+                var nametag = this.textContent;
+                this.remove(TagRemove[i]);                          // Remove o próprio elemento que recebeu o duplo clique (INTEGRA)
+                
+                SearchEqualTagNames = document.querySelectorAll('.tag');
+                
+                for (j = 0; j < SearchEqualTagNames.length; j++){ 
+                    if (nametag == SearchEqualTagNames[j].textContent){
+                        SearchEqualTagNames[j].remove();
+                    }
+                }
+            });
         }
     }
-}
+});
+
+// Fatura fechar compra
+
+const InvoiceItemBtn = document.querySelector('#btn-details-return'); // Seleciona o elemento com ID para fechar compra
+
+InvoiceItemBtn.addEventListener("click", function(){  // Adiciona um evento de escutar o clique no botão
+    InvoiceHide.style.cssText = "display: flex";
+    InvoiceView.classList.remove('grayscreen');
+
+
+    InputTag.style.cssText = "display: none;";
+    InputPlus.style.cssText = "display: none;";
+    TagList.innerHTML = "";
+});
+
+// Fatura mudar a view
+
+const ViewControl = document.querySelector('#invoice-view');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+ViewControl.addEventListener('mousedown', (e) => {
+    isDown = true;
+    ViewControl.classList.add('invoice-active');
+    startX = e.pageX - ViewControl.offsetLeft;
+    scrollLeft = ViewControl.scrollLeft;
+});
+ViewControl.addEventListener('mouseleave', () => {
+    isDown = false;
+    ViewControl.classList.remove('invoice-active');
+});
+ViewControl.addEventListener('mouseup', () => {
+    isDown = false;
+    ViewControl.classList.remove('invoice-active');
+});
+ViewControl.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - ViewControl.offsetLeft;
+    const walk = (x - startX) * 2; //scroll-fast
+    ViewControl.scrollLeft = scrollLeft - walk;
+});
+

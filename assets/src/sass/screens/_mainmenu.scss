@@ -5,8 +5,8 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  animation: maincards 5s;
-  animation-delay: 3s;
+  animation: maincards 4s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
   @keyframes maincards {
     0%{
@@ -27,12 +27,11 @@
   .flex-menu{
     display:flex;
     flex-direction: column;
-    width: 35%;
     align-items: center;
     .list-block {
-      max-height: 0;
+      max-height: 100vh;
       overflow: hidden;
-      transition: max-height 1s ease-in-out;
+      transition: all 1s ease-in-out;
       width: 100%;
 
       .qr-block{
@@ -108,7 +107,6 @@
     background: transparent;
     border: none;
     animation: hamburguer 5s;
-    animation-delay: 3s;
     animation-fill-mode: forwards;
     opacity: 0;
     @keyframes hamburguer {
@@ -163,7 +161,12 @@
     }
   }
 
-.show{
-  max-height: 100vh!important;
-  overflow: visible;
+// .show{
+//   height: 80vh !important;
+//     max-height: 80vh !important;
+//     overflow: visible;
+// }
+
+.invisible {
+  max-height: 0 !important;
 }

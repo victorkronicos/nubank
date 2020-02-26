@@ -63,3 +63,56 @@ BalanceBtn.addEventListener("click", function () {
 BalanceReturn.addEventListener("click", function () {
     BalanceView.classList.remove('whitescreen');
 });
+
+// Controle da View
+
+const DragView = document.querySelector('#control-view');
+let itsdown = false;
+let viewx;
+let scrollableleft;
+
+DragView.addEventListener('mousedown', (e) => {
+    itsdown = true;
+    DragView.classList.add('active');
+    viewx = e.pageX - DragView.offsetLeft;
+    scrollableleft = DragView.scrollableleft;
+});
+DragView.addEventListener('mouseleave', () => {
+    itsdown = false;
+    DragView.classList.remove('active');
+});
+DragView.addEventListener('mouseup', () => {
+    itsdown = false;
+    DragView.classList.remove('active');
+});
+DragView.addEventListener('mousemove', (e) => {
+    if(!itsdown) return;
+    e.preventDefault();
+    const x = e.pageX - DragView.offsetLeft;
+    const walk = (x - viewx) * 2; //scroll-fast
+    DragView.scrollableleft = scrollableleft - walk;
+});
+
+// View Dots
+
+var BalanceDot1 = document.querySelector('#balance-dots1');
+var BalanceDot2 = document.querySelector('#balance-dots2');
+var doubt = document.querySelector('#doubt');
+var search = document.querySelector('#search');
+
+
+BalanceDot1.addEventListener("click", function(){
+
+    if (ControlView.classList.contains('toggle-balance')){
+        ControlView.classList.remove('toggle-balance');
+    }
+});
+
+BalanceDot2.addEventListener("click", function(){
+
+    if (!ControlView.classList.contains('toggle-balance')){
+        ControlView.classList.add('toggle-balance');
+    }
+});
+
+

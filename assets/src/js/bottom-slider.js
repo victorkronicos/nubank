@@ -1,27 +1,20 @@
-// Slider Rodapé
+const BottomSlider = document.querySelector('#wrapperBoxes');
+var isScroll = false, left, posInitial, posX, scroll;
 
-function sliderShort() {
-    const slider = document.querySelector('#wrapperBoxes');
-    let isScroll = false,
-        left,
-        posInitial,
-        posX,
-        scroll;
-    slider.addEventListener('mousedown', (e) => {
-      isScroll = true;
-      posInitial = e.pageX - slider.offsetLeft;
-      left = slider.scrollLeft;
-    });
-    slider.addEventListener('mousemove', (e) => {
-      e.preventDefault();
-      if(isScroll) {
-        posX = e.pageX - slider.offsetLeft;
-        scroll = posX - posInitial;
-        slider.scrollLeft = left - scroll;
-      }
-    });
-    slider.addEventListener('mouseup', (e) => {
-      isScroll = false;
-    });
+BottomSlider.addEventListener('mousedown', (e) => {
+  isScroll = true;
+  posInitial = e.pageX - BottomSlider.offsetLeft;
+  left = BottomSlider.scrollLeft;
+});
+BottomSlider.addEventListener('mousemove', (e) => {
+  e.preventDefault();
+  if (isScroll) {
+    posX = e.pageX - BottomSlider.offsetLeft;
+    scroll = posX - posInitial;
+    BottomSlider.scrollLeft = left - scroll;
   }
-  window.onload = sliderShort;
+});
+BottomSlider.addEventListener('mouseup', (e) => {
+  isScroll = false;
+});
+

@@ -4,24 +4,21 @@
     justify-content: center;
     margin: auto;
     position: relative;
-    left: 0;
-    //background-color: red;
-    animation: slide-left 2s;
-    animation-delay: 5s;
+    animation: fade-in 1s;
+    animation-delay: 2s;
     animation-fill-mode: forwards;
-    @keyframes slide-left {
+    @keyframes fade-in {
         0%{
-            left: 0;
+            opacity: 1.0;
         }
         100%{
-            left: -27rem;
+            opacity: 0.0;
         }
     }
 
     .splash-nu{
         transform:scale(0.8);
-        animation: splash 5s;
-        animation-delay: 1s;
+        animation: splash 4s;
         animation-fill-mode: forwards;
 
             @keyframes splash {

@@ -15,11 +15,11 @@ function CardsBottom (){
 
 
 HamburguerMenu.addEventListener('click', function(e) {
-  MenuItems.classList.toggle('show');
-  if(MenuItems.classList.contains('show')) {
-    Arrow.style.transform = 'rotate(180deg)';
-  } else {
+  MenuItems.classList.toggle('invisible');
+  if(MenuItems.classList.contains('invisible')) {
     Arrow.style.transform = 'rotate(0deg)';
+  } else {
+    Arrow.style.transform = 'rotate(180deg)';
   }
   CardPrincipal();
   CardsBottom();
@@ -33,3 +33,13 @@ let vh = window.innerHeight * 0.01;
 
 // Configura o valor em --vh na raiz do documento
 document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+// Barra Indicativa da Fatura
+
+var app = document.querySelector(".container-app");
+
+const right = window.getComputedStyle(app).marginRight;
+  document.documentElement.style.setProperty('--right', `${right}`);
+
+
+

@@ -8,6 +8,8 @@ var slider = tns({
     ArrowKeys: true,
     center: true,
     items: 1,
+    swipeAngle: false,
+    speed: 400,
   });
   
   
@@ -21,4 +23,6 @@ var slider = tns({
     ArrowKeys: true,
     center: true,
     items: 1,
+    swipeAngle: false,
+    speed: 400,
   });
