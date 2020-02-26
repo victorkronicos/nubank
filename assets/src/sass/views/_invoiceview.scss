@@ -375,7 +375,19 @@
     }
 }
 
+<<<<<<< HEAD
 .invoice-active {
     cursor: grabbing;
     cursor: -webkit-grabbing;
   }
+=======
+.close-view{
+    width: 0!important;
+    transition: width 0.2s;
+    transform: translateX(-410px);
+}
+
+.mid-view{
+    width: 50%!important;
+}
+>>>>>>> b2bce5762da11744a44fdad599627312424c0099

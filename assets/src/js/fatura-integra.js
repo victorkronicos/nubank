@@ -88,9 +88,15 @@ for (i = 0; i < InvoiceItem.length; i++){
         }
     });
 }
+<<<<<<< HEAD
 
 // Busca Tags
 
+=======
+
+// Busca Tags
+
+>>>>>>> b2bce5762da11744a44fdad599627312424c0099
 InvoiceInput.addEventListener("input", function(){
     var input = this.value.toUpperCase();
     var ul = document.querySelector('#invoice-list');
@@ -173,6 +179,7 @@ InputPlus.addEventListener("click", function(){ // Evento de Adicionar TAG
 });
 
 // Fatura fechar compra
+<<<<<<< HEAD
 
 const InvoiceItemBtn = document.querySelector('#btn-details-return'); // Seleciona o elemento com ID para fechar compra
 
@@ -215,3 +222,27 @@ ViewControl.addEventListener('mousemove', (e) => {
     ViewControl.scrollLeft = scrollLeft - walk;
 });
 
+=======
+
+const InvoiceItemBtn = document.querySelector('#btn-details-return'); // Seleciona o elemento com ID para fechar compra
+
+InvoiceItemBtn.addEventListener("click", function(){  // Adiciona um evento de escutar o clique no botão
+    InvoiceHide.style.cssText = "display: flex";
+    InvoiceView.classList.remove('grayscreen');
+
+
+    InputTag.style.cssText = "display: none;";
+    InputPlus.style.cssText = "display: none;";
+    TagList.innerHTML = "";
+});
+
+// Fatura mudar a view
+var BarView = document.querySelector('#bar-view');
+var view1 = InvoiceHide.querySelector('.view-1');
+var view2 = InvoiceHide.querySelector('.view-2');
+
+BarView.addEventListener("click", function(){
+    view1.classList.toggle('close-view');
+    view2.classList.toggle('mid-view');
+});
+>>>>>>> b2bce5762da11744a44fdad599627312424c0099

@@ -122,6 +122,7 @@ for (i = 0; i < InvoiceItem.length; i++){
 }
 
 // Busca Tags
+<<<<<<< HEAD
 
 InvoiceInput.addEventListener("input", function(){
     var input = this.value.toUpperCase();
@@ -148,6 +149,34 @@ InvoiceInput.addEventListener("input", function(){
     }
 });
 
+=======
+
+InvoiceInput.addEventListener("input", function(){
+    var input = this.value.toUpperCase();
+    var ul = document.querySelector('#invoice-list');
+    var li = ul.querySelectorAll('#invoice-item');
+    var ListarItems = Array();
+
+    for (var i = 0; i < li.length; i++) {
+        var name = li[i].querySelector(".invoice-content").children;
+
+        for(var x = 0; x < name.length; x++){
+            var valuetocompare = name[x].textContent.toUpperCase();
+
+            if(valuetocompare.includes(input)){
+                ListarItems.push(li[i]);
+                break;
+            }
+        }
+        li[i].style.display = "none";
+    }
+    
+    for(var i = 0; i < ListarItems.length; i++){
+        ListarItems[i].style.display = "";
+    }
+});
+
+>>>>>>> b2bce5762da11744a44fdad599627312424c0099
 // Fatura Integra Tags de compra
 
 const AddTag = document.querySelector('#add-tag');
@@ -219,6 +248,7 @@ InvoiceItemBtn.addEventListener("click", function(){  // Adiciona um evento de e
 });
 
 // Fatura mudar a view
+<<<<<<< HEAD
 
 const ViewControl = document.querySelector('#invoice-view');
 let isDown = false;
@@ -248,6 +278,16 @@ ViewControl.addEventListener('mousemove', (e) => {
 });
 
 
+=======
+var BarView = document.querySelector('#bar-view');
+var view1 = InvoiceHide.querySelector('.view-1');
+var view2 = InvoiceHide.querySelector('.view-2');
+
+BarView.addEventListener("click", function(){
+    view1.classList.toggle('close-view');
+    view2.classList.toggle('mid-view');
+});
+>>>>>>> b2bce5762da11744a44fdad599627312424c0099
 // Para sair do Aplicativo
 const SairBtn = document.querySelector("#sair");
 const Exit = document.querySelector("#exit");
